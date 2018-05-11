@@ -1,8 +1,8 @@
 {
-  "name": "electron-updater-example",
-  "version": "0.1.2",
+  "name": "mmr-calculator",
+  "version": "0.1.3",
   "main": "main.js",
-  "description": "electron-updater example project",
+  "description": "An application for Rainbow Six: Siege rank calculations",
   "author": "Austin Leath",
   "scripts": {
     "publish": "build -p always"
