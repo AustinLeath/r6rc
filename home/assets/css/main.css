@@ -2520,37 +2520,17 @@
 		-webkit-box-shadow: inset 0 0 1px rgba(39, 40, 51, 0.965);
 }
 
-.jsfiddle {
-	display: block;
-	margin: 0 0 2em 0;
-	width: 100%;
-	height: 790px;
+.versionnum {
+	vertical-align: middle;
+	text-align: center;
+	text-decoration: none;
 }
-
-.r6db {
-	display: block;
-	margin: 0 0 2em 0;
-	width: 100%;
-	height: 790px;
-}
-
-.r6stats {
-	display: block;
-	margin: 0 0 2em 0;
-	width: 100%;
-	height: 790px;
-}
-
 
 .btnalign {
 	display: block;
 	margin: 0 auto 1em;
 }
 
-.amznfooterads {
-	display: block;
-	margin: 0 0 2em 0;
-}
 
 #formdata {
 	width: 80%;
