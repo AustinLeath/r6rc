@@ -1,9 +1,9 @@
 {
   "name": "electron-updater-example",
-  "version": "0.6.1",
+  "version": "0.1.2",
   "main": "main.js",
   "description": "electron-updater example project",
-  "author": "Matt Haggard",
+  "author": "Austin Leath",
   "scripts": {
     "publish": "build -p always"
   },
@@ -16,7 +16,7 @@
     "electron-updater": "^2.21.4"
   },
   "build": {
-    "appId": "com.github.iffy.electronupdaterexample",
+    "appId": "com.github.austinleath.mmrcalculator",
     "mac": {
       "category": "your.app.category.type",
       "target": [
