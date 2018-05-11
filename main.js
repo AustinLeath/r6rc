@@ -71,7 +71,7 @@ autoUpdater.on('checking-for-update', () => {
   sendStatusToWindow('Checking for update...');
 })
 autoUpdater.on('update-available', (info) => {
-  sendStatusToWindow('There is an update available!');
+  sendStatusToWindow('An update is available!');
 })
 autoUpdater.on('update-not-available', (info) => {
   sendStatusToWindow('All up to date!');
@@ -86,7 +86,7 @@ autoUpdater.on('download-progress', (progressObj) => {
   sendStatusToWindow(log_message);
 })
 autoUpdater.on('update-downloaded', (info) => {
-  sendStatusToWindow('Update downloaded');
+  sendStatusToWindow('Update downloaded, restart to install.');
 });
 app.on('ready', function() {
   // Create the Menu
