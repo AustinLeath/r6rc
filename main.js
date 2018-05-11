@@ -71,13 +71,13 @@ autoUpdater.on('checking-for-update', () => {
   sendStatusToWindow('Checking for update...');
 })
 autoUpdater.on('update-available', (info) => {
-  sendStatusToWindow('Update available.');
+  sendStatusToWindow('There is an update available!');
 })
 autoUpdater.on('update-not-available', (info) => {
-  sendStatusToWindow('Update not available.');
+  sendStatusToWindow('All up to date!');
 })
 autoUpdater.on('error', (err) => {
-  sendStatusToWindow('Error in auto-updater. ' + err);
+  sendStatusToWindow('There was a problem downloading your update.' + err);
 })
 autoUpdater.on('download-progress', (progressObj) => {
   let log_message = "Download speed: " + progressObj.bytesPerSecond;
@@ -112,7 +112,6 @@ app.on('window-all-closed', () => {
 app.on('ready', function()  {
   autoUpdater.checkForUpdatesAndNotify();
 });
-
 //-------------------------------------------------------------------
 // Auto updates - Option 2 - More control
 //
