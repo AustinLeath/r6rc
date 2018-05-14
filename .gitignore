@@ -1,4 +1,10 @@
+
+# packages
 node_modules
-dist/
-yarn.lock
+
+# temporary files
 .DS_Store
+
+# production
+/build
+/dist
