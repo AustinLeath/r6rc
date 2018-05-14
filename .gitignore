@@ -8,3 +8,6 @@ node_modules
 # production
 /build
 /dist
+
+# generated files
+package-lock.json
