@@ -86,23 +86,32 @@
 			background-color: red;
 			height: 100%;
 		}
+		
+		.noselect {
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+		  -khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
 		</style>
 	</head>
-	<div id="title-bar">
-		<div id="title-bar-btns">
-		<button id="min-btn"><font color="white">-</font></button>
-		<button id="max-btn"><font color="white">+</font></button>
-		<button id="close-btn"><font color="white">X</font></button>
-	</div>
-			 <div id="title">
-					 <span style="vertical-align: middle;"><img src="https://raw.githubusercontent.com/zeke/atom-icon/master/old-icon/2.png" style="width:15px; height:15px;"/></span><font id="titlename"> MMR Calculator</font>
-			 </div>
-	</div>
-	<body id="background">
+	<body class="noselect" id="background">
+		<div id="title-bar">
+			<div id="title-bar-btns">
+			<button id="min-btn"><font color="white">-</font></button>
+			<button id="max-btn"><font color="white">+</font></button>
+			<button id="close-btn"><font color="white">X</font></button>
+		</div>
+				 <div id="title">
+						 <span style="vertical-align: middle;"><img src="https://raw.githubusercontent.com/zeke/atom-icon/master/old-icon/2.png" style="width:15px; height:15px;"/></span><font id="titlename"> MMR Calculator</font>
+				 </div>
+		</div>
 
 		<div id="page-wrapper">
 										<!-- Content -->
-													<section id="content">
+													<section classid="content">
 													<!--Divider-->
 															<section id="formdata">
 																<h3>Rainbow Six Siege | MMR Calculator</h3>
@@ -153,7 +162,7 @@
 												</section>
 
 													<section id="formdata">
-														<h3>Rainbow Six Siege | MMR Calculator (Custom Rank Goal)</h3>
+														<h3 >Rainbow Six Siege | MMR Calculator (Custom Rank Goal)</h3>
 														<form id="rankGoal1" action="">
 															<div class="row uniform 50%">
 																<div class="6u 12u$(xsmall)">
