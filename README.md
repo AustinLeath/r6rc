@@ -4,7 +4,7 @@
   <h1 align="center">MMR Calculator</h3>
   <p align="center">
     <img src="https://img.shields.io/github/release/austinleath/mmrcalculator.svg" />
-    <img src="https://img.shields.io/david/austinleath/mmrcalculator.svg" />
+    [![DEPCHECK](https://img.shields.io/david/austinleath/mmrcalculator.svg)](https://david-dm.org/austinleath/mmrcalculator)
   </p>
   <p align="center">
     <img src="https://img.shields.io/github/downloads/AustinLeath/mmrcalculator/total.svg" />
