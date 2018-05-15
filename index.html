@@ -9,14 +9,14 @@
 		<meta name="author" content="Austin Leath">
 		<meta name='copyright' content='Lethal Game Studios'>
 		<meta name='owner' content='Austin Leath'>
-		<link rel="shortcut icon" href="images/main/favicon.ico" />
+		<link rel="shortcut icon" href="home/images/mmrcalculator-icon.png" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="home/assets/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<style>
     #titlename {
-        font-size: 70%;
+        font-size: 75%;
 				vertical-align: middle;
     }
 
@@ -46,7 +46,7 @@
 		}
 
 		#title-bar-btns {
-				-webkit-app-region: no-drag;
+			 -webkit-app-region: no-drag;
 				position: fixed;
 				top: 0px;
 				right: 0px;
@@ -56,12 +56,12 @@
 			background-color: transparent;
 			border-style: none;
 			outline-style: none;
-			height:100%;
+			height: inherit;
 		}
 
 		#min-btn:hover {
 			background-color: grey;
-			height: 100%;
+			height: inherit;
 		}
 
 		#max-btn {
@@ -73,7 +73,7 @@
 
 		#max-btn:hover {
 			background-color: grey;
-			height: 100%;
+			height: inherit%;
 		}
 
 		#close-btn {
@@ -85,7 +85,7 @@
 
 		#close-btn:hover {
 			background-color: red;
-			height: 100%;
+			height: inherit%;
 		}
 
 		.noselect {
@@ -106,7 +106,7 @@
 			<button id="close-btn"><font color="white">X</font></button>
 		</div>
 				 <div id="title">
-						 <span style="vertical-align: middle;"><img src="https://raw.githubusercontent.com/zeke/atom-icon/master/old-icon/2.png" style="width:15px; height:15px;"/></span><font id="titlename"> MMR Calculator</font>
+						 <span style="vertical-align: middle;"><img src="home/images/mmrcalculator-icon.png" style="width:15px; height:15px;"/></span><font id="titlename"> MMR Calculator</font>
 				 </div>
 		</div>
 
@@ -361,8 +361,8 @@ function disable1() {
 }
 </script>
 
-
 <!--ELECTRON STUFF-->
+
 <script>
 (function () {
 		// Retrieve remote BrowserWindow
