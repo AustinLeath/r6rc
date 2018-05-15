@@ -14,14 +14,14 @@
 </p>
 
 ## Description
-The Rainbow Six: Siege | MMR Calculator uses a users current MMR and ELO to display how many matches the user has to win or lose to reach their goal.
+The Rainbow Six: Siege | MMR Calculator takes a user's current MMR (Match Making Rating) and ELO (Points per match) to display how many matches the user has to win or lose to reach their goal.
 
 ## Download
-You can find releases [here](https://www.github.com/austinleath/mmrcalculator/releases)
+**You can find releases [here](https://www.github.com/austinleath/mmrcalculator/releases)**
 
 ## Features
-- Solve for a <i>preset</i> goal (view [points chart](https://github.com/AustinLeath/mmrcalculator/blob/master/home/images/ranks.jpg))
-- Solve for <i>custom</i> goal (not just a set MMR)
+- Solve for a <i>preset</i> goal (see [points chart](https://github.com/AustinLeath/mmrcalculator/blob/master/home/images/ranks.jpg))
+- Solve for <i>custom</i> goal (up to 10,000)
 - Calculate how many games you have to <i>**win**</i> to reach your rank goal
 - Calculate how many games you have to <i>**lose**</i> to reach your rank goal
 - Clean UI
