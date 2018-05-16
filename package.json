@@ -1,6 +1,6 @@
 {
   "name": "MMRCalculator",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "main": "main.js",
   "description": "An application for Rainbow Six: Siege rank calculations",
   "author": "Austin Leath",
