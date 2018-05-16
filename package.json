@@ -8,7 +8,7 @@
     "publish": "build -p always"
   },
   "devDependencies": {
-    "electron": "^1.8.6",
+    "electron": "^2.0.0",
     "electron-builder": "^20.8.2"
   },
   "dependencies": {
