@@ -19,7 +19,6 @@
         font-size: 75%;
 				vertical-align: middle;
     }
-
 		#title-bar {
 				-webkit-app-region: drag;
 				height: 25px;
@@ -32,62 +31,52 @@
 				position: fixed;
 				width:100%;
 		}
-
 		#testbar {
 				text-align: right;
 				height: 100%;
 		}
-
 		#title {
 				position: fixed;
 				top: 0px;
 				left: 6px;
 				color:white;
 		}
-
 		#title-bar-btns {
 			 -webkit-app-region: no-drag;
 				position: fixed;
 				top: 0px;
 				right: 0px;
 		}
-
 		#min-btn {
 			background-color: transparent;
 			border-style: none;
 			outline-style: none;
 			height: inherit;
 		}
-
 		#min-btn:hover {
 			background-color: grey;
 			height: inherit;
 		}
-
 		#max-btn {
 			background-color: transparent;
 			border-style: none;
 			outline-style: none;
 			height: 100%;
 		}
-
 		#max-btn:hover {
 			background-color: grey;
 			height: inherit%;
 		}
-
 		#close-btn {
 			background-color: transparent;
 			border-style: none;
 			outline-style: none;
 			height: 100%;
 		}
-
 		#close-btn:hover {
 			background-color: red;
 			height: inherit%;
 		}
-
 		.noselect {
 			-webkit-touch-callout: none;
 			-webkit-user-select: none;
@@ -96,27 +85,54 @@
 			-ms-user-select: none;
 			user-select: none;
 		}
+		.customdisable {
+			display: none;
+		}
+
+		#presetbtn {
+			position: fixed;
+			bottom: 50%;
+			left: 5px;
+		}
+
+		#custombtn {
+			position: fixed;
+			bottom: 50%;
+			right: 5px;
+		}
+
+		#preset {
+			position: fixed;
+			width: 75%;
+			left: 12%;
+			top: 28%;
+		}
+		#custom {
+			position: fixed;
+			width: 75%;
+			left: 12%;
+			top: 28%;
+		}
+
 		</style>
 	</head>
+	<div id="title-bar">
+		<div id="title-bar-btns">
+		<button id="min-btn"><font color="white">-</font></button>
+		<button id="max-btn"><font color="white">+</font></button>
+		<button id="close-btn"><font color="white">X</font></button>
+	</div>
+			 <div id="title">
+					 <span style="vertical-align: middle;"><img src="home/images/mmrcalculator-icon.png" style="width:15px; height:15px;"/></span><font id="titlename"> MMR Calculator</font>
+			 </div>
+	</div>
 	<body class="noselect" id="background">
-		<div id="title-bar">
-			<div id="title-bar-btns">
-			<button id="min-btn"><font color="white">-</font></button>
-			<button id="max-btn"><font color="white">+</font></button>
-			<button id="close-btn"><font color="white">X</font></button>
-		</div>
-				 <div id="title">
-						 <span style="vertical-align: middle;"><img src="home/images/mmrcalculator-icon.png" style="width:15px; height:15px;"/></span><font id="titlename"> MMR Calculator</font>
-				 </div>
-		</div>
-
 		<div id="page-wrapper">
 										<!-- Content -->
-													<section classid="content">
+													<section id="content">
 													<!--Divider-->
-															<section id="formdata">
-																<h3>Rainbow Six Siege | MMR Calculator</h3>
-																<form id="rankGoal" action="">
+																<form id="preset" action="">
+																	<h3 style="text-align: center;">Rainbow Six Siege | MMR Calculator</h3>
 																	<div class="row uniform 50%">
 																		<div class="6u 12u$(xsmall)">
 																			<input type="number" name="mmr" id="mmr" min="1300" max="10000" value="" placeholder="Enter your current MMR" />
@@ -160,11 +176,9 @@
 																		</div>
 																	</div>
 															</form>
-												</section>
 
-													<section id="formdata">
-														<h3 >Rainbow Six Siege | MMR Calculator (Custom Rank Goal)</h3>
-														<form id="rankGoal1" action="">
+														<form style="display: none;" id="custom" action="">
+															<h3 style="text-align: center;">Rainbow Six Siege | MMR Calculator (Custom Rank Goal)</h3>
 															<div class="row uniform 50%">
 																<div class="6u 12u$(xsmall)">
 																	<input id="mmr1" name="mmr1" type="number" min="1300" max="10000" placeholder="Enter your current MMR" value="" />
@@ -186,18 +200,21 @@
 																</div>
 															</div>
 													   </form>
-														<div class="versionnum">
-															<a>Node.js: <script>document.write(process.versions.node)</script></a> |
-															<a>Chromium: <script>document.write(process.versions.chrome)</script></a> |
-															<a>Electron: <script>document.write(process.versions.electron)</script></a> |
-															<a>MMR Calculator Version: <span id="version">vX.Y.Z</a>
-															<a><div id="messages"></div></a>
-														</div>
-													<!-- the button onClick sends a quitAndInstall message to the electron main process -->
-											</section>
-									</section>
+						</section>
+					</div>
+					<div class="versionnum">
+						<!-- the button onClick sends a quitAndInstall message to the electron main process -->
+						<a>Node.js: <script>document.write(process.versions.node)</script></a> |
+						<a>Chromium: <script>document.write(process.versions.chrome)</script></a> |
+						<a>Electron: <script>document.write(process.versions.electron)</script></a> |
+						<a>MMR Calculator Version: <span id="version">vX.Y.Z</a>
+						<a><div id="messages"></div></a>
 					</div>
 				</div>
+				<div id="switchbtns">
+				<button class="button small btnalign" id="presetbtn" type="button" onclick="preset()" disabled>Preset</button>
+				<button class="button small btnalign" id="custombtn" type="button" onclick="custom()">Custom</button>
+			</div>
 		<!-- Scripts -->
 		  <script src="home/assets/js/time.js"></script>
 			<script src="home/assets/js/jquery.min.js"></script>
@@ -212,6 +229,8 @@
 			<script src="home/assets/js/showanswer.js"></script>
 			<!--[if lte IE 8]><script src="home/assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="home/assets/js/main.js"></script>
+			<script src="home/assets/js/switchpreset.js"></script>
+			<script src="home/assets/js/switchcustom.js"></script>
 
 			<script>
 				function winorlose() {
@@ -246,9 +265,9 @@
 					return c;
 				}
 
-				var rankGoal = document.getElementById("rankGoal");
-				if (rankGoal) {
-					rankGoal.onsubmit = function () {
+				var preset = document.getElementById("preset");
+				if (preset) {
+					preset.onsubmit = function () {
 					document.getElementById("result").innerHTML = calculateRankGoal(this.mmr.value, this.elo.value, this.goal.value);
 					return false;
 					};
@@ -310,9 +329,9 @@
 			 return c;
 		 }
 
-		 var rankGoal1 = document.getElementById("rankGoal1");
-		 if (rankGoal1) {
-			 rankGoal1.onsubmit = function () {
+		 var custom = document.getElementById("custom");
+		 if (custom) {
+			 custom.onsubmit = function () {
 			 document.getElementById("result1").innerHTML = calculateRankGoal1(this.mmr1.value, this.elo1.value, this.goal1.value);
 			 return false;
 			 };
