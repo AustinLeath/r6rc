@@ -24,11 +24,16 @@
 - Solve for <i>custom</i> goal (anywhere between 1,300 & 10,000)
 - Calculate how many games you have to <i>**win**</i> to reach your rank goal
 - Calculate how many games you have to <i>**lose**</i> to reach your rank goal
+- Switch between solving for preset and custom values
 - Automatic updates
 - Clean UI
 
 ## Platforms
 - This app is currently only supported on all **Windows** platforms
+
+## Pictures
+ ![rmpic1.png](home/images/rmpic1.png)
+ ![rmpic2.png](home/images/rmpic2.png)
 
 ## Affiliation
 - The Rainbow Six: Siege | MMR Calculator is in no way shape or form affiliated with Ubisoft and its partners. Any "Rainbow Six: Siege" name, logos and/or images are registered trademarks of Ubisoft.
