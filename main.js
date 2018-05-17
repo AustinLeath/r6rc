@@ -71,7 +71,7 @@ autoUpdater.on('checking-for-update', () => {
   sendStatusToWindow('Checking for update...');
 })
 autoUpdater.on('update-available', (info) => {
-  sendStatusToWindow('An update is available!');
+  sendStatusToWindow('An update is available! Downloading...');
 })
 autoUpdater.on('update-not-available', (info) => {
   sendStatusToWindow('All up to date!');
@@ -79,12 +79,12 @@ autoUpdater.on('update-not-available', (info) => {
 autoUpdater.on('error', (err) => {
   sendStatusToWindow('There was a problem downloading your update.' + err);
 })
-autoUpdater.on('download-progress', (progressObj) => {
-  let log_message = "Download speed: " + progressObj.bytesPerSecond;
-  log_message = log_message + ' - Downloaded ' + progressObj.percent + '%';
-  log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')';
-  sendStatusToWindow(log_message);
-})
+//autoUpdater.on('download-progress', (progressObj) => {
+//  let log_message = "Download speed: " + progressObj.bytesPerSecond;
+//  log_message = log_message + ' - Downloaded ' + progressObj.percent + '%';
+//  log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')';
+//  sendStatusToWindow(log_message);
+//})
 autoUpdater.on('update-downloaded', (info) => {
   sendStatusToWindow('Update downloaded, restart to install.');
 });

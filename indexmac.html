@@ -1,282 +1,363 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>R6S | MMR Calculator</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="keywords" content="HTML,CSS,XML,JavaScript,Web,Engineer,Resume,CSS3,HTML5,Austin,Leath,Lethal,Game,Studios,LethalGameStudios">
-		<meta name="description" content="The Rainbow Six Siege | MMR Calculator uses a users current MMR and ELO to display how many matches the user has to win or lose to reach their goal">
-		<meta name="author" content="Austin Leath">
-		<meta name='copyright' content='Lethal Game Studios'>
-		<meta name='owner' content='Austin Leath'>
-		<link rel="shortcut icon" href="images/main/favicon.ico" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="home/assets/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-	</head>
-	<body id="background">
-		<div id="page-wrapper">
-										<!-- Content -->
-													<section id="content">
-													<!--Divider-->
-															<section id="formdata">
-																<h3>Rainbow Six Siege | MMR Calculator</h3>
-																<form id="rankGoal" action="">
-																	<div class="row uniform 50%">
-																		<div class="6u 12u$(xsmall)">
-																			<input type="number" name="mmr" id="mmr" min="1300" max="10000" value="" placeholder="Enter your current MMR" />
-																		</div>
-																		<div class="6u$ 12u$(xsmall)">
-																			<input type="number" name="elo" id="elo" min="0" max="1000" value="" placeholder="Enter your current ELO per match" />
-																		</div>
-																		<div class="12u$">
-																			<div class="select-wrapper">
-																				<select name="goal" id="goal">
-																					<option value="0">- Select a Rank -</option>
-																					<option value="1300">Copper IV</option>
-																					<option value="1400">Copper III</option>
-																					<option value="1500">Copper II</option>
-																					<option value="1600">Copper I</option>
-																					<option value="1700">Bronze IV</option>
-																					<option value="1800">Bronze III</option>
-																					<option value="1900">Bronze II</option>
-																					<option value="2000">Bronze I</option>
-																					<option value="2100">Silver IV</option>
-																			 		<option value="2200">Silver III</option>
-																					<option value="2300">Silver II</option>
-																					<option value="2400">Silver I</option>
-																					<option value="2500">Gold IV</option>
-																					<option value="2700">Gold III</option>
-																					<option value="2900">Gold II</option>
-																					<option value="3100">Gold I</option>
-																					<option value="3300">Platinum III</option>
-																					<option value="3700">Platinum II</option>
-																					<option value="4100">Platinum I</option>
-																					<option value="4500">Diamond</option>
-																				</select>
-																			</div>
-																		</div>
-																		<div class="12u$">
-																			<ul class="actions">
-																				<li><input type="submit" value="Calculate" class="special" onclick="enable();winorlose();matchcount();"></li>
-																				<li><input type="reset" value="Reset" onclick="disable();"></li>
-																				<li><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="I just used a website to calculate how many ranked matches I have to play to get to my desired rank in Tom Clancy&#39;s: Rainbow Six Siege" data-url="https://www.austinleath.com/mmrcalculator.html" data-via="AustinZLeath" data-hashtags="RainbowSixSiege" data-related="Rainbow6Game,Ubisoft" data-lang="en" data-show-count="false">Tweet</a></li>
-																				<li id="display"><a id="winorlose"></a><a id="result"></a><a id="matchcount"></a></li>
-																			</ul>
-																		</div>
-																	</div>
-															</form>
-												</section>
 
+<head>
+    <title>R6S | MMR Calculator</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript,Web,Engineer,Resume,CSS3,HTML5,Austin,Leath,Lethal,Game,Studios,LethalGameStudios">
+    <meta name="description" content="The Rainbow Six Siege | MMR Calculator uses a users current MMR and ELO to display how many matches the user has to win or lose to reach their goal">
+    <meta name="author" content="Austin Leath">
+    <meta name='copyright' content='Lethal Game Studios'>
+    <meta name='owner' content='Austin Leath'>
+    <link rel="shortcut icon" href="home/images/mmrcalculator-icon.png" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="home/assets/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <style>
+		/*FOR ELECTRON*/
+        .noselect {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
 
-													<section id="formdata">
-														<h3>Rainbow Six Siege | MMR Calculator (Custom Rank Goal)</h3>
-														<form id="rankGoal1" action="">
-															<div class="row uniform 50%">
-																<div class="6u 12u$(xsmall)">
-																	<input id="mmr1" name="mmr1" type="number" min="1300" max="10000" placeholder="Enter your current MMR" value="" />
-																</div>
-																<div class="6u$ 12u$(xsmall)">
-																	<input id="elo1" name="elo1" type="number" min="0" max="500" placeholder="Enter your current ELO per match" value="" />
-																</div>
-																<div class="12u$">
-																	<div class="12u$">
-																		<input id="goal1" name="goal1" type="number" min="1300" max="10000" placeholder="Enter a custom MMR Goal (between 1,300 MMR and 10,000 MMR)" value="" />
-																	</div>
-																</div>
-																<div class="12u$">
-																	<ul class="actions">
-																		<li><input type="submit" value="Calculate" class="special" onclick="enable1();winorlose1();matchcount1();"></li>
-																		<li><input type="reset" value="Reset" onclick="disable1();"></li>
-																		<li><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="I just used a website to calculate how many ranked matches I have to play to get to my desired rank in Tom Clancy&#39;s: Rainbow Six Siege" data-url="https://www.austinleath.com/mmrcalculator.html" data-via="AustinZLeath" data-hashtags="RainbowSixSiege" data-related="Rainbow6Game,Ubisoft" data-lang="en" data-show-count="false">Tweet</a></li>
-																		<li id="display1"><a id="winorlose1"></a><a id="result1"></a><a id="matchcount1"></a></li>
-																	</ul>
-																</div>
-															</div>
-													   </form>
-														 <ul class="actions">
-															 <li><a>Node.js: <script>document.write(process.versions.node)</script></a>,
-																 <a>Chromium: <script>document.write(process.versions.chrome)</script></a>,
-																 <a>Electron: <script>document.write(process.versions.electron)</script></a>
-																 <a>Version: <span id="version">v0.1.2</span> <button id="ready" onClick="ipcRenderer.send('quitAndInstall')">no updates ready</button></a></li>
-															 </ul>
-														<!-- the button onClick sends a quitAndInstall message to the electron main process -->
-										</section>
-									</section>
-					</div>
-				</div>
-		<!-- Scripts -->
-			<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-		  <script src="home/assets/js/time.js"></script>
-			<script src="home/assets/js/jquery.min.js"></script>
-			<script src="home/assets/js/jquery.scrolly.min.js"></script>
-			<script src="home/assets/js/jquery.dropotron.min.js"></script>
-			<script src="home/assets/js/jquery.scrollex.min.js"></script>
-			<script src="home/assets/js/skel.min.js"></script>
-			<script src="home/assets/js/util.js"></script>
-			<script src="home/assets/js/cycletxt.js"></script>
-			<!--[if lte IE 8]><script src="home/assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="home/assets/js/main.js"></script>
+        .disable {
+            display: none;
+        }
 
-			<script>
-				function winorlose() {
-					var winorlose;
+        #presetbtn {
+            position: fixed;
+            top: 20%;
+            left: 10%;
+        }
 
-					var a = document.getElementById("mmr").value;
-					var b = document.getElementById("elo").value;
-					var c = document.getElementById("goal").value;
-					var d = ((c - a) / b);
-					var e = Math.ceil(d);
+        #custombtn {
+            position: fixed;
+            top: 20%;
+            right: 10%;
+        }
 
-					if ( e > 0) {
-			        winorlose = "You need to <b>win</b> ";
-			    } else if ( e < 0) {
-			        winorlose = "You need to <b>lose</b> ";
-			    } else {
-			        winorlose = "You <b>do not</b> need to win or lose ";
-			    }
-			document.getElementById("winorlose").innerHTML = winorlose;
-		}
-			</script>
-			<script>
-			(function () {
-				function calculateRankGoal(mmr, elo, goal) {
-					mmr = parseFloat(mmr);
-					elo = parseFloat(elo);
-					goal = parseFloat(goal);
+        #preset {
+            position: fixed;
+            width: 75%;
+            left: 12%;
+            top: 28%;
+        }
 
-					var a = ((goal - mmr) / elo);
-					var b = Math.ceil(a);
-					var c = Math.abs(b);
-					return c;
+        #custom {
+            position: fixed;
+            width: 75%;
+            left: 12%;
+            top: 28%;
+        }
+				.versionnum {
+					position: fixed;
+					top:75%;
+					width:100%;
+					text-align: center;
+					text-decoration: none;
 				}
+        #prompts {
+          position: fixed;
+          top:10%;
+          width:100%;
+          text-align: center;
+          text-decoration: none;
+        }
+    </style>
+</head>
 
-				var rankGoal = document.getElementById("rankGoal");
-				if (rankGoal) {
-					rankGoal.onsubmit = function () {
-					document.getElementById("result").innerHTML = calculateRankGoal(this.mmr.value, this.elo.value, this.goal.value);
-					return false;
-					};
-				}
-			}());
-			</script>
-			<script>
-			function matchcount() {
-				var matchcount;
+<body class="noselect" id="background">
+    <div id="page-wrapper">
+    <button class="button small btnalign" id="presetbtn" type="button" onclick="preset()" disabled>Preset</button>
+      <div id="prompts">
+        <h1 id="cycletxt-1">Welcome to the most "Minimalistic Rank Calculator For Rainbow Six: Siege"</h1>
+        <h1 id="cycletxt-2">Use the buttons on either side of the screen<br>to switch between solving for a preset rank or a custom rank<h1>
+        <h1 id="cycletxt-3">Follow me on <u><a href="https://www.twitter.com/austinzleath" target="_blank">Twitter</a></u></h1>
+      </div>
+    <button class="button small btnalign" id="custombtn" type="button" onclick="custom()">Custom</button>
+        <!-- Content -->
+        <section id="content">
+            <!--Divider-->
+            <form id="preset" action="">
+                <h3 style="text-align: center;">Rainbow Six Siege | MMR Calculator</h3>
+                <div class="row uniform 50%">
+                    <div class="6u 12u$(xsmall)">
+                        <input type="number" name="mmr" id="mmr" min="1300" max="10000" value="" placeholder="Enter your current MMR" />
+                    </div>
+                    <div class="6u$ 12u$(xsmall)">
+                        <input type="number" name="elo" id="elo" min="0" max="1000" value="" placeholder="Enter your current ELO per match" />
+                    </div>
+                    <div class="12u$">
+                        <div class="select-wrapper">
+                            <select name="goal" id="goal">
+                                <option value="0">- Select a Rank -</option>
+                                <option value="1300">Copper IV</option>
+                                <option value="1400">Copper III</option>
+                                <option value="1500">Copper II</option>
+                                <option value="1600">Copper I</option>
+                                <option value="1700">Bronze IV</option>
+                                <option value="1800">Bronze III</option>
+                                <option value="1900">Bronze II</option>
+                                <option value="2000">Bronze I</option>
+                                <option value="2100">Silver IV</option>
+                                <option value="2200">Silver III</option>
+                                <option value="2300">Silver II</option>
+                                <option value="2400">Silver I</option>
+                                <option value="2500">Gold IV</option>
+                                <option value="2700">Gold III</option>
+                                <option value="2900">Gold II</option>
+                                <option value="3100">Gold I</option>
+                                <option value="3300">Platinum III</option>
+                                <option value="3700">Platinum II</option>
+                                <option value="4100">Platinum I</option>
+                                <option value="4500">Diamond</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="12u$">
+                        <ul class="actions">
+                            <li>
+                                <input type="submit" value="Calculate" class="special" onclick="enable();winorlose();matchcount();">
+                            </li>
+                            <li>
+                                <input type="reset" value="Reset" onclick="disable();">
+                            </li>
+                            <li id="display">
+                                <a id="winorlose"></a>
+                                <a id="result"></a>
+                                <a id="matchcount"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
 
-				var a = document.getElementById("mmr").value;
-				var b = document.getElementById("elo").value;
-				var c = document.getElementById("goal").value;
-				var d = ((c - a) / b);
-				var e = Math.ceil(d);
-				var f = Math.abs(e);
+            <form class="disable" id="custom" action="">
+                <h3 style="text-align: center;">Rainbow Six Siege | MMR Calculator (Custom Rank Goal)</h3>
+                <div class="row uniform 50%">
+                    <div class="6u 12u$(xsmall)">
+                        <input id="mmr1" name="mmr1" type="number" min="1300" max="10000" placeholder="Enter your current MMR" value="" />
+                    </div>
+                    <div class="6u$ 12u$(xsmall)">
+                        <input id="elo1" name="elo1" type="number" min="0" max="500" placeholder="Enter your current ELO per match" value="" />
+                    </div>
+                    <div class="12u$">
+                        <div class="12u$">
+                            <input id="goal1" name="goal1" type="number" min="1300" max="10000" placeholder="Enter a custom MMR Goal (between 1,300 MMR and 10,000 MMR)" value="" />
+                        </div>
+                    </div>
+                    <div class="12u$">
+                        <ul class="actions">
+                            <li>
+                                <input type="submit" value="Calculate" class="special" onclick="enable1();winorlose1();matchcount1();">
+                            </li>
+                            <li>
+                                <input type="reset" value="Reset" onclick="disable1();">
+                            </li>
+                            <li id="display1">
+                                <a id="winorlose1"></a>
+                                <a id="result1"></a>
+                                <a id="matchcount1"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+						<div class="versionnum">
+								<!-- the button onClick sends a quitAndInstall message to the electron main process -->
+								<a>Node.js: <script>document.write(process.versions.node)</script></a> |
+								<a>Chromium: <script>document.write(process.versions.chrome)</script></a> |
+								<a>Electron: <script>document.write(process.versions.electron)</script></a> |
+								<a>MMR Calculator Version: <span id="version">vX.Y.Z</a>
+								<a><div id="messages"></div></a>
+						</div>
+        </section>
+			</div>
+        <!-- Scripts -->
+        <script src="home/assets/js/time.js"></script>
+        <script src="home/assets/js/jquery.min.js"></script>
+        <script src="home/assets/js/jquery.scrolly.min.js"></script>
+        <script src="home/assets/js/jquery.dropotron.min.js"></script>
+        <script src="home/assets/js/jquery.scrollex.min.js"></script>
+        <script src="home/assets/js/skel.min.js"></script>
+        <script src="home/assets/js/util.js"></script>
+        <script src="home/assets/js/cycletxt.js"></script>
+				<script src="home/assets/js/switchpreset.js"></script>
+				<script src="home/assets/js/switchcustom.js"></script>
+        <!--[if lte IE 8]><script src="home/assets/js/ie/respond.min.js"></script><![endif]-->
+        <script src="home/assets/js/main.js"></script>
 
-				if ( f == 1) {
-						matchcount = " (&plusmn 1) match to reach your rank goal";
-				} else if (f > 1) {
-						matchcount = " (&plusmn 1) matches to reach your rank goal";
-				} else {
-						matchcount = " (&plusmn 1) matches to reach your rank goal";
-				}
-			document.getElementById("matchcount").innerHTML = matchcount;
-			}
-			</script>
+        <script>
+            function winorlose() {
+                var winorlose;
 
-	 <!--DIVIDER-->
+                var a = document.getElementById("mmr").value;
+                var b = document.getElementById("elo").value;
+                var c = document.getElementById("goal").value;
+                var d = ((c - a) / b);
+                var e = Math.ceil(d);
 
-	 <script>
-		 function winorlose1() {
-			 var winorlose;
+                if (e > 0) {
+                    winorlose = "You need to <b>win</b> ";
+                } else if (e < 0) {
+                    winorlose = "You need to <b>lose</b> ";
+                } else {
+                    winorlose = "You <b>do not</b> need to win or lose ";
+                }
+                document.getElementById("winorlose").innerHTML = winorlose;
+            }
+        </script>
+        <script>
+            (function() {
+                function calculateRankGoal(mmr, elo, goal) {
+                    mmr = parseFloat(mmr);
+                    elo = parseFloat(elo);
+                    goal = parseFloat(goal);
 
-			 var a = document.getElementById("mmr1").value;
-			 var b = document.getElementById("elo1").value;
-			 var c = document.getElementById("goal1").value;
-			 var d = ((c - a) / b);
-			 var e = Math.ceil(d);
+                    var a = ((goal - mmr) / elo);
+                    var b = Math.ceil(a);
+                    var c = Math.abs(b);
+                    return c;
+                }
 
-			 if ( e > 0) {
-					 winorlose = "You need to <b>win</b> ";
-			 } else if ( e < 0) {
-					 winorlose = "You need to <b>lose</b> ";
-			 } else {
-					 winorlose = "You <b>do not</b> need to win or lose ";
-			 }
-	 document.getElementById("winorlose1").innerHTML = winorlose;
- }
-	 </script>
-	 <script>
-	 (function () {
-		 function calculateRankGoal1(mmr1, elo1, goal1) {
-			 mmr1 = parseFloat(mmr1);
-			 elo1 = parseFloat(elo1);
-			 goal1 = parseFloat(goal1);
+                var preset = document.getElementById("preset");
+                if (preset) {
+                    preset.onsubmit = function() {
+                        document.getElementById("result").innerHTML = calculateRankGoal(this.mmr.value, this.elo.value, this.goal.value);
+                        return false;
+                    };
+                }
+            }());
+        </script>
+        <script>
+            function matchcount() {
+                var matchcount;
 
-			 var a = ((goal1 - mmr1) / elo1);
-			 var b = Math.ceil(a);
-			 var c = Math.abs(b);
-			 return c;
-		 }
+                var a = document.getElementById("mmr").value;
+                var b = document.getElementById("elo").value;
+                var c = document.getElementById("goal").value;
+                var d = ((c - a) / b);
+                var e = Math.ceil(d);
+                var f = Math.abs(e);
 
-		 var rankGoal1 = document.getElementById("rankGoal1");
-		 if (rankGoal1) {
-			 rankGoal1.onsubmit = function () {
-			 document.getElementById("result1").innerHTML = calculateRankGoal1(this.mmr1.value, this.elo1.value, this.goal1.value);
-			 return false;
-			 };
-		 }
-	 }());
-	 </script>
-	 <script>
-	 function matchcount1() {
-		 var matchcount;
+                if (f == 1) {
+                    matchcount = " (&plusmn 1) match to reach your rank goal";
+                } else if (f > 1) {
+                    matchcount = " (&plusmn 1) matches to reach your rank goal";
+                } else {
+                    matchcount = " (&plusmn 1) matches to reach your rank goal";
+                }
+                document.getElementById("matchcount").innerHTML = matchcount;
+            }
+        </script>
+        <!--DIVIDER-->
+        <script>
+            function winorlose1() {
+                var winorlose;
 
-		 var a = document.getElementById("mmr1").value;
-		 var b = document.getElementById("elo1").value;
-		 var c = document.getElementById("goal1").value;
-		 var d = ((c - a) / b);
-		 var e = Math.ceil(d);
-		 var f = Math.abs(e);
+                var a = document.getElementById("mmr1").value;
+                var b = document.getElementById("elo1").value;
+                var c = document.getElementById("goal1").value;
+                var d = ((c - a) / b);
+                var e = Math.ceil(d);
 
-		 if ( f == 1) {
-				 matchcount = " (&plusmn 1) match to reach your rank goal";
-		 } else if (f > 1) {
-				 matchcount = " (&plusmn 1) matches to reach your rank goal";
-		 } else {
-				 matchcount = " (&plusmn 1) matches to reach your rank goal";
-		 }
-	 document.getElementById("matchcount1").innerHTML = matchcount;
-	 }
-	 </script>
-<script>
-function enable() {
- document.getElementById("display").style.display="";
-}
-</script>
-<script>
-function disable() {
- document.getElementById("display").style.display="none";
-}
-</script>
-<script>
-function enable1() {
- document.getElementById("display1").style.display="";
-}
-</script>
-<script>
-function disable1() {
- document.getElementById("display1").style.display="none";
-}
-</script>
-<script>
-    const ipcRenderer = require('electron').ipcRenderer;
+                if (e > 0) {
+                    winorlose = "You need to <b>win</b> ";
+                } else if (e < 0) {
+                    winorlose = "You need to <b>lose</b> ";
+                } else {
+                    winorlose = "You <b>do not</b> need to win or lose ";
+                }
+                document.getElementById("winorlose1").innerHTML = winorlose;
+            }
+        </script>
+        <script>
+            (function() {
+                function calculateRankGoal1(mmr1, elo1, goal1) {
+                    mmr1 = parseFloat(mmr1);
+                    elo1 = parseFloat(elo1);
+                    goal1 = parseFloat(goal1);
 
-    // wait for an updateReady message
-    ipcRenderer.on('updateReady', function(event, text) {
-        // changes the text of the button
-        var container = document.getElementById('ready');
-        container.innerHTML = "new version ready!";
-    })
-</script>
-	</body>
+                    var a = ((goal1 - mmr1) / elo1);
+                    var b = Math.ceil(a);
+                    var c = Math.abs(b);
+                    return c;
+                }
+
+                var custom = document.getElementById("custom");
+                if (custom) {
+                    custom.onsubmit = function() {
+                        document.getElementById("result1").innerHTML = calculateRankGoal1(this.mmr1.value, this.elo1.value, this.goal1.value);
+                        return false;
+                    };
+                }
+            }());
+        </script>
+        <script>
+            function matchcount1() {
+                var matchcount;
+
+                var a = document.getElementById("mmr1").value;
+                var b = document.getElementById("elo1").value;
+                var c = document.getElementById("goal1").value;
+                var d = ((c - a) / b);
+                var e = Math.ceil(d);
+                var f = Math.abs(e);
+
+                if (f == 1) {
+                    matchcount = " (&plusmn 1) match to reach your rank goal";
+                } else if (f > 1) {
+                    matchcount = " (&plusmn 1) matches to reach your rank goal";
+                } else {
+                    matchcount = " (&plusmn 1) matches to reach your rank goal";
+                }
+                document.getElementById("matchcount1").innerHTML = matchcount;
+            }
+        </script>
+        <script>
+            function enable() {
+                document.getElementById("display").style.display = "";
+            }
+        </script>
+        <script>
+            function disable() {
+                document.getElementById("display").style.display = "none";
+            }
+        </script>
+        <script>
+            function enable1() {
+                document.getElementById("display1").style.display = "";
+            }
+        </script>
+        <script>
+            function disable1() {
+                document.getElementById("display1").style.display = "none";
+            }
+        </script>
+        <!--ELECTRON STUFF-->
+        <script>
+            // Display the current version
+            let version = window.location.hash.substring(1);
+            document.getElementById('version').innerText = version;
+
+            // Listen for messages
+            const {
+                ipcRenderer
+            } = require('electron');
+            ipcRenderer.on('message', function(event, text) {
+                var container = document.getElementById('messages');
+                var message = document.createElement('div');
+                message.innerHTML = text;
+                container.appendChild(message);
+            })
+        </script>
+
+</body>
+
 </html>
