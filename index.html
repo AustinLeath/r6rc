@@ -85,10 +85,9 @@
 			-ms-user-select: none;
 			user-select: none;
 		}
-		.customdisable {
+		.disable {
 			display: none;
 		}
-
 		#presetbtn {
 			position: fixed;
 			bottom: 50%;
@@ -100,7 +99,6 @@
 			bottom: 50%;
 			right: 5px;
 		}
-
 		#preset {
 			position: fixed;
 			width: 75%;
@@ -113,8 +111,7 @@
 			left: 12%;
 			top: 28%;
 		}
-
-		</style>
+	</style>
 	</head>
 	<div id="title-bar">
 		<div id="title-bar-btns">
@@ -177,7 +174,7 @@
 																	</div>
 															</form>
 
-														<form style="display: none;" id="custom" action="">
+														<form class="disable" id="custom" action="">
 															<h3 style="text-align: center;">Rainbow Six Siege | MMR Calculator (Custom Rank Goal)</h3>
 															<div class="row uniform 50%">
 																<div class="6u 12u$(xsmall)">
