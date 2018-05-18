@@ -34,8 +34,8 @@
 - This app is currently only supported on all **Windows** platforms
 
 ## Pictures
- ![rmpic1.png](home/images/rmpic1.png)
- ![rmpic2.png](home/images/rmpic2.png)
+ ![rmpic1.png](home/images/rmpic1.PNG)
+ ![rmpic2.png](home/images/rmpic2.PNG)
 
 ## Affiliation
 - The Rainbow Six: Siege | MMR Calculator is in no way shape or form affiliated with Ubisoft and its partners. Any "Rainbow Six: Siege" name, logos and/or images are registered trademarks of Ubisoft.
