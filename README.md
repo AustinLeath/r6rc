@@ -4,7 +4,7 @@
   <h1 align="center">MMR Calculator</h3>
   <p align="center">
     <img src="https://img.shields.io/github/release/austinleath/mmrcalculator.svg" />
-      <a href="https://www.paypal.com/donate/?token=AV9aSyCRiD2q6UnRdGXVX8KTR2t7cJc6xGpBPxQn7oxw_X1B3rttSzYf4waiuVYbdTsLWG">
+      <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8">
       <img src="https://img.shields.io/badge/Donate-PayPal-green.svg"/></a>
     <img src="https://img.shields.io/david/austinleath/mmrcalculator.svg" />
   </p>
