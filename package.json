@@ -11,11 +11,11 @@
   },
   "devDependencies": {
     "electron": "^2.0.1",
-    "electron-packager": "^12.0.2",
     "electron-builder": "^20.13.4"
   },
   "dependencies": {
     "electron-log": "^2.2.14",
+    "electron-packager": "^12.0.2",
     "electron-updater": "^2.21.10"
   },
   "build": {
