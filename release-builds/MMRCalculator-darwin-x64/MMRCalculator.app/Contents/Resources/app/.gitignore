@@ -1,0 +1,13 @@
+
+# packages
+node_modules
+
+# temporary files
+.DS_Store
+
+# production
+/build
+/dist
+
+# generated files
+package-lock.json

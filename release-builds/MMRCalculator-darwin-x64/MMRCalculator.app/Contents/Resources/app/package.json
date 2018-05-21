@@ -1,0 +1,31 @@
+{
+  "name": "MMRCalculator",
+  "version": "0.2.3",
+  "main": "main.js",
+  "description": "A Minimalistic Rank Calculator For Rainbow Six: Siege",
+  "author": "Austin Leath",
+  "scripts": {
+    "start": "electron .",
+    "packagemac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=home/images/icon.icns --prune=true --out=release-builds",
+    "publish": "build -p always"
+  },
+  "devDependencies": {
+    "electron": "^2.0.1",
+    "electron-packager": "^12.0.2",
+    "electron-builder": "^20.13.4"
+  },
+  "dependencies": {
+    "electron-log": "^2.2.14",
+    "electron-updater": "^2.21.10"
+  },
+  "build": {
+    "appId": "com.github.austinleath.mmrcalculator",
+    "mac": {
+      "category": "your.app.category.type",
+      "target": [
+        "zip",
+        "dmg"
+      ]
+    }
+  }
+}
