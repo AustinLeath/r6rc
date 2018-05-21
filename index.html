@@ -443,7 +443,7 @@
                 } = require('electron').remote
 
                 function init() {
-                    // Minimize task
+                    // Minimize window
                     document.getElementById("min-btn").addEventListener("click", (e) => {
                         var window = BrowserWindow.getFocusedWindow();
                         window.minimize();
