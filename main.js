@@ -59,11 +59,11 @@ function sendStatusToWindow(text) {
   win.webContents.send('message', text);
 }
 function createDefaultWindow() {
-  win = new BrowserWindow({width: 1280, height: 720, minWidth: 1100, minHeight: 650, maxWidth: 7680, maxHeight: 4320, frame: false, backgroundColor: '#1c1d26', autoHideMenuBar: false});
+  win = new BrowserWindow({width: 1280, height: 720, minWidth: 1100, minHeight: 650, maxWidth: 7680, maxHeight: 4320, frame: false, backgroundColor: '#1c1d26', autoHideMenuBar: true});
   //win.webContents.openDevTools();
   win.on('closed', () => {
     win = null;
-  });
+  });                            //indexmac.html if packaging for mac
   win.loadURL(`file://${__dirname}/index.html#v${app.getVersion()}`);
   return win;
 }
