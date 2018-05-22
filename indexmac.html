@@ -48,7 +48,8 @@
 
         .titlebar-close,
         .titlebar-minimize,
-        .titlebar-fullscreen {
+        .titlebar-fullscreen,
+				.titlebar-fullscreen1	{
             float: left;
             width: 13px;
             height: 13px;
@@ -59,7 +60,8 @@
 
         .titlebar.webkit-draggable .titlebar-close,
         .titlebar.webkit-draggable .titlebar-minimize,
-        .titlebar.webkit-draggable .titlebar-fullscreen {
+        .titlebar.webkit-draggable .titlebar-fullscreen,
+				.titlebar.webkit-draggable .titlebar-fullscreen1 {
             -webkit-app-region: no-drag;
         }
 
@@ -101,12 +103,14 @@
         }
 
         .titlebar-fullscreen,
+				.titlebar-fullscreen1,
         .titlebar-maximize {
             border: 1px solid #12ac28;
             background-color: #28c940;
         }
 
-        .titlebar-fullscreen:active {
+        .titlebar-fullscreen:active,
+				.titlebar-fullscreen1:active {
             border-color: #128622;
             background-color: #1f9a31;
         }
@@ -119,14 +123,13 @@
             opacity: 0;
         }
 
-        .titlebar-fullscreen svg.maximize-svg {
-            width: 7px;
-            height: 7px;
-            margin-top: 2px;
-            margin-left: 2px;
-            opacity: 0;
-            display: none;
-        }
+				.titlebar-fullscreen1 svg.fullscreen-svg {
+						width: 7px;
+						height: 7px;
+						margin-top: 1px;
+						margin-left: 2.5px;
+						opacity: 0;
+				}
 
         .noselect {
             -webkit-touch-callout: none;
@@ -204,15 +207,17 @@
                     <rect fill="#995700" width="8" height="1.1"></rect>
                 </svg>
             </div>
-            <div id="maximize" class="titlebar-fullscreen">
+            <div onclick="fullscreenbtn();" id="maximize" class="titlebar-fullscreen">
                 <svg class="fullscreen-svg" x="0px" y="0px" viewBox="0 0 6 5.9">
                     <path fill="#006400" d="M5.4,0h-4L6,4.5V0.6C5.7,0.6,5.3,0.3,5.4,0z"></path>
                     <path fill="#006400" d="M0.6,5.9h4L0,1.4l0,3.9C0.3,5.3,0.6,5.6,0.6,5.9z"></path>
                 </svg>
-                <svg class="maximize-svg" x="0px" y="0px" viewBox="0 0 7.9 7.9">
-                    <polygon fill="#006400" points="7.9,4.5 7.9,3.4 4.5,3.4 4.5,0 3.4,0 3.4,3.4 0,3.4 0,4.5 3.4,4.5 3.4,7.9 4.5,7.9 4.5,4.5"></polygon>
-                </svg>
             </div>
+						<div style="display: none;" onclick="unfullscreenbtn();" id="maximize1" class="titlebar-fullscreen1">
+							<svg class="fullscreen-svg" x="0px" y="0px" viewBox="0 0 6 5.9">
+									<path fill="#006400" d="M0.6,5.9h4L0,1.4l0,3.9C0.3,5.3,0.6,5.6,0.6,5.9z"></path>
+							</svg>
+						</div>
         </div>
     </div>
     <!--CONTENT-->
@@ -485,21 +490,15 @@
         function enable() {
             document.getElementById("display").style.display = "";
         }
-    </script>
-    <script>
-        function disable() {
-            document.getElementById("display").style.display = "none";
-        }
-    </script>
-    <script>
-        function enable1() {
-            document.getElementById("display1").style.display = "";
-        }
-    </script>
-    <script>
-        function disable1() {
-            document.getElementById("display1").style.display = "none";
-        }
+				function disable() {
+						document.getElementById("display").style.display = "none";
+				}
+				function enable1() {
+						document.getElementById("display1").style.display = "";
+				}
+				function disable1() {
+						document.getElementById("display1").style.display = "none";
+				}
     </script>
     <!--ELECTRON STUFF-->
 		<script>
@@ -556,6 +555,19 @@
             container.appendChild(message);
         })
     </script>
+		<script>
+			function fullscreenbtn() {
+				document.getElementById("maximize").style.display = "none";
+				document.getElementById("maximize1").style.display = "";
+			}
+			function unfullscreenbtn() {
+				document.getElementById("maximize").style.display = "";
+				document.getElementById("maximize1").style.display = "none";
+			}
+		</script>
+		<script>
+
+		</script>
 </body>
 
 </html>
