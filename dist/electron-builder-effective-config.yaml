@@ -1,0 +1,10 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.github.austinleath.mmrcalculator
+mac:
+  category: your.app.category.type
+  target:
+    - zip
+    - zip
+electronVersion: 2.0.1
