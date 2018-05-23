@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>BuildMachineOSBuild</key>
+    <string>16G1314</string>
+    <key>CFBundleDisplayName</key>
+    <string>MMRCalculator</string>
+    <key>CFBundleExecutable</key>
+    <string>MMRCalculator</string>
+    <key>CFBundleIconFile</key>
+    <string>electron.icns</string>
+    <key>CFBundleIdentifier</key>
+    <string>com.github.austinleath.mmrcalculator</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundleName</key>
+    <string>MMRCalculator</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleShortVersionString</key>
+    <string>0.2.3</string>
+    <key>CFBundleVersion</key>
+    <string>0.2.3</string>
+    <key>DTSDKBuild</key>
+    <string>14D125</string>
+    <key>DTSDKName</key>
+    <string>macosx10.1010.10</string>
+    <key>DTXcode</key>
+    <string>0833</string>
+    <key>DTXcodeBuild</key>
+    <string>8E3004b</string>
+    <key>LSApplicationCategoryType</key>
+    <string>your.app.category.type</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>10.9.0</string>
+    <key>NSHighResolutionCapable</key>
+    <true/>
+    <key>NSMainNibFile</key>
+    <string>MainMenu</string>
+    <key>NSPrincipalClass</key>
+    <string>AtomApplication</string>
+    <key>NSSupportsAutomaticGraphicsSwitching</key>
+    <true/>
+    <key>NSHumanReadableCopyright</key>
+    <string>Copyright © 2018 Austin Leath</string>
+    <key>AsarIntegrity</key>
+    <string>{"checksums":{"app.asar":"pqgiHZ39liznMuJP6lPHN+Lu8oPI1sFDQeBeP+lPV6wRHLB/QEZMpI62gIuYY9A0PmAffvFSLhhCczpenRaifQ==","electron.asar":"cm4p5+pXbc/NRAnZW0jLa81nmCebgLZ9w5dd56x+QStlThDLizHsuP+se3mZ9cYqbCk2FaGLScsEY0Xu9Q495A=="}}</string>
+  </dict>
+</plist>
