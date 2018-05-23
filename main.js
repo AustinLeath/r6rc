@@ -30,10 +30,25 @@ if (process.platform === 'darwin') {
     label: name,
     submenu: [
       {
-        label: 'About ' + name,
+        label: name + ' Version Info',
         accelerator: 'Command+A',
         role: 'about'
       },
+      {
+        label: 'Learn More About ' + name,
+        accelerator: 'Command+L',
+        click () { require('electron').shell.openExternal('https://www.electronjs.org/apps/mmrcalculator') }
+      },
+      {
+        label: 'Donate',
+        accelerator: 'Command+D',
+        click () { require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8') }
+      },
+      {
+        label: 'Hide ' + name,
+        accelerator: 'Command+H',
+        click () { win.hide(); }
+      }
       {
         label: 'Quit',
         accelerator: 'Command+Q',
