@@ -48,7 +48,7 @@ if (process.platform === 'darwin') {
         label: 'Hide ' + name,
         accelerator: 'Command+H',
         click () { win.hide(); }
-      }
+      },
       {
         label: 'Quit',
         accelerator: 'Command+Q',
