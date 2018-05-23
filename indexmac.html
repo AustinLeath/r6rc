@@ -48,8 +48,7 @@
 
         .titlebar-close,
         .titlebar-minimize,
-        .titlebar-fullscreen,
-				.titlebar-fullscreen1	{
+        .titlebar-fullscreen {
             float: left;
             width: 13px;
             height: 13px;
@@ -60,8 +59,7 @@
 
         .titlebar.webkit-draggable .titlebar-close,
         .titlebar.webkit-draggable .titlebar-minimize,
-        .titlebar.webkit-draggable .titlebar-fullscreen,
-				.titlebar.webkit-draggable .titlebar-fullscreen1 {
+        .titlebar.webkit-draggable .titlebar-fullscreen {
             -webkit-app-region: no-drag;
         }
 
@@ -102,15 +100,13 @@
             opacity: 0;
         }
 
-        .titlebar-fullscreen,
-				.titlebar-fullscreen1,
+				.titlebar-fullscreen,
         .titlebar-maximize {
             border: 1px solid #12ac28;
             background-color: #28c940;
         }
 
-        .titlebar-fullscreen:active,
-				.titlebar-fullscreen1:active {
+        .titlebar-fullscreen:active {
             border-color: #128622;
             background-color: #1f9a31;
         }
@@ -122,14 +118,6 @@
             margin-left: 2px;
             opacity: 0;
         }
-
-				.titlebar-fullscreen1 svg.fullscreen-svg {
-						width: 7px;
-						height: 7px;
-						margin-top: 1px;
-						margin-left: 2.5px;
-						opacity: 0;
-				}
 
         .noselect {
             -webkit-touch-callout: none;
@@ -207,17 +195,15 @@
                     <rect fill="#995700" width="8" height="1.1"></rect>
                 </svg>
             </div>
-            <div onclick="fullscreenbtn();" id="maximize" class="titlebar-fullscreen">
-                <svg class="fullscreen-svg" x="0px" y="0px" viewBox="0 0 6 5.9">
+            <div id="maximize" class="titlebar-fullscreen">
+                <svg id="maxbtn" class="fullscreen-svg" x="0px" y="0px" viewBox="0 0 6 5.9">
                     <path fill="#006400" d="M5.4,0h-4L6,4.5V0.6C5.7,0.6,5.3,0.3,5.4,0z"></path>
                     <path fill="#006400" d="M0.6,5.9h4L0,1.4l0,3.9C0.3,5.3,0.6,5.6,0.6,5.9z"></path>
                 </svg>
+								<svg style="display: none;" id="minbtn" class="fullscreen-svg" x="0px" y="0px" viewBox="0 0 6 5.9">
+										<path fill="#006400" d="M0.6,5.9h4L0,1.4l0,3.9C0.3,5.3,0.6,5.6,0.6,5.9z"></path>
+								</svg>
             </div>
-						<div style="display: none;" onclick="unfullscreenbtn();" id="maximize1" class="titlebar-fullscreen1">
-							<svg class="fullscreen-svg" x="0px" y="0px" viewBox="0 0 6 5.9">
-									<path fill="#006400" d="M0.6,5.9h4L0,1.4l0,3.9C0.3,5.3,0.6,5.6,0.6,5.9z"></path>
-							</svg>
-						</div>
         </div>
     </div>
     <!--CONTENT-->
@@ -515,13 +501,17 @@
 										window.minimize();
 								});
 
-								// Maximize window
+								// Maximize & UnMaximize the window
 								document.getElementById("maximize").addEventListener("click", (e) => {
 										var window = BrowserWindow.getFocusedWindow();
 										if (window.isMaximized()) {
 												window.unmaximize();
+												document.getElementById("minbtn").style.display = "none";
+												document.getElementById("maxbtn").style.display = "";
 										} else {
 												window.maximize();
+												document.getElementById("minbtn").style.display = "";
+												document.getElementById("maxbtn").style.display = "none";
 										}
 								});
 
