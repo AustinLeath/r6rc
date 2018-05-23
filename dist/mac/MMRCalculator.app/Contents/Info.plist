@@ -45,6 +45,6 @@
     <key>NSHumanReadableCopyright</key>
     <string>Copyright © 2018 Austin Leath</string>
     <key>AsarIntegrity</key>
-    <string>{"checksums":{"app.asar":"pqgiHZ39liznMuJP6lPHN+Lu8oPI1sFDQeBeP+lPV6wRHLB/QEZMpI62gIuYY9A0PmAffvFSLhhCczpenRaifQ==","electron.asar":"cm4p5+pXbc/NRAnZW0jLa81nmCebgLZ9w5dd56x+QStlThDLizHsuP+se3mZ9cYqbCk2FaGLScsEY0Xu9Q495A=="}}</string>
+    <string>{"checksums":{"app.asar":"8/erB01myC16qCV3A3KcmRk9ZJb7sAJszEmpBV08SoCttUWg3gTCqxXd7HEN3QslOD2C/wBvON562Qtf5mc45g==","electron.asar":"cm4p5+pXbc/NRAnZW0jLa81nmCebgLZ9w5dd56x+QStlThDLizHsuP+se3mZ9cYqbCk2FaGLScsEY0Xu9Q495A=="}}</string>
   </dict>
 </plist>
