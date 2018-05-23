@@ -31,6 +31,7 @@ if (process.platform === 'darwin') {
     submenu: [
       {
         label: 'About ' + name,
+        accelerator: 'Command+A',
         role: 'about'
       },
       {
