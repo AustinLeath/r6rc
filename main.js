@@ -80,7 +80,7 @@ function createDefaultWindow() {
   win.on('closed', () => {
     win = null;
   });                            //indexmac.html if packaging for mac
-  win.loadURL(`file://${__dirname}/index.html#v${app.getVersion()}`);
+  win.loadURL(`file://${__dirname}/indexmac.html#v${app.getVersion()}`);
   return win;
 }
 autoUpdater.on('checking-for-update', () => {
