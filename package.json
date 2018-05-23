@@ -2,7 +2,6 @@
   "name": "MMRCalculator",
   "version": "0.2.3",
   "main": "main.js",
-  "icon": "home/images/icon.ico",
   "license": "MIT",
   "description": "A Minimalistic Rank Calculator For Rainbow Six: Siege",
   "author": "Austin Leath",
