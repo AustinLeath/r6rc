@@ -40,9 +40,15 @@ if (process.platform === 'darwin') {
         click () { require('electron').shell.openExternal('https://www.electronjs.org/apps/mmrcalculator') }
       },
       {
+        type: 'separator'
+      },
+      {
         label: 'Donate',
         accelerator: 'Command+D',
         click () { require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8') }
+      },
+      {
+        type: 'separator'
       },
       {
         label: 'Hide ' + name,
