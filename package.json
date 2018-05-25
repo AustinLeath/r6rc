@@ -1,6 +1,6 @@
 {
   "name": "MMRCalculator",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "main": "main.js",
   "license": "MIT",
   "description": "A Minimalistic Rank Calculator For Rainbow Six: Siege",
