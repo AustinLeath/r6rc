@@ -80,7 +80,7 @@ function sendStatusToWindow(text) {
   log.info(text);
   win.webContents.send('message', text);
 }
-function createDefaultWindow() {
+function createDefaultWindow() {                                                                                    //frame: true if packaging for mac
   win = new BrowserWindow({width: 1280, height: 720, minWidth: 1100, minHeight: 650, maxWidth: 7680, maxHeight: 4320, frame: false, backgroundColor: '#1c1d26', autoHideMenuBar: true});
   //win.webContents.openDevTools();
   win.on('closed', () => {
