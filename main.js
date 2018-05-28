@@ -80,13 +80,13 @@ function sendStatusToWindow(text) {
   log.info(text);
   win.webContents.send('message', text);
 }
-function createDefaultWindow() {
+function createDefaultWindow() {                                                                                    //frame: true if packaging for mac
   win = new BrowserWindow({width: 1280, height: 720, minWidth: 1100, minHeight: 650, maxWidth: 7680, maxHeight: 4320, frame: false, backgroundColor: '#1c1d26', autoHideMenuBar: true});
   //win.webContents.openDevTools();
   win.on('closed', () => {
     win = null;
   });                            //indexmac.html if packaging for mac
-  win.loadURL(`file://${__dirname}/indexmac.html#v${app.getVersion()}`);
+  win.loadURL(`file://${__dirname}/index.html#v${app.getVersion()}`);
   return win;
 }
 autoUpdater.on('checking-for-update', () => {
@@ -99,7 +99,7 @@ autoUpdater.on('update-not-available', (info) => {
   sendStatusToWindow('All up to date!');
 })
 autoUpdater.on('error', (err) => {
-  sendStatusToWindow('There was a problem downloading your update.' + err);
+  sendStatusToWindow('There was a problem downloading your update. ' + err);
 })
 //autoUpdater.on('download-progress', (progressObj) => {
 //  let log_message = "Download speed: " + progressObj.bytesPerSecond;

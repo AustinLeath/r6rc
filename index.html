@@ -160,9 +160,9 @@
     <button class="button small btnalign" id="presetbtn" type="button" onclick="preset()" disabled>Preset</button>
       <div id="prompts">
         <h1 id="cycletxt-1">Welcome to the most minimalistic rank calculator for Rainbow Six: Siege</h1>
-        <h1 id="cycletxt-2">Use the buttons on either side of the screen<br>to switch between solving for a preset rank or a custom rank<h1>
-        <h1 id="cycletxt-3">This application is under heavy development and its features<br>are subject to immediate change<h1>
-        <h1 id="cycletxt-4">Coming Soon: MMR Calculator for MAC!<h1>
+        <h1 id="cycletxt-2">Use the buttons on either side of the screen<br>to switch between solving for a preset rank or a custom rank</h1>
+        <h1 id="cycletxt-3">This application is under heavy development and its features<br>are subject to immediate change</h1>
+        <h1 id="cycletxt-4">Coming Soon: MMR Calculator for MAC!</h1>
       </div>
     <button class="button small btnalign" id="custombtn" type="button" onclick="custom()">Custom</button>
       <!-- Content -->
@@ -179,8 +179,8 @@
                     </div>
                     <div class="12u$">
                         <div class="select-wrapper">
-                            <select name="goal" id="goal">
-			     <option value="">- Select a Rank -</option>
+                          <select name="goal" id="goal">
+                            <option value="">- Select a Rank -</option>
                               <optgroup label="Copper">
                                  <option value="1300">Copper IV</option>
                                  <option value="1400">Copper III</option>
@@ -217,7 +217,7 @@
                     <div class="12u$">
                         <ul class="actions">
                             <li>
-                                <input type="submit" value="Calculate" class="special" onclick="enable();winorlose();matchcount();">
+                                <input type="submit" value="Calculate" class="special" onclick="enable();fillform();winorlose();matchcount();">
                             </li>
                             <li>
                                 <input type="reset" value="Reset" onclick="disable();">
@@ -226,6 +226,9 @@
                                 <a id="winorlose"></a>
                                 <a id="result"></a>
                                 <a id="matchcount"></a>
+                            </li>
+                            <li id="errordialogue">
+                              <a id="errormessage"></a>
                             </li>
                         </ul>
                     </div>
@@ -249,7 +252,7 @@
                     <div class="12u$">
                         <ul class="actions">
                             <li>
-                                <input type="submit" value="Calculate" class="special" onclick="enable1();winorlose1();matchcount1();">
+                                <input type="submit" value="Calculate" class="special" onclick="enable1();fillform1();winorlose1();matchcount1();">
                             </li>
                             <li>
                                 <input type="reset" value="Reset" onclick="disable1();">
@@ -258,6 +261,9 @@
                                 <a id="winorlose1"></a>
                                 <a id="result1"></a>
                                 <a id="matchcount1"></a>
+                            </li>
+                            <li id="errordialogue1">
+                              <a id="errormessage1"></a>
                             </li>
                         </ul>
                     </div>
@@ -271,14 +277,6 @@
 								<a>MMR Calculator Version: <span id="version">vX.Y.Z</a>
 								<a><div id="messages"></div></a>
 						</div>
-            <!--
-            <form id="donatebutton" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-              <input type="hidden" name="cmd" value="_s-xclick">
-              <input type="hidden" name="hosted_button_id" value="3NS3ZERCW9GD8">
-              <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-              <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-            </form>
-            -->
         </section>
 			</div>
        <!-- Scripts -->
@@ -287,12 +285,7 @@
         <script src="home/assets/js/jquery.min.js"></script>
         <!-- Insert this line after script imports -->
         <script>if (window.module) module = window.module;</script>
-        <script src="home/assets/js/time.js"></script>
         <script src="home/assets/js/jquery.min.js"></script>
-        <script src="home/assets/js/jquery.scrolly.min.js"></script>
-        <script src="home/assets/js/jquery.scrollex.min.js"></script>
-        <script src="home/assets/js/skel.min.js"></script>
-        <script src="home/assets/js/util.js"></script>
         <script src="home/assets/js/cycletxt.js"></script>
 				<script src="home/assets/js/switchpreset.js"></script>
 				<script src="home/assets/js/switchcustom.js"></script>
@@ -428,15 +421,59 @@
         <script>
             function enable() {
                 document.getElementById("display").style.display = "";
+                document.getElementById("errormessage").style.display = "";
             }
             function disable() {
                 document.getElementById("display").style.display = "none";
+                document.getElementById("errormessage").style.display = "none";
             }
             function enable1() {
                 document.getElementById("display1").style.display = "";
+                document.getElementById("errormessage1").style.display = "";
             }
             function disable1() {
                 document.getElementById("display1").style.display = "none";
+                document.getElementById("errormessage1").style.display = "none";
+            }
+            function fillform() {
+                var finalmessage;
+                x = document.getElementById("goal").value;
+                if (x == "") {
+                  document.getElementById("display").style.display = "none";
+                  document.getElementById("errordialogue").style.display = "";
+                  finalmessage = "Please select a rank from the dialogue above.";
+                } else {
+                  document.getElementById("errordialogue").style.display = "none";
+                  finalmessage = "No errors to report<br>this dialogue has been activated due to an error.";
+                }
+                document.getElementById("errormessage").innerHTML = finalmessage;
+            }
+            function fillform1() {
+                var finalmessage;
+                x = document.getElementById("goal1").value;
+                if (x == "") {
+                  document.getElementById("display1").style.display = "none";
+                  document.getElementById("errordialogue1").style.display = "";
+                  finalmessage = "Please enter a custom MMR Goal.";
+                } else {
+                  document.getElementById("errordialogue1").style.display = "none";
+                  finalmessage = "No errors to report<br>this dialogue has been activated due to an error.";
+                }
+                document.getElementById("errormessage1").innerHTML = finalmessage;
+            }
+            function checkmmrfill() {
+                var finalmessage;
+                x = document.getElementById("mmr").value;
+                if (x == "") {
+                  document.getElementById("display").style.display = "none";
+                  document.getElementById("errordialogue").style.display = ""
+                  finalmessage = "PLEASE FILL MMR";
+                } else {
+                  document.getElementById("display").style.display = "";
+                  document.getElementById("errordialogue").style.display = "none"
+                  finalmessage = "No errors to report<br>this dialogue has been activated due to an error.";
+                }
+                document.getElementById("mmrerrormessage").innerhtml = finalmessage;
             }
         </script>
         <!--ELECTRON STUFF-->
