@@ -7,8 +7,8 @@
   "author": "Austin Leath",
   "scripts": {
     "start": "electron .",
-    "packagemac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=home/images/icon.icns --prune=true --out=macrelease",
-    "packagewin": "electron-packager . --overwrite --platform=ia32 --arch=x64 --icon=home/images/icon.icns --prune=true --out=winrelease",
+    "testwin": "build --win --dir",
+    "testmac": "build --mac  --dir",
     "publish": "build -p always"
   },
   "devDependencies": {

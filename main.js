@@ -99,7 +99,7 @@ autoUpdater.on('update-not-available', (info) => {
   sendStatusToWindow('All up to date!');
 })
 autoUpdater.on('error', (err) => {
-  sendStatusToWindow('There was a problem downloading your update.' + err);
+  sendStatusToWindow('There was a problem downloading your update. ' + err);
 })
 //autoUpdater.on('download-progress', (progressObj) => {
 //  let log_message = "Download speed: " + progressObj.bytesPerSecond;
