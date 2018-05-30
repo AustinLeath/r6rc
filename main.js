@@ -24,7 +24,8 @@ log.info('App starting...');
 //-------------------------------------------------------------------
 let template = []
 if (process.platform === 'darwin') {
-  // OS X
+  log.info('Successfully loaded menu for Darwin...');
+  // OS X Menu
   const name = app.getName();
   template.unshift({
     label: name,
@@ -62,6 +63,56 @@ if (process.platform === 'darwin') {
       },
     ]
   })
+} else {
+  log.info('Successfully loaded menu for Win32...');
+  // Windows Menu
+  const name = app.getName();
+  template.unshift({
+    label: name,
+    submenu: [
+      {
+        label: name + ' Version Info',
+        accelerator: 'Control+A',
+        role: 'about'
+      },
+      {
+        label: 'Learn More About ' + name,
+        accelerator: 'Control+L',
+        click () { require('electron').shell.openExternal('https://www.electronjs.org/apps/mmrcalculator') }
+      },
+      {
+        type: 'separator'
+      },
+      {
+        label: 'Donate',
+        accelerator: 'Control+D',
+        click () { require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8') }
+      },
+      {
+        type: 'separator'
+      },
+      {
+        label: 'Hide ' + name,
+        accelerator: 'Control+H',
+        click () { win.hide(); }
+      },
+      {
+        label: 'Quit',
+        accelerator: 'Control+Q',
+        click() { app.quit(); }
+      },
+    ]
+  },
+  {
+    label: 'help',
+    submenu: [
+      {
+        label: name + ' Version Info',
+        accelerator: 'Control+A',
+        role: 'about'
+      }
+    ]
+  })
 }
 
 
@@ -81,24 +132,28 @@ function sendStatusToWindow(text) {
   win.webContents.send('message', text);
 }
 function createDefaultWindow() {                                                                                    //frame: true if packaging for mac
-  win = new BrowserWindow({width: 1280, height: 720, minWidth: 1100, minHeight: 650, maxWidth: 7680, maxHeight: 4320, frame: false, backgroundColor: '#1c1d26', autoHideMenuBar: true});
+  win = new BrowserWindow({width: 1280, height: 720, minWidth: 1100, minHeight: 650, maxWidth: 7680, maxHeight: 4320, frame: true, backgroundColor: '#1c1d26', autoHideMenuBar: true});
   //win.webContents.openDevTools();
   win.on('closed', () => {
     win = null;
   });                            //indexmac.html if packaging for mac
-  win.loadURL(`file://${__dirname}/index.html#v${app.getVersion()}`);
+  win.loadURL(`file://${__dirname}/indexmac.html#v${app.getVersion()}`);
   return win;
 }
 autoUpdater.on('checking-for-update', () => {
+  log.info('Checking for update...');
   sendStatusToWindow('Checking for update...');
 })
 autoUpdater.on('update-available', (info) => {
+  log.info('An update is available! Downloading...');
   sendStatusToWindow('An update is available! Downloading...');
 })
 autoUpdater.on('update-not-available', (info) => {
+  log.info('All up to date!');
   sendStatusToWindow('All up to date!');
 })
 autoUpdater.on('error', (err) => {
+  log.info('There was a problem downloading your update.');
   sendStatusToWindow('There was a problem downloading your update. ' + err);
 })
 //autoUpdater.on('download-progress', (progressObj) => {
