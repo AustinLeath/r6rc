@@ -23,21 +23,31 @@ log.info('App starting...');
 // THIS SECTION IS NOT REQUIRED
 //-------------------------------------------------------------------
 let template = []
+let version = app.getversion
 if (process.platform === 'darwin') {
   log.info('Successfully loaded menu for Darwin...');
   // OS X Menu
+  const version = app.getVersion();
   const name = app.getName();
   template.unshift({
     label: name,
     submenu: [
       {
-        label: name + ' Version Info',
+        role: 'about',
         accelerator: 'Command+A',
-        role: 'about'
       },
       {
-        label: 'Learn More About ' + name,
+        label: 'View License',
         accelerator: 'Command+L',
+        click () { require('electron').shell.openExternal('https://www.github.com/AustinLeath/mmrcalculator/blame/master/LICENSE') }
+      },
+      {
+        label: 'Version ' + version,
+        enabled: 'false'
+      },
+      {
+        label: 'Learn More',
+        accelerator: 'Shift+Command+L',
         click () { require('electron').shell.openExternal('https://www.electronjs.org/apps/mmrcalculator') }
       },
       {
@@ -52,15 +62,47 @@ if (process.platform === 'darwin') {
         type: 'separator'
       },
       {
-        label: 'Hide ' + name,
+        label: 'Hide',
         accelerator: 'Command+H',
-        click () { win.hide(); }
+        role: 'hide'
+      },
+      {
+        label: 'Hide Others',
+        accelerator: 'Shift+Command+H',
+        role: 'hideothers'
+      },
+      {
+        type: 'separator'
       },
       {
         label: 'Quit',
         accelerator: 'Command+Q',
-        click() { app.quit(); }
+        role: 'quit'
       },
+    ]
+  },
+  {
+    label: 'Window',
+    submenu: [
+      {
+        label: 'Minimize',
+        accelerator: 'Command+M',
+        role: 'minimize'
+      },
+      {
+        label: 'Close',
+        role: 'close'
+      }
+    ]
+  },
+  {
+    label: 'Help',
+    submenu: [
+      {
+        label: name + ' Version Info',
+        accelerator: 'Command+A',
+        role: 'about'
+      }
     ]
   })
 } else {
@@ -97,6 +139,9 @@ if (process.platform === 'darwin') {
         click () { win.hide(); }
       },
       {
+        type: 'separator'
+      },
+      {
         label: 'Quit',
         accelerator: 'Control+Q',
         click() { app.quit(); }
@@ -114,7 +159,6 @@ if (process.platform === 'darwin') {
     ]
   })
 }
-
 
 //-------------------------------------------------------------------
 // Open a window that displays the version
