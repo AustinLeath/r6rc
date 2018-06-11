@@ -1,6 +1,3 @@
-// This is free and unencumbered software released into the public domain.
-// See LICENSE for details
-
 const {app, BrowserWindow, Menu, protocol, ipcMain, shell} = require('electron');
 const log = require('electron-log');
 const {autoUpdater} = require("electron-updater");
@@ -25,7 +22,7 @@ log.info('App starting...');
 let template = []
 let version = app.getversion
 if (process.platform === 'darwin') {
-  log.info('Successfully loaded menu for Darwin...');
+  log.info('Successfully loaded menu for Darwin.');
   // OS X Menu
   const version = app.getVersion();
   const name = app.getName();
@@ -106,7 +103,7 @@ if (process.platform === 'darwin') {
     ]
   })
 } else {
-  log.info('Successfully loaded menu for Win32...');
+  log.info('Successfully loaded menu for Win32.');
   // Windows Menu
   const name = app.getName();
   template.unshift({
@@ -169,6 +166,7 @@ if (process.platform === 'darwin') {
 // for the app to show a window than to have to click "About" to see
 // that updates are working.
 //-------------------------------------------------------------------
+// tchoose
 let win;
 
 function sendStatusToWindow(text) {
@@ -176,28 +174,24 @@ function sendStatusToWindow(text) {
   win.webContents.send('message', text);
 }
 function createDefaultWindow() {                                                                                    //frame: true if packaging for mac
-  win = new BrowserWindow({width: 1280, height: 720, minWidth: 1100, minHeight: 650, maxWidth: 7680, maxHeight: 4320, frame: true, backgroundColor: '#1c1d26', autoHideMenuBar: true});
+  win = new BrowserWindow({width: 1280, height: 720, minWidth: 1100, minHeight: 650, maxWidth: 7680, maxHeight: 4320, frame: false, backgroundColor: '#1c1d26', autoHideMenuBar: true});
   //win.webContents.openDevTools();
   win.on('closed', () => {
     win = null;
   });                            //indexmac.html if packaging for mac
-  win.loadURL(`file://${__dirname}/indexmac.html#v${app.getVersion()}`);
+  win.loadURL(`file://${__dirname}/index.html#v${app.getVersion()}`);
   return win;
 }
 autoUpdater.on('checking-for-update', () => {
-  log.info('Checking for update...');
   sendStatusToWindow('Checking for update...');
 })
 autoUpdater.on('update-available', (info) => {
-  log.info('An update is available! Downloading...');
   sendStatusToWindow('An update is available! Downloading...');
 })
 autoUpdater.on('update-not-available', (info) => {
-  log.info('All up to date!');
   sendStatusToWindow('All up to date!');
 })
 autoUpdater.on('error', (err) => {
-  log.info('There was a problem downloading your update.');
   sendStatusToWindow('There was a problem downloading your update. ' + err);
 })
 //autoUpdater.on('download-progress', (progressObj) => {
