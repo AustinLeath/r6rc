@@ -1,7 +1,7 @@
 
 <p align="center">
   <img src="home/images/mmrcalculator-icon.png" width="200"/>
-  <h1 align="center">MMR Calculator</h3>
+  <h1 align="center">R6RC</h3>
   <p align="center">
     <img src="https://img.shields.io/github/release/austinleath/mmrcalculator.svg" />
       <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8">
@@ -16,7 +16,7 @@
 </p>
 
 ## Description
-- The Rainbow Six: Siege | MMR Calculator takes a user's current MMR (Match Making Rating) and ELO (Points per match) to display how many matches the user has to win or lose to reach their goal.
+- The Rainbow Six: Siege | Rank Calculator takes a user's current MMR (Match Making Rating) and ELO (Points per match) to display how many matches the user has to win or lose to reach their goal.
 
 ## Download
 - **You can find releases <u>[here](https://www.github.com/austinleath/mmrcalculator/releases)**</u>
@@ -38,7 +38,7 @@
  ![rmpic2.png](home/images/rmpic2.PNG)
 
 ## Affiliation
-- The Rainbow Six: Siege | MMR Calculator is in no way shape or form affiliated with Ubisoft and its partners. Any "Rainbow Six: Siege" name, logos and/or images are registered trademarks of Ubisoft.
+- The Rainbow Six: Siege | Rank Calculator is in no way shape or form affiliated with Ubisoft and its partners. Any "Rainbow Six: Siege" name, logos and/or images are registered trademarks of Ubisoft.
 
 ## License
 MIT © <u>[AustinLeath](https://github.com/AustinLeath/mmrcalculator/blob/master/LICENSE)</u>

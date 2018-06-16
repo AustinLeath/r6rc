@@ -1,15 +1,9 @@
 <!DOCTYPE HTML>
-<html>
-
-<head>
-    <title>R6S | MMR Calculator</title>
+  <html>
+   <head>
+    <title>R6RC</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="keywords" content="HTML,CSS,XML,JavaScript,Web,Engineer,Resume,CSS3,HTML5,Austin,Leath,Lethal,Game,Studios,LethalGameStudios">
-    <meta name="description" content="The Rainbow Six Siege | MMR Calculator uses a users current MMR and ELO to display how many matches the user has to win or lose to reach their goal">
-    <meta name="author" content="Austin Leath">
-    <meta name='copyright' content='Lethal Game Studios'>
-    <meta name='owner' content='Austin Leath'>
     <link rel="shortcut icon" href="home/images/mmrcalculator-icon.png" />
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="home/assets/css/main.css" />
@@ -153,7 +147,7 @@
             <button id="close-btn"><font color="white">&#x2715;</font></button>
         </div>
         <div id="title">
-            <span style="vertical-align: middle;"><img src="home/images/mmrcalculator-icon.png" style="width:15px; height:15px;"/></span><font id="titlename"><a id="apptitle">MMR Calculator</a></font>
+            <span style="vertical-align: middle;"><img src="home/images/mmrcalculator-icon.png" style="width:15px; height:15px;"/></span><font id="titlename"><a id="apptitle">R6RC</a></font>
         </div>
     </div>
     <div id="page-wrapper">
@@ -162,14 +156,14 @@
         <h1 id="cycletxt-1">Welcome to the most minimalistic rank calculator for Rainbow Six: Siege</h1>
         <h1 id="cycletxt-2">Use the buttons on either side of the screen<br>to switch between solving for a preset rank or a custom rank</h1>
         <h1 id="cycletxt-3">This application is under heavy development and its features<br>are subject to immediate change</h1>
-        <h1 id="cycletxt-4">Coming Soon: MMR Calculator for MAC!</h1>
+        <h1 id="cycletxt-4">Coming Soon: R6RC for MAC!</h1>
       </div>
     <button class="button small btnalign" id="custombtn" type="button" onclick="custom()">Custom</button>
       <!-- Content -->
         <section id="content">
             <!--Divider-->
             <form id="preset" action="">
-                <h3 style="text-align: center;">Rainbow Six Siege | MMR Calculator</h3>
+                <h3 style="text-align: center;">Rainbow Six Siege | Rank Calculator</h3>
                 <div class="row uniform 50%">
                     <div class="6u 12u$(xsmall)">
                         <input type="number" name="mmr" id="mmr" min="1300" max="10000" value="" placeholder="Enter your current MMR" />
@@ -236,7 +230,7 @@
             </form>
 
             <form class="disable" id="custom" action="">
-                <h3 style="text-align: center;">Rainbow Six Siege | MMR Calculator (Custom Rank Goal)</h3>
+                <h3 style="text-align: center;">Rainbow Six Siege | Rank Calculator (Custom Rank Goal)</h3>
                 <div class="row uniform 50%">
                     <div class="6u 12u$(xsmall)">
                         <input id="mmr1" name="mmr1" type="number" min="1300" max="10000" placeholder="Enter your current MMR" value="" />
@@ -274,7 +268,7 @@
 								<a>Node.js: <script>document.write(process.versions.node)</script></a> |
 								<a>Chromium: <script>document.write(process.versions.chrome)</script></a> |
 								<a>Electron: <script>document.write(process.versions.electron)</script></a> |
-								<a>MMR Calculator Version: <span id="version">vX.Y.Z</a>
+								<a>R6RC Version: <span id="version">vX.Y.Z</a>
 								<a><div id="messages"></div></a>
 						</div>
         </section>
