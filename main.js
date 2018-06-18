@@ -79,6 +79,16 @@ if (process.platform === 'darwin') {
     ]
   },
   {
+    label: 'Community',
+    submenu: [
+      {
+        label: 'Join the Discord',
+        accelerator: 'Shift+Command+D',
+        click () { require('electron').shell.openExternal('https://discord.gg/h5zXUBw') }
+      }
+    ]
+  },
+  {
     label: 'Window',
     submenu: [
       {
