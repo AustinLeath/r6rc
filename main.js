@@ -15,10 +15,9 @@ autoUpdater.logger.transports.file.level = 'info';
 log.info('App starting...');
 
 //-------------------------------------------------------------------
-// Define the menu
-//
-// THIS SECTION IS NOT REQUIRED
+// Menu definitions
 //-------------------------------------------------------------------
+
 let template = []
 let version = app.getversion
 if (process.platform === 'darwin') {
