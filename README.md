@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="home/images/mmrcalculator-icon.png" width="200"/>
+  <img src="home/images/r6rc-icon.png" width="200"/>
   <h1 align="center">R6RC</h3>
   <p align="center">
     <img src="https://img.shields.io/github/release/austinleath/mmrcalculator.svg" />
