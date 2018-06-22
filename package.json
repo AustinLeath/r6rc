@@ -21,9 +21,9 @@
     "electron-updater": "^2.21.10"
   },
   "build": {
-    "appId": "com.github.austinleath.r6rc",
+    "appId": "com.austinleath.r6rc",
     "mac": {
-      "category": "your.app.category.type",
+      "category": "public.app-category.utilities",
       "target": [
         "zip",
         "dmg"
