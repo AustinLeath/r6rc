@@ -10,7 +10,6 @@
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
     <style>
-		/*FOR ELECTRON*/
         #titlename {
             font-size: 75%;
             vertical-align: middle;
@@ -137,6 +136,11 @@
           bottom: 0%;
           left: 3%;
         }
+        #r6dbclick {
+          position: fixed;
+          bottom: 10px;
+          left: 25px;
+        }
     </style>
 </head>
 
@@ -148,18 +152,19 @@
             <button id="close-btn"><font color="white">&#x2715;</font></button>
         </div>
         <div id="title">
-            <span style="vertical-align: middle;"><img src="home/images/mmrcalculator-icon.png" style="width:15px; height:15px;"/></span><font id="titlename"><a id="apptitle">R6RC | R6 Rank Calculator</a></font>
+            <span style="vertical-align: middle;"><img src="home/images/r6rc-icon.png" style="width:15px; height:15px;"/></span><font id="titlename"><a id="apptitle">R6RC | R6 Rank Calculator</a></font>
         </div>
     </div>
     <div id="page-wrapper">
-    <button class="button small btnalign" id="presetbtn" type="button" onclick="preset()" disabled>Preset</button>
+    <button class="button small btnalign" id="presetbtn" type="button" onclick="preset();customreset();disable();" disabled>Preset</button>
       <div id="prompts">
         <h1 id="cycletxt-1">Welcome to the most minimalistic rank calculator for Rainbow Six: Siege</h1>
         <h1 id="cycletxt-2">Use the buttons on either side of the screen<br>to switch between solving for a preset rank or a custom rank</h1>
         <h1 id="cycletxt-3">This application is under heavy development and its features<br>are subject to immediate change</h1>
         <h1 id="cycletxt-4">Coming Soon: R6RC for MAC!</h1>
       </div>
-    <button class="button small btnalign" id="custombtn" type="button" onclick="custom()">Custom</button>
+    <button class="button small btnalign" id="custombtn" type="button" onclick="custom();presetreset();disable1();">Custom</button>
+    <!--<a id="r6dbclick" href="https://www.r6db.com" target="_blank"><img src="home/images/r6dblogo.svg" alt=""/></a>-->
       <!-- Content -->
         <section id="content">
             <!--Divider-->
@@ -527,7 +532,13 @@
                 container.appendChild(message);
             })
         </script>
-
-</body>
-
+        <script>
+          function presetreset() {
+            document.getElementById("preset").reset();
+          }
+          function customreset() {
+            document.getElementById("custom").reset();
+          }
+        </script>
+    </body>
 </html>

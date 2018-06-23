@@ -16,7 +16,7 @@
 </p>
 
 ## Description
-- The Rainbow Six: Siege | Rank Calculator takes a user's current MMR (Match Making Rating) and ELO (Points per match) to display how many matches the user has to win or lose to reach their goal.
+- The R6RC | R6 Rank Calculator takes a user's current MMR (Match Making Rating) and ELO (Points per match) to display how many matches the user has to win or lose to reach their goal.
 
 ## Download
 - **You can find releases <u>[here](https://www.github.com/austinleath/mmrcalculator/releases)**</u>
@@ -38,7 +38,7 @@
  ![rmpic2.png](home/images/rmpic2.PNG)
 
 ## Affiliation
-- The Rainbow Six: Siege | Rank Calculator is in no way shape or form affiliated with Ubisoft and its partners. Any "Rainbow Six: Siege" name, logos and/or images are registered trademarks of Ubisoft.
+- The R6RC | R6 Rank Calculator is in no way shape or form affiliated with Ubisoft and its partners. Any "Rainbow Six: Siege" name, logos and/or images are registered trademarks of Ubisoft.
 
 ## License
 MIT © <u>[AustinLeath](https://github.com/AustinLeath/mmrcalculator/blob/master/LICENSE)</u>
