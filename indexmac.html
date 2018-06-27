@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-		<title>R6S | MMR Calculator</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="keywords" content="HTML,CSS,XML,JavaScript,Web,Engineer,Resume,CSS3,HTML5,Austin,Leath,Lethal,Game,Studios,LethalGameStudios">
-		<meta name="description" content="The Rainbow Six Siege | MMR Calculator uses a users current MMR and ELO to display how many matches the user has to win or lose to reach their goal">
-		<meta name="author" content="Austin Leath">
-		<meta name='copyright' content='Lethal Game Studios'>
-		<meta name='owner' content='Austin Leath'>
-    <link rel="stylesheet" href="home/assets/css/main.css">
-    <style hidden>
+<!DOCTYPE HTML>
+  <html>
+   <head>
+    <title>R6RC</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="home/images/mmrcalculator-icon.png" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="home/assets/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <style>
         .noselect {
             -webkit-touch-callout: none;
             -webkit-user-select: none;
@@ -19,76 +18,74 @@
             -ms-user-select: none;
             user-select: none;
         }
-
         .disable {
             display: none;
         }
-
         #presetbtn {
             position: fixed;
             top: 20%;
             left: 10%;
         }
-
         #custombtn {
             position: fixed;
             top: 20%;
             right: 10%;
         }
-
         #preset {
             position: fixed;
             width: 75%;
             left: 12%;
             top: 28%;
         }
-
         #custom {
             position: fixed;
             width: 75%;
             left: 12%;
             top: 28%;
         }
-
-        .versionnum {
-            position: fixed;
-            top: 75%;
-            width: 100%;
-            text-align: center;
-            text-decoration: none;
-        }
-
+				.versionnum {
+					position: fixed;
+					top:75%;
+					width:100%;
+					text-align: center;
+					text-decoration: none;
+				}
         #prompts {
-            position: fixed;
-            top: 10%;
-            width: 100%;
-            text-align: center;
-            text-decoration: none;
+          position: fixed;
+          top:10%;
+          width:100%;
+          text-align: center;
+          text-decoration: none;
         }
-
         #donatebutton {
-            position: fixed;
-            bottom: 0%;
-            left: 3%;
+          position: fixed;
+          bottom: 0%;
+          left: 3%;
+        }
+        #r6dbclick {
+          position: fixed;
+          bottom: 10px;
+          left: 25px;
         }
     </style>
 </head>
 
-<body class="noselect">
-    <!--CONTENT-->
+<body class="noselect" id="background">
     <div id="page-wrapper">
-        <button class="button small btnalign" id="presetbtn" type="button" onclick="preset()" disabled>Preset</button>
-        <div id="prompts">
-            <h1 id="cycletxt-1">Welcome to the most "Minimalistic Rank Calculator For Rainbow Six: Siege"</h1>
-            <h1 id="cycletxt-2">Use the buttons on either side of the screen<br>to switch between solving for a preset rank or a custom rank<h1>
-						<h1 id="cycletxt-3">This application is under heavy development and its features<br>are subject to immediate change</h1>
-        </div>
-        <button class="button small btnalign" id="custombtn" type="button" onclick="custom()">Custom</button>
-        <!-- Content -->
-				<section id="content">
+    <button class="button small btnalign" id="presetbtn" type="button" onclick="preset();customreset();disable();" disabled>Preset</button>
+      <div id="prompts">
+        <h1 id="cycletxt-1">Welcome to the most minimalistic rank calculator for Rainbow Six: Siege</h1>
+        <h1 id="cycletxt-2">Use the buttons on either side of the screen<br>to switch between solving for a preset rank or a custom rank</h1>
+        <h1 id="cycletxt-3">This application is under heavy development and its features<br>are subject to immediate change</h1>
+      </div>
+    <button class="button small btnalign" id="custombtn" type="button" onclick="custom();presetreset();disable1();">Custom</button>
+
+    <a id="r6dbclick" href="https://www.r6db.com"><img src="home/images/r6dblogo.svg" alt=""/></a>
+      <!-- Content -->
+        <section id="content">
             <!--Divider-->
             <form id="preset" action="">
-                <h3 style="text-align: center;">Rainbow Six Siege | MMR Calculator</h3>
+                <h3 style="text-align: center;">Rainbow Six Siege | Rank Calculator</h3>
                 <div class="row uniform 50%">
                     <div class="6u 12u$(xsmall)">
                         <input type="number" name="mmr" id="mmr" min="1300" max="10000" value="" placeholder="Enter your current MMR" />
@@ -99,7 +96,7 @@
                     <div class="12u$">
                         <div class="select-wrapper">
                           <select name="goal" id="goal">
-                              <option value="">- Select a Rank -</option>
+                            <option value="">- Select a Rank -</option>
                               <optgroup label="Copper">
                                  <option value="1300">Copper IV</option>
                                  <option value="1400">Copper III</option>
@@ -155,7 +152,7 @@
             </form>
 
             <form class="disable" id="custom" action="">
-                <h3 style="text-align: center;">Rainbow Six Siege | MMR Calculator (Custom Rank Goal)</h3>
+                <h3 style="text-align: center;">Rainbow Six Siege | Rank Calculator (Custom Rank Goal)</h3>
                 <div class="row uniform 50%">
                     <div class="6u 12u$(xsmall)">
                         <input id="mmr1" name="mmr1" type="number" min="1300" max="10000" placeholder="Enter your current MMR" value="" />
@@ -193,7 +190,7 @@
 								<a>Node.js: <script>document.write(process.versions.node)</script></a> |
 								<a>Chromium: <script>document.write(process.versions.chrome)</script></a> |
 								<a>Electron: <script>document.write(process.versions.electron)</script></a> |
-								<a>MMR Calculator Version: <span id="version">vX.Y.Z</a>
+								<a>R6RC Version: <span id="version">vX.Y.Z</a>
 								<a><div id="messages"></div></a>
 						</div>
         </section>
@@ -354,6 +351,15 @@
                 document.getElementById("display1").style.display = "none";
                 document.getElementById("errormessage1").style.display = "none";
             }
+            function presetreset() {
+              document.getElementById("preset").reset();
+            }
+            function customreset() {
+              document.getElementById("custom").reset();
+            }
+            function r6db() {
+              shell.openExternal('https://r6db.com/');
+            }
             function fillform() {
                 var finalmessage;
                 x = document.getElementById("goal").value;
@@ -395,11 +401,49 @@
                 document.getElementById("mmrerrormessage").innerhtml = finalmessage;
             }
         </script>
-    <script>
+        <!--ELECTRON STUFF-->
+        <script>
+            (function() {
+                // Retrieve remote BrowserWindow
+                const {
+                    BrowserWindow
+                } = require('electron').remote
+
+                function init() {
+                    // Minimize window
+                    document.getElementById("min-btn").addEventListener("click", (e) => {
+                        var window = BrowserWindow.getFocusedWindow();
+                        window.minimize();
+                    });
+
+                    // Maximize window
+                    document.getElementById("max-btn").addEventListener("click", (e) => {
+                        var window = BrowserWindow.getFocusedWindow();
+                        if (window.isMaximized()) {
+                            window.unmaximize();
+                        } else {
+                            window.maximize();
+                        }
+                    });
+
+                    // Close app
+                    document.getElementById("close-btn").addEventListener("click", (e) => {
+                        var window = BrowserWindow.getFocusedWindow();
+                        window.close();
+                    });
+                };
+
+                document.onreadystatechange = () => {
+                    if (document.readyState == "complete") {
+                        init();
+                    }
+                };
+            })();
+        </script>
+        <script>
         // Display the current version
         let version = window.location.hash.substring(1);
         document.getElementById('version').innerText = version;
-
         // Listen for messages
         const {
             ipcRenderer
@@ -410,17 +454,19 @@
             message.innerHTML = text;
             container.appendChild(message);
         })
-    </script>
-		<script>
-			function fullscreenbtn() {
-				document.getElementById("maximize").style.display = "none";
-				document.getElementById("maximize1").style.display = "";
-			}
-			function unfullscreenbtn() {
-				document.getElementById("maximize").style.display = "";
-				document.getElementById("maximize1").style.display = "none";
-			}
-		</script>
-</body>
-
+        </script>
+        <script type='text/javascript'>
+          window.shell = require('electron').shell;
+          document.getElementById("r6dbclick").addEventListener("click", function (e) {
+            e.preventDefault();
+            var remoteLink = this.getAttribute('href');
+            shell.openExternal( remoteLink );
+          });
+          document.getElementById("r6dbclick").addEventListener("auxclick", function (e) {
+            e.preventDefault();
+            var remoteLink = this.getAttribute('href');
+            shell.openExternal( remoteLink );
+          });
+        </script>
+    </body>
 </html>
