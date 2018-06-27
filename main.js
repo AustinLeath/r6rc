@@ -205,14 +205,11 @@ app.on('ready', function() {
   // Create the Menu
   const menu = Menu.buildFromTemplate(template);
   Menu.setApplicationMenu(menu);
-
   createDefaultWindow();
 });
 app.on('window-all-closed', () => {
   app.quit();
 });
-
-
 app.on('ready', function()  {
   autoUpdater.checkForUpdatesAndNotify();
 });

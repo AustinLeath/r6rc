@@ -15,7 +15,6 @@
             vertical-align: middle;
             padding-left: 5px;
         }
-
         #title-bar {
             -webkit-app-region: drag;
             height: 25px;
@@ -28,57 +27,48 @@
             position: fixed;
             width: 100%;
         }
-
         #title {
             position: fixed;
             top: 0px;
             left: 6px;
             color: white;
         }
-
         #title-bar-btns {
             -webkit-app-region: no-drag;
             position: fixed;
             top: 0px;
             right: 0px;
         }
-
         #min-btn {
             background-color: transparent;
             border-style: none;
             outline-style: none;
             height: auto;
         }
-
         #min-btn:hover {
             background-color: grey;
             height: auto;
         }
-
         #max-btn {
             background-color: transparent;
             border-style: none;
             outline-style: none;
             height: auto;
         }
-
         #max-btn:hover {
             background-color: grey;
             height: auto;
         }
-
         #close-btn {
             background-color: transparent;
             border-style: none;
             outline-style: none;
             height: auto;
         }
-
         #close-btn:hover {
             background-color: red;
             height: auto;
         }
-
         .noselect {
             -webkit-touch-callout: none;
             -webkit-user-select: none;
@@ -87,30 +77,25 @@
             -ms-user-select: none;
             user-select: none;
         }
-
         .disable {
             display: none;
         }
-
         #presetbtn {
             position: fixed;
             top: 20%;
             left: 10%;
         }
-
         #custombtn {
             position: fixed;
             top: 20%;
             right: 10%;
         }
-
         #preset {
             position: fixed;
             width: 75%;
             left: 12%;
             top: 28%;
         }
-
         #custom {
             position: fixed;
             width: 75%;
@@ -164,7 +149,8 @@
         <h1 id="cycletxt-4">Coming Soon: R6RC for MAC!</h1>
       </div>
     <button class="button small btnalign" id="custombtn" type="button" onclick="custom();presetreset();disable1();">Custom</button>
-    <!--<a id="r6dbclick" href="https://www.r6db.com" target="_blank"><img src="home/images/r6dblogo.svg" alt=""/></a>-->
+
+    <a id="r6dbclick" href="https://www.r6db.com"><img src="home/images/r6dblogo.svg" alt=""/></a>
       <!-- Content -->
         <section id="content">
             <!--Divider-->
@@ -435,6 +421,15 @@
                 document.getElementById("display1").style.display = "none";
                 document.getElementById("errormessage1").style.display = "none";
             }
+            function presetreset() {
+              document.getElementById("preset").reset();
+            }
+            function customreset() {
+              document.getElementById("custom").reset();
+            }
+            function r6db() {
+              shell.openExternal('https://r6db.com/');
+            }
             function fillform() {
                 var finalmessage;
                 x = document.getElementById("goal").value;
@@ -515,30 +510,33 @@
                 };
             })();
         </script>
-
         <script>
-            // Display the current version
-            let version = window.location.hash.substring(1);
-            document.getElementById('version').innerText = version;
-
-            // Listen for messages
-            const {
-                ipcRenderer
-            } = require('electron');
-            ipcRenderer.on('message', function(event, text) {
-                var container = document.getElementById('messages');
-                var message = document.createElement('div');
-                message.innerHTML = text;
-                container.appendChild(message);
-            })
+        // Display the current version
+        let version = window.location.hash.substring(1);
+        document.getElementById('version').innerText = version;
+        // Listen for messages
+        const {
+            ipcRenderer
+        } = require('electron');
+        ipcRenderer.on('message', function(event, text) {
+            var container = document.getElementById('messages');
+            var message = document.createElement('div');
+            message.innerHTML = text;
+            container.appendChild(message);
+        })
         </script>
-        <script>
-          function presetreset() {
-            document.getElementById("preset").reset();
-          }
-          function customreset() {
-            document.getElementById("custom").reset();
-          }
+        <script type='text/javascript'>
+          window.shell = require('electron').shell;
+          document.getElementById("r6dbclick").addEventListener("click", function (e) {
+            e.preventDefault();
+            var remoteLink = this.getAttribute('href');
+            shell.openExternal( remoteLink );
+          });
+          document.getElementById("r6dbclick").addEventListener("auxclick", function (e) {
+            e.preventDefault();
+            var remoteLink = this.getAttribute('href');
+            shell.openExternal( remoteLink );
+          });
         </script>
     </body>
 </html>
