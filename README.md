@@ -1,7 +1,7 @@
 
 <p align="center">
   <img src="home/images/r6rc-icon.png" width="200"/>
-  <h1 align="center">R6RC</h3>
+  <h1 align="center">R6RC | R6 Rank Calculator</h3>
   <p align="center">
     <img src="https://img.shields.io/github/release/austinleath/mmrcalculator.svg" />
       <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8">

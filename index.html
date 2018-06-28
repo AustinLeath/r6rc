@@ -126,6 +126,15 @@
           bottom: 10px;
           left: 25px;
         }
+        #twitterclick {
+          position: fixed;
+          bottom: 10px;
+          right: 25px;
+        }
+        #twitterimg {
+          width: 48px;
+          height: 48px;
+        }
     </style>
 </head>
 
@@ -151,6 +160,7 @@
     <button class="button small btnalign" id="custombtn" type="button" onclick="custom();presetreset();disable1();">Custom</button>
 
     <a id="r6dbclick" href="https://www.r6db.com"><img src="home/images/r6dblogo.svg" alt=""/></a>
+    <a id="twitterclick" href="https://twitter.com/R6RankCalc"><img id="twitterimg" src="home/images/twitter.png" alt=""/></a>
       <!-- Content -->
         <section id="content">
             <!--Divider-->
@@ -533,6 +543,18 @@
             shell.openExternal( remoteLink );
           });
           document.getElementById("r6dbclick").addEventListener("auxclick", function (e) {
+            e.preventDefault();
+            var remoteLink = this.getAttribute('href');
+            shell.openExternal( remoteLink );
+          });
+        </script>
+        <script type='text/javascript'>
+          document.getElementById("twitterclick").addEventListener("click", function (e) {
+            e.preventDefault();
+            var remoteLink = this.getAttribute('href');
+            shell.openExternal( remoteLink );
+          });
+          document.getElementById("twitterclick").addEventListener("auxclick", function (e) {
             e.preventDefault();
             var remoteLink = this.getAttribute('href');
             shell.openExternal( remoteLink );
