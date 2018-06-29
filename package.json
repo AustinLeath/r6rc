@@ -1,6 +1,6 @@
 {
   "name": "R6RC",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "main": "main.js",
   "license": "MIT",
   "description": "A Minimalistic Rank Calculator For Rainbow Six: Siege",
@@ -14,12 +14,12 @@
   },
   "devDependencies": {
     "electron": "^2.0.3",
-    "electron-builder": "^20.16.4",
+    "electron-builder": "^20.18.0",
     "electron-packager": "^12.1.0"
   },
   "dependencies": {
-    "electron-log": "^2.2.15",
-    "electron-updater": "^2.22.1"
+    "electron-log": "^2.2.16",
+    "electron-updater": "^2.23.3"
   },
   "build": {
     "appId": "com.austinleath.r6rc",
