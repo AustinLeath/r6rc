@@ -1,25 +1,26 @@
 {
   "name": "R6RC",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "main": "main.js",
+  "repository": "https://github.com/austinleath/mmrcalculator",
   "license": "MIT",
   "description": "A Minimalistic Rank Calculator For Rainbow Six: Siege",
   "author": "Austin Leath",
   "scripts": {
     "start": "electron .",
-    "testwin": "build --win --dir",
-    "testmac": "build --mac  --dir",
+    "testwin": "build --win",
+    "testmac": "build --mac",
     "publish": "build -p always",
     "updep": "npm install electron@latest electron-builder@latest electron-packager@latest electron-log@latest electron-updater@latest"
   },
   "devDependencies": {
-    "electron": "^2.0.3",
-    "electron-builder": "^20.18.0",
+    "electron": "^2.0.5",
+    "electron-builder": "^20.22.0",
     "electron-packager": "^12.1.0"
   },
   "dependencies": {
     "electron-log": "^2.2.16",
-    "electron-updater": "^2.23.3"
+    "electron-updater": "^3.0.1"
   },
   "build": {
     "appId": "com.austinleath.r6rc",
