@@ -113,8 +113,11 @@ if (process.platform === 'darwin') {
   template.unshift({
     label: name,
     submenu: [
+      {type: 'separator'},
+      {role: 'services', submenu: []},
+      {type: 'separator'},
       {
-        label: 'Hide',
+        label: 'Hide ' + name,
         accelerator: 'Command+H',
         role: 'hide'
       },
@@ -122,6 +125,10 @@ if (process.platform === 'darwin') {
         label: 'Hide Others',
         accelerator: 'Shift+Command+H',
         role: 'hideothers'
+      },
+      {
+        label: 'Show All',
+        enabled: false
       },
       {
         type: 'separator'
@@ -145,7 +152,7 @@ if (process.platform === 'darwin') {
         label: 'Support ' + name,
         accelerator: 'Command+D',
         click () { require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8') }
-      },
+      }
     ]
   },
   {
@@ -172,11 +179,6 @@ if (process.platform === 'darwin') {
       {
         label: 'Check for update',
         enabled: false
-      },
-      {
-        label: 'Donate',
-        accelerator: 'Command+D',
-        click () { require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8') }
       },
       {
         label: 'Learn More',
