@@ -4,72 +4,11 @@
     <title>R6RC</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" href="home/images/mmrcalculator-icon.png" />
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="home/assets/css/main.css" />
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
     <style>
-        #titlename {
-            font-size: 75%;
-            vertical-align: middle;
-            padding-left: 5px;
-        }
-        #title-bar {
-            -webkit-app-region: drag;
-            height: 25px;
-            text-align: center;
-            line-height: 25px;
-            vertical-align: middle;
-            background-color: rgba(39, 40, 51, 1);
-            padding: none;
-            margin: 0px;
-            position: fixed;
-            width: 100%;
-        }
-        #title {
-            position: fixed;
-            top: 0px;
-            left: 6px;
-            color: white;
-        }
-        #title-bar-btns {
-            -webkit-app-region: no-drag;
-            position: fixed;
-            top: 0px;
-            right: 0px;
-        }
-        #min-btn {
-            background-color: transparent;
-            border-style: none;
-            outline-style: none;
-            height: 25px;
-        }
-        #min-btn:hover {
-            background-color: grey;
-            height: 25px;
-        }
-        #max-btn {
-            background-color: transparent;
-            border-style: none;
-            outline-style: none;
-            height: 23px;
-        }
-        #max-btn:hover {
-            background-color: grey;
-            height: 23px;
-            top: 3px;
-        }
-        #close-btn {
-            background-color: transparent;
-            border-style: none;
-            outline-style: none;
-            height: 25px;
-        }
-        #close-btn:hover {
-            background-color: red;
-            height: 25px;
-        }
         .noselect {
             -webkit-touch-callout: none;
             -webkit-user-select: none;
@@ -140,16 +79,6 @@
 </head>
 
 <body class="noselect" id="background">
-    <div id="title-bar">
-        <div id="title-bar-btns">
-            <button id="min-btn"><font color="white">&#8722;</font></button>
-            <button id="max-btn"><font color="white">&#9634;</font></button>
-            <button id="close-btn"><font color="white">&#x2715;</font></button>
-        </div>
-        <div id="title">
-            <span style="vertical-align: middle;"><img src="home/images/r6rc-icon.png" style="width:15px; height:15px;"/></span><font id="titlename"><a id="apptitle">R6RC | R6 Rank Calculator</a></font>
-        </div>
-    </div>
     <div id="page-wrapper">
     <button class="button small btnalign" id="presetbtn" type="button" onclick="preset();customreset();disable();" disabled>Preset</button>
       <div id="prompts">
