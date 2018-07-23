@@ -23,9 +23,9 @@ function createDefaultWindow() {
     minHeight: 650,
     maxWidth: 7680,
     maxHeight: 4320,
-    frame: true,
+    frame: false,
     backgroundColor: '#1c1d26',
-    autoHideMenuBar: false
+    autoHideMenuBar: true
   });
   //win.webContents.openDevTools();
   win.on('closed', () => {
