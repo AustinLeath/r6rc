@@ -23,14 +23,14 @@ function createDefaultWindow() {
     minHeight: 650,
     maxWidth: 7680,
     maxHeight: 4320,
-    frame: false, //frame: true if packaging for mac
+    frame: true,
     backgroundColor: '#1c1d26',
-    autoHideMenuBar: true
+    autoHideMenuBar: false
   });
   //win.webContents.openDevTools();
   win.on('closed', () => {
     win = null;
-  });                            //indexmac.html if packaging for mac
+  });
   win.loadURL(`file://${__dirname}/index.html#v${app.getVersion()}`);
   return win;
 }
@@ -109,18 +109,14 @@ if (isSecondInstance) {
 let template = []
 if (process.platform === 'darwin') {
   // OS X Menu
-  log.info('Menu loaded for: ' + name + process.platform);
+  log.info('Menu loaded for ' + name + ' on platform: ' + process.platform);
   template.unshift({
     label: name,
     submenu: [
       {
-        role: 'about',
-        accelerator: 'Command+A',
-      },
-      {
         label: 'View License',
         accelerator: 'Command+L',
-        click () { require('electron').shell.openExternal('https://www.github.com/AustinLeath/mmrcalculator/blame/master/LICENSE') }
+        click () { require('electron').shell.openExternal('https://www.github.com/AustinLeath/r6rc/blame/master/LICENSE') }
       },
       {
         label: 'Version ' + version,
@@ -129,7 +125,7 @@ if (process.platform === 'darwin') {
       {
         label: 'Learn More',
         accelerator: 'Shift+Command+L',
-        click () { require('electron').shell.openExternal('https://www.electronjs.org/apps/mmrcalculator') }
+        click () { require('electron').shell.openExternal('https://www.electronjs.org/apps/r6rc') }
       },
       {
         type: 'separator'
@@ -193,7 +189,12 @@ if (process.platform === 'darwin') {
         label: name + ' Version Info',
         accelerator: 'Command+A',
         role: 'about'
-      }
+      },
+      {
+        label: 'Donate',
+        accelerator: 'Command+D',
+        click () { require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8') }
+      },
     ]
   })
 } else {
@@ -213,6 +214,11 @@ if (process.platform === 'darwin') {
     label: 'Help',
     submenu: [
       {
+        label: 'View License',
+        accelerator: 'Command+L',
+        click () { require('electron').shell.openExternal('https://www.github.com/AustinLeath/r6rc/blame/master/LICENSE') }
+      },
+      {
         label: 'Version ' + version,
         enabled: false
       },
@@ -221,14 +227,17 @@ if (process.platform === 'darwin') {
         enabled: false
       },
       {
+        type: 'separator'
+      },
+      {
         label: 'Donate',
         accelerator: 'Control+D',
         click () { require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8') }
       },
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://www.github.com/austinleath/mmrcalculator') }
-      },
+        click () { require('electron').shell.openExternal('https://www.github.com/austinleath/r6rc') }
+      }
     ]
   })
 }
