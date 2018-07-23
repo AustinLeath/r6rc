@@ -109,7 +109,7 @@ if (isSecondInstance) {
 let template = []
 if (process.platform === 'darwin') {
   // OS X Menu
-  log.info('Menu loaded for: ' + name + process.platform);
+  log.info('Menu loaded for ' + name + ' on platform: ' + process.platform);
   template.unshift({
     label: name,
     submenu: [
