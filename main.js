@@ -113,9 +113,12 @@ if (process.platform === 'darwin') {
   template.unshift({
     label: name,
     submenu: [
-      {type: 'separator'},
-      {role: 'services', submenu: []},
-      {type: 'separator'},
+      {
+        role: 'services', submenu: []
+      },
+      {
+        type: 'separator'
+      },
       {
         label: 'Hide ' + name,
         accelerator: 'Command+H',
