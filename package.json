@@ -1,6 +1,6 @@
 {
   "name": "R6RC",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "main": "main.js",
   "repository": "https://github.com/austinleath/mmrcalculator",
   "license": "MIT",
@@ -15,12 +15,12 @@
   },
   "devDependencies": {
     "electron": "^2.0.5",
-    "electron-builder": "^20.22.0",
+    "electron-builder": "^20.24.4",
     "electron-packager": "^12.1.0"
   },
   "dependencies": {
     "electron-log": "^2.2.16",
-    "electron-updater": "^3.0.1"
+    "electron-updater": "^3.0.3"
   },
   "build": {
     "appId": "com.austinleath.r6rc",

@@ -1,27 +1,115 @@
 const {app, BrowserWindow, Menu, protocol, ipcMain, shell} = require('electron');
 const log = require('electron-log');
 const {autoUpdater} = require("electron-updater");
-
-//-------------------------------------------------------------------
-// This logging setup is not required for auto-updates to work,
-// but it sure makes debugging easier :)
-//-------------------------------------------------------------------
-
+const name = app.getName();
+const version = app.getVersion();
 autoUpdater.logger = log;
 autoUpdater.logger.transports.file.level = 'info';
-log.info('App starting...');
+
+log.info('App initialized on platform: ' + process.platform);
+
+let win;
+
+function sendStatusToWindow(text) {
+  log.info(text);
+  win.webContents.send('message', text);
+}
+function createDefaultWindow() {
+  win = new BrowserWindow
+  ({
+    width: 1280,
+    height: 720,
+    minWidth: 1100,
+    minHeight: 650,
+    maxWidth: 7680,
+    maxHeight: 4320,
+    frame: false, //frame: true if packaging for mac
+    backgroundColor: '#1c1d26',
+    autoHideMenuBar: true
+  });
+  //win.webContents.openDevTools();
+  win.on('closed', () => {
+    win = null;
+  });                            //indexmac.html if packaging for mac
+  win.loadURL(`file://${__dirname}/index.html#v${app.getVersion()}`);
+  return win;
+}
+
+//-------------------------------------------------------------------
+// Only allows one instance of the application to be open at a time
+const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
+  if (win) {
+    if (win.isMinimized()) win.restore()
+    win.focus()
+  }
+})
+
+if (isSecondInstance) {
+  app.quit()
+}
+//-------------------------------------------------------------------
+
+//app.setJumpList([
+//  {
+//    type: 'custom',
+//    name: 'Recent Projects',
+//    items: [
+//      { type: 'file', path: 'C:\\Projects\\project1.proj' },
+//      { type: 'file', path: 'C:\\Projects\\project2.proj' }
+//    ]
+//  },
+//  { // has a name so `type` is assumed to be "custom"
+//    name: 'Tools',
+//    items: [
+//      {
+//        type: 'task',
+//        title: 'Tool A',
+//        program: process.execPath,
+//        args: '--run-tool-a',
+//        icon: process.execPath,
+//        iconIndex: 0,
+//        description: 'Runs Tool A'
+//      },
+//      {
+//        type: 'task',
+//        title: 'Tool B',
+//        program: process.execPath,
+//        args: '--run-tool-b',
+//        icon: process.execPath,
+//        iconIndex: 0,
+//        description: 'Runs Tool B'
+//      }
+//    ]
+//  },
+//  { type: 'frequent' },
+//  {
+//    items: [
+//      {
+//        type: 'task',
+//        title: 'New Project',
+//        program: process.execPath,
+//        args: '--new-project',
+//        description: 'Create a new project.'
+//      },
+//      { type: 'separator' },
+//      {
+//        type: 'task',
+//        title: 'Recover Project',
+//        program: process.execPath,
+//        args: '--recover-project',
+//        description: 'Recover Project'
+//      }
+//    ]
+//  }
+//])
 
 //-------------------------------------------------------------------
 // Menu definitions
 //-------------------------------------------------------------------
-
 let template = []
-let version = app.getversion
 if (process.platform === 'darwin') {
-  log.info('Successfully loaded menu for Darwin.');
   // OS X Menu
-  const version = app.getVersion();
-  const name = app.getName();
+  log.info('Menu loaded for: ' + name + process.platform);
   template.unshift({
     label: name,
     submenu: [
@@ -109,41 +197,11 @@ if (process.platform === 'darwin') {
     ]
   })
 } else {
-  log.info('Successfully loaded menu for Win32.');
   // Windows Menu
-  const name = app.getName();
+  log.info('Menu loaded for ' + name + ' on platform: ' + process.platform);
   template.unshift({
     label: name,
     submenu: [
-      {
-        label: name + ' Version Info',
-        accelerator: 'Control+A',
-        role: 'about'
-      },
-      {
-        label: 'Learn More About ' + name,
-        accelerator: 'Control+L',
-        click () { require('electron').shell.openExternal('https://www.electronjs.org/apps/mmrcalculator') }
-      },
-      {
-        type: 'separator'
-      },
-      {
-        label: 'Donate',
-        accelerator: 'Control+D',
-        click () { require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8') }
-      },
-      {
-        type: 'separator'
-      },
-      {
-        label: 'Hide ' + name,
-        accelerator: 'Control+H',
-        click () { win.hide(); }
-      },
-      {
-        type: 'separator'
-      },
       {
         label: 'Quit',
         accelerator: 'Control+Q',
@@ -152,64 +210,50 @@ if (process.platform === 'darwin') {
     ]
   },
   {
-    label: 'help',
+    label: 'Help',
     submenu: [
       {
-        label: name + ' Version Info',
-        accelerator: 'Control+A',
-        role: 'about'
-      }
+        label: 'Version ' + version,
+        enabled: false
+      },
+      {
+        label: 'Check for update',
+        enabled: false
+      },
+      {
+        label: 'Donate',
+        accelerator: 'Control+D',
+        click () { require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8') }
+      },
+      {
+        label: 'Learn More',
+        click () { require('electron').shell.openExternal('https://www.github.com/austinleath/mmrcalculator') }
+      },
     ]
   })
 }
 
-// Window creation and auto updater section
-
-let win;
-
-function sendStatusToWindow(text) {
-  log.info(text);
-  win.webContents.send('message', text);
-}
-function createDefaultWindow() {                                                                                    //frame: true if packaging for mac
-  win = new BrowserWindow({width: 1280, height: 720, minWidth: 1100, minHeight: 650, maxWidth: 7680, maxHeight: 4320, frame: false, backgroundColor: '#1c1d26', autoHideMenuBar: true});
-  //win.webContents.openDevTools();
-  win.on('closed', () => {
-    win = null;
-  });                            //indexmac.html if packaging for mac
-  win.loadURL(`file://${__dirname}/index.html#v${app.getVersion()}`);
-  return win;
-}
 autoUpdater.on('checking-for-update', () => {
   sendStatusToWindow('Checking for update...');
-})
+});
 autoUpdater.on('update-available', (info) => {
   sendStatusToWindow('An update is available! Downloading...');
-})
+});
 autoUpdater.on('update-not-available', (info) => {
   sendStatusToWindow('All up to date!');
-})
+});
 autoUpdater.on('error', (err) => {
   sendStatusToWindow('There was a problem downloading your update. ' + err);
-})
-//autoUpdater.on('download-progress', (progressObj) => {
-//  let log_message = "Download speed: " + progressObj.bytesPerSecond;
-//  log_message = log_message + ' - Downloaded ' + progressObj.percent + '%';
-//  log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')';
-//  sendStatusToWindow(log_message);
-//})
+});
 autoUpdater.on('update-downloaded', (info) => {
   sendStatusToWindow('Update downloaded, restart to install.');
 });
 app.on('ready', function() {
-  // Create the Menu
+  autoUpdater.checkForUpdatesAndNotify();
   const menu = Menu.buildFromTemplate(template);
   Menu.setApplicationMenu(menu);
   createDefaultWindow();
 });
 app.on('window-all-closed', () => {
   app.quit();
-});
-app.on('ready', function()  {
-  autoUpdater.checkForUpdatesAndNotify();
 });
