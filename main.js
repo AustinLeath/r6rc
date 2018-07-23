@@ -114,35 +114,6 @@ if (process.platform === 'darwin') {
     label: name,
     submenu: [
       {
-        role: 'about',
-        accelerator: 'Command+A',
-      },
-      {
-        label: 'View License',
-        accelerator: 'Command+L',
-        click () { require('electron').shell.openExternal('https://www.github.com/AustinLeath/r6rc/blame/master/LICENSE') }
-      },
-      {
-        label: 'Version ' + version,
-        enabled: 'false'
-      },
-      {
-        label: 'Learn More',
-        accelerator: 'Shift+Command+L',
-        click () { require('electron').shell.openExternal('https://www.electronjs.org/apps/r6rc') }
-      },
-      {
-        type: 'separator'
-      },
-      {
-        label: 'Donate',
-        accelerator: 'Command+D',
-        click () { require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8') }
-      },
-      {
-        type: 'separator'
-      },
-      {
         label: 'Hide',
         accelerator: 'Command+H',
         role: 'hide'
@@ -169,7 +140,12 @@ if (process.platform === 'darwin') {
         label: 'Join the Discord',
         accelerator: 'Shift+Command+D',
         click () { require('electron').shell.openExternal('https://discord.gg/h5zXUBw') }
-      }
+      },
+      {
+        label: 'Support ' + name,
+        accelerator: 'Command+D',
+        click () { require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8') }
+      },
     ]
   },
   {
@@ -190,9 +166,21 @@ if (process.platform === 'darwin') {
     label: 'Help',
     submenu: [
       {
-        label: name + ' Version Info',
-        accelerator: 'Command+A',
-        role: 'about'
+        label: 'Version ' + version,
+        enabled: false
+      },
+      {
+        label: 'Check for update',
+        enabled: false
+      },
+      {
+        label: 'Donate',
+        accelerator: 'Command+D',
+        click () { require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8') }
+      },
+      {
+        label: 'Learn More',
+        click () { require('electron').shell.openExternal('https://www.github.com/austinleath/r6rc') }
       }
     ]
   })
