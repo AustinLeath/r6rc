@@ -196,10 +196,56 @@ if (process.platform === 'darwin') {
     label: name,
     submenu: [
       {
+        label: 'Hide ' + name,
+        accelerator: 'Control+H',
+        role: 'hide'
+      },
+      {
+        label: 'Hide Others',
+        accelerator: 'Shift+Control+H',
+        role: 'hideothers'
+      },
+      {
+        label: 'Show All',
+        enabled: false
+      },
+      {
+        type: 'separator'
+      },
+      {
         label: 'Quit',
         accelerator: 'Control+Q',
-        click() { app.quit(); }
+        role: 'quit'
       },
+    ]
+  },
+  {
+    label: 'Community',
+    submenu: [
+      {
+        label: 'Join the Discord',
+        accelerator: 'Shift+Control+D',
+        click () { require('electron').shell.openExternal('https://discord.gg/h5zXUBw') }
+      },
+      {
+        label: 'Support ' + name,
+        accelerator: 'Control+D',
+        click () { require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8') }
+      }
+    ]
+  },
+  {
+    label: 'Window',
+    submenu: [
+      {
+        label: 'Minimize',
+        accelerator: 'Control+M',
+        role: 'minimize'
+      },
+      {
+        label: 'Close',
+        role: 'close'
+      }
     ]
   },
   {
@@ -214,14 +260,9 @@ if (process.platform === 'darwin') {
         enabled: false
       },
       {
-        label: 'Donate',
-        accelerator: 'Control+D',
-        click () { require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8') }
-      },
-      {
         label: 'Learn More',
         click () { require('electron').shell.openExternal('https://www.github.com/austinleath/r6rc') }
-      },
+      }
     ]
   })
 }
