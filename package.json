@@ -10,6 +10,7 @@
     "start": "electron .",
     "testwin": "build --win",
     "testmac": "build --mac",
+    "testlin": "build --linux",
     "publish": "build -p always",
     "updep": "npm install electron@latest electron-builder@latest electron-packager@latest electron-log@latest electron-updater@latest"
   },
