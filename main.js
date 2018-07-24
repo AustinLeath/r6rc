@@ -25,7 +25,7 @@ function createDefaultWindow() {
     maxHeight: 4320,
     frame: true, //frame: true if packaging for mac
     backgroundColor: '#1c1d26',
-    autoHideMenuBar: false
+    autoHideMenuBar: true
   });
   //win.webContents.openDevTools();
   win.on('closed', () => {
@@ -198,12 +198,7 @@ if (process.platform === 'darwin') {
       {
         label: 'Hide ' + name,
         accelerator: 'Control+H',
-        role: 'hide'
-      },
-      {
-        label: 'Hide Others',
-        accelerator: 'Shift+Control+H',
-        role: 'hideothers'
+        click() { win.hide(); }
       },
       {
         label: 'Show All',
@@ -237,6 +232,10 @@ if (process.platform === 'darwin') {
   {
     label: 'Window',
     submenu: [
+      {
+        accelerator: 'F11',
+        role: 'togglefullscreen'
+      },
       {
         label: 'Minimize',
         accelerator: 'Control+M',
