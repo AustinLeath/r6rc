@@ -114,39 +114,24 @@ if (process.platform === 'darwin') {
     label: name,
     submenu: [
       {
-        label: 'View License',
-        accelerator: 'Command+L',
-        click () { require('electron').shell.openExternal('https://www.github.com/AustinLeath/r6rc/blame/master/LICENSE') }
-      },
-      {
-        label: 'Version ' + version,
-        enabled: 'false'
-      },
-      {
-        label: 'Learn More',
-        accelerator: 'Shift+Command+L',
-        click () { require('electron').shell.openExternal('https://www.electronjs.org/apps/r6rc') }
+        role: 'services', submenu: []
       },
       {
         type: 'separator'
       },
       {
-        label: 'Donate',
-        accelerator: 'Command+D',
-        click () { require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8') }
-      },
-      {
-        type: 'separator'
-      },
-      {
-        label: 'Hide',
+        label: 'Hide ' + name,
         accelerator: 'Command+H',
         role: 'hide'
       },
       {
         label: 'Hide Others',
-        accelerator: 'Shift+Command+H',
+        accelerator: 'Option+Command+H',
         role: 'hideothers'
+      },
+      {
+        label: 'Show All',
+        enabled: false
       },
       {
         type: 'separator'
@@ -165,6 +150,11 @@ if (process.platform === 'darwin') {
         label: 'Join the Discord',
         accelerator: 'Shift+Command+D',
         click () { require('electron').shell.openExternal('https://discord.gg/h5zXUBw') }
+      },
+      {
+        label: 'Support ' + name,
+        accelerator: 'Command+D',
+        click () { require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8') }
       }
     ]
   },
@@ -186,15 +176,17 @@ if (process.platform === 'darwin') {
     label: 'Help',
     submenu: [
       {
-        label: name + ' Version Info',
-        accelerator: 'Command+A',
-        role: 'about'
+        label: 'Version ' + version,
+        enabled: false
       },
       {
-        label: 'Donate',
-        accelerator: 'Command+D',
-        click () { require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8') }
+        label: 'Check for update',
+        enabled: false
       },
+      {
+        label: 'Learn More',
+        click () { require('electron').shell.openExternal('https://www.github.com/austinleath/r6rc') }
+      }
     ]
   })
 } else {
@@ -204,20 +196,60 @@ if (process.platform === 'darwin') {
     label: name,
     submenu: [
       {
+        label: 'Hide ' + name,
+        accelerator: 'Control+H',
+        click() { win.hide(); }
+      },
+      {
+        label: 'Show All',
+        enabled: false
+      },
+      {
+        type: 'separator'
+      },
+      {
         label: 'Quit',
         accelerator: 'Control+Q',
-        click() { app.quit(); }
+        role: 'quit'
       },
+    ]
+  },
+  {
+    label: 'Community',
+    submenu: [
+      {
+        label: 'Join the Discord',
+        accelerator: 'Shift+Control+D',
+        click () { require('electron').shell.openExternal('https://discord.gg/h5zXUBw') }
+      },
+      {
+        label: 'Support ' + name,
+        accelerator: 'Control+D',
+        click () { require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8') }
+      }
+    ]
+  },
+  {
+    label: 'Window',
+    submenu: [
+      {
+        accelerator: 'F11',
+        role: 'togglefullscreen'
+      },
+      {
+        label: 'Minimize',
+        accelerator: 'Control+M',
+        role: 'minimize'
+      },
+      {
+        label: 'Close',
+        role: 'close'
+      }
     ]
   },
   {
     label: 'Help',
     submenu: [
-      {
-        label: 'View License',
-        accelerator: 'Command+L',
-        click () { require('electron').shell.openExternal('https://www.github.com/AustinLeath/r6rc/blame/master/LICENSE') }
-      },
       {
         label: 'Version ' + version,
         enabled: false
@@ -225,14 +257,6 @@ if (process.platform === 'darwin') {
       {
         label: 'Check for update',
         enabled: false
-      },
-      {
-        type: 'separator'
-      },
-      {
-        label: 'Donate',
-        accelerator: 'Control+D',
-        click () { require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8') }
       },
       {
         label: 'Learn More',
