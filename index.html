@@ -136,6 +136,12 @@
           width: 35px;
           height: 35px;
         }
+        #exitfullscreenmessage {
+          position: fixed;
+          top: 5%;
+          right: 2%;
+          display: none;
+        }
     </style>
 </head>
 
@@ -162,6 +168,7 @@
 
     <a id="r6dbclick" href="https://www.r6db.com"><img src="home/images/r6dblogo.svg" alt=""/></a>
     <a id="twitterclick" href="https://twitter.com/R6RankCalc"><img id="twitterimg" src="home/images/twitter.png" alt=""/></a>
+    <a id="exitfullscreenmessage" >Press "F11" to exit fullscreen mode</a>
       <!-- Content -->
         <section id="content">
             <!--Divider-->
@@ -295,5 +302,14 @@
         <script src="home/assets/js/externalopener.js"></script>
         <script src="home/assets/js/titlebar.js"></script>
         <script src="home/assets/js/messagecenter.js"></script>
+        <script>
+        //$(document).keyup(function(e){
+        //   if(e.which==122){
+        //    document.getElementById("exitfullscreenmessage").style.display = "block";
+        //    document.getElementById("title-bar").style.display = "none";
+        //    return false;
+        //  }
+        //});
+        </script>
     </body>
 </html>
