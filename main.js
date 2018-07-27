@@ -234,7 +234,7 @@ if (process.platform === 'darwin') {
     submenu: [
       {
         accelerator: 'F11',
-        role: 'togglefullscreen'
+        click () { fullScreenModule(); }
       },
       {
         label: 'Minimize',
@@ -264,6 +264,15 @@ if (process.platform === 'darwin') {
       }
     ]
   })
+}
+
+function fullScreenModule() {
+
+  if ( win.isFullScreen(true) ) {
+      win.setFullScreen(false);
+  } else {
+      win.setFullScreen(true);
+  }
 }
 
 autoUpdater.on('checking-for-update', () => {
