@@ -12,6 +12,7 @@
     "testmac": "build --mac",
     "testlin": "build --linux",
     "publish": "build -p always",
+    "electronpkgmac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=build/icon.icns --prune=true --out=mac-release",
     "updep": "npm install electron@latest electron-builder@latest electron-packager@latest electron-log@latest electron-updater@latest"
   },
   "devDependencies": {
