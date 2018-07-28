@@ -266,6 +266,13 @@ if (process.platform === 'darwin') {
   })
 }
 
+if (win.setFullScreen(true) ) {
+  document.getElementById('exitfullscreenmessage').style.display = "block";
+} else {
+  document.getElementById('exitfullscreenmessage').style.display = "none";
+}
+
+
 autoUpdater.on('checking-for-update', () => {
   sendStatusToWindow('Checking for update...');
 });
