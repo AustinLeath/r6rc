@@ -27,7 +27,7 @@ function createDefaultWindow() {
     backgroundColor: '#1c1d26',
     autoHideMenuBar: true
   });
-  //win.webContents.openDevTools();
+  win.webContents.openDevTools();
   win.on('closed', () => {
     win = null;
   });                            //indexmac.html if packaging for mac
@@ -49,59 +49,65 @@ if (isSecondInstance) {
 }
 //-------------------------------------------------------------------
 
-//app.setJumpList([
-//  {
-//    type: 'custom',
-//    name: 'Recent Projects',
-//    items: [
-//      { type: 'file', path: 'C:\\Projects\\project1.proj' },
-//      { type: 'file', path: 'C:\\Projects\\project2.proj' }
-//    ]
-//  },
-//  { // has a name so `type` is assumed to be "custom"
-//    name: 'Tools',
-//    items: [
-//      {
-//        type: 'task',
-//        title: 'Tool A',
-//        program: process.execPath,
-//        args: '--run-tool-a',
-//        icon: process.execPath,
-//        iconIndex: 0,
-//        description: 'Runs Tool A'
-//      },
-//      {
-//        type: 'task',
-//        title: 'Tool B',
-//        program: process.execPath,
-//        args: '--run-tool-b',
-//        icon: process.execPath,
-//        iconIndex: 0,
-//        description: 'Runs Tool B'
-//      }
-//    ]
-//  },
-//  { type: 'frequent' },
-//  {
-//    items: [
-//      {
-//        type: 'task',
-//        title: 'New Project',
-//        program: process.execPath,
-//        args: '--new-project',
-//        description: 'Create a new project.'
-//      },
-//      { type: 'separator' },
-//      {
-//        type: 'task',
-//        title: 'Recover Project',
-//        program: process.execPath,
-//        args: '--recover-project',
-//        description: 'Recover Project'
-//      }
-//    ]
-//  }
-//])
+
+
+if (process.platform === 'win') {
+app.setJumpList([
+  {
+    type: 'custom',
+    name: 'Recent Projects',
+    items: [
+      { type: 'file', path: 'C:\\Projects\\project1.proj' },
+      { type: 'file', path: 'C:\\Projects\\project2.proj' }
+    ]
+  },
+  { // has a name so `type` is assumed to be "custom"
+    name: 'Tools',
+    items: [
+      {
+        type: 'task',
+        title: 'Tool A',
+        program: process.execPath,
+        args: '--run-tool-a',
+        icon: process.execPath,
+        iconIndex: 0,
+        description: 'Runs Tool A'
+      },
+      {
+        type: 'task',
+        title: 'Tool B',
+        program: process.execPath,
+        args: '--run-tool-b',
+        icon: process.execPath,
+        iconIndex: 0,
+        description: 'Runs Tool B'
+      }
+    ]
+  },
+  { type: 'frequent' },
+  {
+    items: [
+      {
+        type: 'task',
+        title: 'New Project',
+        program: process.execPath,
+        args: '--new-project',
+        description: 'Create a new project.'
+      },
+      { type: 'separator' },
+      {
+        type: 'task',
+        title: 'Recover Project',
+        program: process.execPath,
+        args: '--recover-project',
+        description: 'Recover Project'
+      }
+    ]
+  }
+])
+} else {
+
+}
 
 //-------------------------------------------------------------------
 // Menu definitions
@@ -162,6 +168,19 @@ if (process.platform === 'darwin') {
     label: 'Window',
     submenu: [
       {
+        label: 'Fullscreen',
+        accelerator: 'Command+F',
+        click () { fullScreenModule(); }
+      },
+      {
+        type: 'separator'
+      },
+      {
+        label: 'Reload',
+        accelerator: 'Command+R',
+        role: 'reload'
+      },
+      {
         label: 'Minimize',
         accelerator: 'Command+M',
         role: 'minimize'
@@ -181,7 +200,9 @@ if (process.platform === 'darwin') {
       },
       {
         label: 'Check for update',
-        enabled: false
+        accelerator: 'Command+U',
+        enabled: true,
+        click () {autoUpdater.checkForUpdatesAndNotify();}
       },
       {
         label: 'Learn More',
@@ -266,14 +287,18 @@ if (process.platform === 'darwin') {
   })
 }
 
-if (win.setFullScreen(true) ) {
-  document.getElementById('exitfullscreenmessage').style.display = "block";
-} else {
-  document.getElementById('exitfullscreenmessage').style.display = "none";
+//-----------------------------------
+function fullScreenModule() {
+  if (win.isFullScreen() ) {
+    win.setFullScreen(false);
+  } else {
+    win.setFullScreen(true);
+  }
 }
-
+//-----------------------------------
 
 autoUpdater.on('checking-for-update', () => {
+  sendStatusToWindow('');
   sendStatusToWindow('Checking for update...');
 });
 autoUpdater.on('update-available', (info) => {

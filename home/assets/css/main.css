@@ -2853,6 +2853,15 @@
 		input[type="button"].small,
 		.button.small {
 			font-size: 0.8em;
+				outline-style: none;
+		}
+
+		input[type="submit"].small,
+		input[type="reset"].small,
+		input[type="button"].small,
+		.button.small:active {
+			font-size: 0.8em;
+			outline-style: none;
 		}
 
 		input[type="submit"].big,
@@ -2867,7 +2876,7 @@
 		input[type="button"].special,
 		.button.special {
 			border-color: rgba(255,255,255,1);
-			font-
+			outline-style: none;
 		}
 
 			input[type="submit"].special:hover,

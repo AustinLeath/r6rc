@@ -23,12 +23,12 @@
         #presetbtn {
             position: fixed;
             top: 20%;
-            left: 10%;
+            left: 12%;
         }
         #custombtn {
             position: fixed;
             top: 20%;
-            right: 10%;
+            right: 13%;
         }
         #preset {
             position: fixed;
@@ -75,24 +75,48 @@
           width: 35px;
           height: 35px;
         }
+        #exitfullscreenmessage {
+          position: fixed;
+          top: 5%;
+          right: 2%;
+          display: none;
+        }
+        #changebtn {
+          position: fixed;
+          top: 20%;
+          left: 43.5%;
+        }
+        #changebtn2 {
+          position: absolute;
+          top: 100%;
+          left: 43.5%;
+        }
+        #page1 {
+          display: block;
+        }
+        #page2 {
+          display: none;
+        }
     </style>
 </head>
 
 <body class="noselect" id="background">
     <div id="page-wrapper">
-    <button class="button small btnalign" id="presetbtn" type="button" onclick="preset();customreset();disable();" disabled>Preset</button>
-      <div id="prompts">
-        <h1 id="cycletxt-1">Welcome to the most minimalistic rank calculator for Rainbow Six: Siege</h1>
-        <h1 id="cycletxt-2">Use the buttons on either side of the screen<br>to switch between solving for a preset rank or a custom rank</h1>
-        <h1 id="cycletxt-3">This application is under heavy development and its features<br>are subject to immediate change</h1>
-        <h1 id="cycletxt-4">Hey! It's finally here<br>R6RC for MAC!</h1>
-      </div>
-    <button class="button small btnalign" id="custombtn" type="button" onclick="custom();presetreset();disable1();">Custom</button>
-
-    <a id="r6dbclick" href="https://www.r6db.com"><img src="home/images/r6dblogo.svg" alt=""/></a>
-    <a id="twitterclick" href="https://twitter.com/R6RankCalc"><img id="twitterimg" src="home/images/twitter.png" alt=""/></a>
       <!-- Content -->
         <section id="content">
+          <div id="page1">
+            <button class="button small btnalign" id="changebtn" type="button" onclick="changetopage2();">View Changelog</button>
+            <div id="prompts">
+              <h1 id="cycletxt-1">Welcome to the most minimalistic rank calculator for Rainbow Six: Siege</h1>
+              <h1 id="cycletxt-2">Use the buttons on either side of the screen<br>to switch between solving for a preset rank or a custom rank</h1>
+              <h1 id="cycletxt-3">This application is under heavy development and its features<br>are subject to immediate change</h1>
+              <h1 id="cycletxt-4">It's finally here, R6RC for Mac!</h1>
+            </div>
+            <button class="button small btnalign" id="presetbtn" type="button" onclick="preset();customreset();disable();" disabled>Preset</button>
+            <button class="button small btnalign" id="custombtn" type="button" onclick="custom();presetreset();disable1();">Custom</button>
+            <a id="exitfullscreenmessage" >Press "Command + F" to exit fullscreen mode</a>
+            <a id="r6dbclick" href="https://www.r6db.com"><img src="home/images/r6dblogo.svg" alt=""/></a>
+            <a id="twitterclick" href="https://twitter.com/R6RankCalc"><img id="twitterimg" src="home/images/twitter.png" alt=""/></a>
             <!--Divider-->
             <form id="preset" action="">
                 <h3 style="text-align: center;">Rainbow Six Siege | Rank Calculator</h3>
@@ -146,7 +170,7 @@
                                 <input type="submit" value="Calculate" class="special" onclick="enable();fillform();winorlose();matchcount();dontwinorlose();">
                             </li>
                             <li>
-                                <input type="reset" value="Reset" onclick="disable();">
+                                <input type="reset" value="Reset" class="special" onclick="disable();">
                             </li>
                             <li id="display">
                                 <a id="winorlose"></a>
@@ -182,7 +206,7 @@
                                 <input type="submit" value="Calculate" class="special" onclick="enable1();fillform1();winorlose1();matchcount1();">
                             </li>
                             <li>
-                                <input type="reset" value="Reset" onclick="disable1();">
+                                <input type="reset" value="Reset" class="special" onclick="disable1();">
                             </li>
                             <li id="display1">
                                 <a id="winorlose1"></a>
@@ -204,6 +228,53 @@
 								<a>R6RC Version: <span id="version">vX.Y.Z</span></a>
 								<a><div id="messages"></div></a>
 						</div>
+          </div>
+          <div id="page2">
+            <header class="major">
+              <h2>R6RC | Changelog</h2>
+              <button class="button small btnalign" id="changebtn2" type="button" onclick="changetopage1();">Return to R6RC</button>
+            </header>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+          </div>
         </section>
 			</div>
        <!-- Scripts -->
@@ -214,15 +285,39 @@
         <script>if (window.module) module = window.module;</script>
         <script src="home/assets/js/jquery.min.js"></script>
         <script src="home/assets/js/cycletxt.js"></script>
-				<script src="home/assets/js/switchpreset.js"></script>
-				<script src="home/assets/js/switchcustom.js"></script>
-        <script src="home/assets/js/methodpreset.js"></script>
-        <script src="home/assets/js/methodcustom.js"></script>
+				<script src="home/assets/js/switchmethod.js"></script>
+        <script src="home/assets/js/presetmethod.js"></script>
+        <script src="home/assets/js/custommethod.js"></script>
         <!--[if lte IE 8]><script src="home/assets/js/ie/respond.min.js"></script><![endif]-->
         <script src="home/assets/js/main.js"></script>
         <script src="home/assets/js/primaryfunctions.js"></script>
         <script src="home/assets/js/externalopener.js"></script>
-        <script src="home/assets/js/titlebar.js"></script>
         <script src="home/assets/js/messagecenter.js"></script>
+
+        <script>
+        //$(document).keypress(function(e){
+        //   if(e.which==13){
+        //     document.getElementById("exitfullscreenmessage").style.display = "block";
+        //  } else {
+        //    document.getElementById("exitfullscreenmessage").style.display = "none";
+        //  }
+        //});
+        </script>
+        <script>
+        function changetopage2() {
+          if (document.getElementById('page1').style.display = "block") {
+            document.getElementById('page1').style.display = "none";
+            document.getElementById('page2').style.display = "block";
+          }
+        }
+        </script>
+        <script>
+        function changetopage1() {
+          if (document.getElementById('page2').style.display = "block") {
+            document.getElementById('page1').style.display = "block";
+            document.getElementById('page2').style.display = "none";
+          }
+        }
+        </script>
     </body>
 </html>
