@@ -20,6 +20,18 @@ function presetreset() {
 function customreset() {
   document.getElementById("custom").reset();
 }
+function changetopage1() {
+  if (document.getElementById('page2').style.display = "block") {
+    document.getElementById('page1').style.display = "block";
+    document.getElementById('page2').style.display = "none";
+  }
+}
+function changetopage2() {
+  if (document.getElementById('page1').style.display = "block") {
+    document.getElementById('page1').style.display = "none";
+    document.getElementById('page2').style.display = "block";
+  }
+}
 function fillform() {
     var finalmessage;
     x = document.getElementById("goal").value;

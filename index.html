@@ -87,15 +87,19 @@
           left: 43.5%;
         }
         #changebtn2 {
-          position: absolute;
-          top: 100%;
-          left: 43.5%;
+          position: fixed;
+          top: 5%;
+          left: 3%;
         }
         #page1 {
           display: block;
         }
         #page2 {
           display: none;
+        }
+        .changelog {
+        width: 100%;
+        padding-left: 25%;
         }
     </style>
 </head>
@@ -110,6 +114,7 @@
               <h1 id="cycletxt-1">Welcome to the most minimalistic rank calculator for Rainbow Six: Siege</h1>
               <h1 id="cycletxt-2">Use the buttons on either side of the screen<br>to switch between solving for a preset rank or a custom rank</h1>
               <h1 id="cycletxt-3">This application is under heavy development and its features<br>are subject to immediate change</h1>
+              <h1 id="cycletxt-3"><a id="react"></a></h1>
               <h1 id="cycletxt-4">It's finally here, R6RC for Mac!</h1>
             </div>
             <button class="button small btnalign" id="presetbtn" type="button" onclick="preset();customreset();disable();" disabled>Preset</button>
@@ -119,7 +124,7 @@
             <a id="twitterclick" href="https://twitter.com/R6RankCalc"><img id="twitterimg" src="home/images/twitter.png" alt=""/></a>
             <!--Divider-->
             <form id="preset" action="">
-                <h3 style="text-align: center;">Rainbow Six Siege | Rank Calculator</h3>
+                <h1 style="text-align: center;">Rainbow Six Siege | Rank Calculator</h1>
                 <div class="row uniform 50%">
                     <div class="6u 12u$(xsmall)">
                         <input type="number" name="mmr" id="mmr" min="1300" max="10000" value="" placeholder="Enter your current MMR" />
@@ -187,7 +192,7 @@
             </form>
 
             <form class="disable" id="custom" action="">
-                <h3 style="text-align: center;">Rainbow Six Siege | Rank Calculator (Custom Rank Goal)</h3>
+                <h1 style="text-align: center;">Rainbow Six Siege | Rank Calculator (Custom Rank Goal)</h1>
                 <div class="row uniform 50%">
                     <div class="6u 12u$(xsmall)">
                         <input id="mmr1" name="mmr1" type="number" min="1300" max="10000" placeholder="Enter your current MMR" value="" />
@@ -230,50 +235,54 @@
 						</div>
           </div>
           <div id="page2">
-            <header class="major">
-              <h2>R6RC | Changelog</h2>
-              <button class="button small btnalign" id="changebtn2" type="button" onclick="changetopage1();">Return to R6RC</button>
-            </header>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
-            <h1>sdfgsdfgsdfgfgsdfgsdfgsdfgsdfgsdfgsdfgfgsdfgsdfgsdfg</h1>
+          <div class="changelog">
+            <h1><strong>R6RC | Changelog</strong></h2>
+            <button class="button small btnalign" id="changebtn2" type="button" onclick="changetopage1();">Return to R6RC</button>
+          <h1>VERSION 0.3.9 CHANGE NOTES</h1>
+            <ul>
+             <strong>CHANGES</strong>
+             <li>Updated all dependencies to the latest version</li>
+             <li>Updated forced single instancing</li>
+             <li>Fixed a bug where the user could have more than one instance of R6RC<br>open at a time via right clicking the R6RC icon on the taskbar and selecting "R6RC"</li>
+            </ul>
+            <ul>
+             <strong>COMING SOON</strong>
+             <li>Soon Visible in-app menu for R6RC</li>
+             <li>Soon Windows Taskbar Jump & Task list for R6RC</li>
+             <li>Soon R6RC Discord</li>
+             <li>Soon R6RC Discord Bot</li>
+            </ul>
+            <ul>
+             <strong>KNOWN BUGS</strong>
+             <li>If the user leaves some of the fields blank, upon calculation the<br>result for how many games the user has to win or lose will return "NaN"</li>
+             <li>Some Antivirus software (Norton, Avast, Kaspersky, etc.)<br>may produce false positives upon install</li>
+             <li><strike>When right clicking the application on the task bar and clicking "R6RC" another instance is opened</strike></li>
+            </ul>
+          </div>
+          <div class="changelog">
+            <h1><strong>R6RC | Changelog</strong></h2>
+            <button class="button small btnalign" id="changebtn2" type="button" onclick="changetopage1();">Return to R6RC</button>
+          <h1>VERSION 0.3.9 CHANGE NOTES</h1>
+            <ul>
+             <strong>CHANGES</strong>
+             <li>Updated all dependencies to the latest version</li>
+             <li>Updated forced single instancing</li>
+             <li>Fixed a bug where the user could have more than one instance of R6RC<br>open at a time via right clicking the R6RC icon on the taskbar and selecting "R6RC"</li>
+            </ul>
+            <ul>
+             <strong>COMING SOON</strong>
+             <li>Soon Visible in-app menu for R6RC</li>
+             <li>Soon Windows Taskbar Jump & Task list for R6RC</li>
+             <li>Soon R6RC Discord</li>
+             <li>Soon R6RC Discord Bot</li>
+            </ul>
+            <ul>
+             <strong>KNOWN BUGS</strong>
+             <li>If the user leaves some of the fields blank, upon calculation the<br>result for how many games the user has to win or lose will return "NaN"</li>
+             <li>Some Antivirus software (Norton, Avast, Kaspersky, etc.)<br>may produce false positives upon install</li>
+             <li><strike>When right clicking the application on the task bar and clicking "R6RC" another instance is opened</strike></li>
+            </ul>
+          </div>
           </div>
         </section>
 			</div>
@@ -293,6 +302,9 @@
         <script src="home/assets/js/primaryfunctions.js"></script>
         <script src="home/assets/js/externalopener.js"></script>
         <script src="home/assets/js/messagecenter.js"></script>
+        <script src="home/assets/react/react.js"></script>
+        <script src="home/assets/react/react-dom.js"></script>
+        <script src="home/assets/react/timeran.js"></script>
 
         <script>
         //$(document).keypress(function(e){
@@ -302,22 +314,6 @@
         //    document.getElementById("exitfullscreenmessage").style.display = "none";
         //  }
         //});
-        </script>
-        <script>
-        function changetopage2() {
-          if (document.getElementById('page1').style.display = "block") {
-            document.getElementById('page1').style.display = "none";
-            document.getElementById('page2').style.display = "block";
-          }
-        }
-        </script>
-        <script>
-        function changetopage1() {
-          if (document.getElementById('page2').style.display = "block") {
-            document.getElementById('page1').style.display = "block";
-            document.getElementById('page2').style.display = "none";
-          }
-        }
         </script>
     </body>
 </html>
