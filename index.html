@@ -130,7 +130,7 @@
                         <input type="number" name="mmr" id="mmr" min="1300" max="10000" value="" placeholder="Enter your current MMR" />
                     </div>
                     <div class="6u$ 12u$(xsmall)">
-                        <input type="number" name="elo" id="elo" min="0" max="1000" value="" placeholder="Enter your current ELO per match" />
+                        <input type="number" name="elo" id="elo" min="1" max="1000" value="" placeholder="Enter your current ELO per match" />
                     </div>
                     <div class="12u$">
                         <div class="select-wrapper">
@@ -172,7 +172,7 @@
                     <div class="12u$">
                         <ul class="actions">
                             <li>
-                                <input type="submit" value="Calculate" class="special" onclick="enable();fillform();winorlose();matchcount();dontwinorlose();">
+                                <input type="submit" value="Calculate" class="special" onclick="enable();checkmmrfill();checkelofill();checkgoalfill();winorlose();matchcount();dontwinorlose();">
                             </li>
                             <li>
                                 <input type="reset" value="Reset" class="special" onclick="disable();">
@@ -184,7 +184,9 @@
                                 <a id="matchcount"></a>
                             </li>
                             <li id="errordialogue">
-                              <a id="errormessage"></a>
+                              <a id="mmrerrormessage"></a>
+                              <a id="eloerrormessage"></a>
+                              <a id="goalerrormessage"></a>
                             </li>
                         </ul>
                     </div>
@@ -198,7 +200,7 @@
                         <input id="mmr1" name="mmr1" type="number" min="1300" max="10000" placeholder="Enter your current MMR" value="" />
                     </div>
                     <div class="6u$ 12u$(xsmall)">
-                        <input id="elo1" name="elo1" type="number" min="0" max="500" placeholder="Enter your current ELO per match" value="" />
+                        <input id="elo1" name="elo1" type="number" min="1" max="500" placeholder="Enter your current ELO per match" value="" />
                     </div>
                     <div class="12u$">
                         <div class="12u$">
@@ -208,7 +210,7 @@
                     <div class="12u$">
                         <ul class="actions">
                             <li>
-                                <input type="submit" value="Calculate" class="special" onclick="enable1();fillform1();winorlose1();matchcount1();">
+                                <input type="submit" value="Calculate" class="special" onclick="enable1();checkmmrfill1();checkelofill1();checkgoalfill1();winorlose1();matchcount1();">
                             </li>
                             <li>
                                 <input type="reset" value="Reset" class="special" onclick="disable1();">
@@ -219,7 +221,9 @@
                                 <a id="matchcount1"></a>
                             </li>
                             <li id="errordialogue1">
-                              <a id="errormessage1"></a>
+                              <a id="mmrerrormessage1"></a>
+                              <a id="eloerrormessage1"></a>
+                              <a id="goalerrormessage1"></a>
                             </li>
                         </ul>
                     </div>
@@ -263,6 +267,7 @@
         </section>
 			</div>
        <!-- Scripts -->
+
         <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
         <!-- normal script imports etc  -->
         <script src="home/assets/js/jquery.min.js"></script>
