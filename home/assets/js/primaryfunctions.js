@@ -1,18 +1,18 @@
 function enable() {
     document.getElementById("display").style.display = "";
-    document.getElementById("errormessage").style.display = "";
+    document.getElementById("errordialogue").style.display = "";
 }
 function disable() {
     document.getElementById("display").style.display = "none";
-    document.getElementById("errormessage").style.display = "none";
+    document.getElementById("errordialogue").style.display = "none";
 }
 function enable1() {
     document.getElementById("display1").style.display = "";
-    document.getElementById("errormessage1").style.display = "";
+    document.getElementById("errordialogue1").style.display = "";
 }
 function disable1() {
     document.getElementById("display1").style.display = "none";
-    document.getElementById("errormessage1").style.display = "none";
+    document.getElementById("errordialogue1").style.display = "none";
 }
 function presetreset() {
   document.getElementById("preset").reset();
@@ -20,43 +20,97 @@ function presetreset() {
 function customreset() {
   document.getElementById("custom").reset();
 }
-function fillform() {
-    var finalmessage;
-    x = document.getElementById("goal").value;
-    if (x == "") {
-      document.getElementById("display").style.display = "none";
-      document.getElementById("errordialogue").style.display = "";
-      finalmessage = "Please select a rank from the dialogue above.";
-    } else {
-      document.getElementById("errordialogue").style.display = "none";
-      finalmessage = "No errors to report<br>this dialogue has been activated due to an error.";
-    }
-    document.getElementById("errormessage").innerHTML = finalmessage;
+function changetopage1() {
+  if (document.getElementById('page2').style.display = "block") {
+    document.getElementById('page1').style.display = "block";
+    document.getElementById('page2').style.display = "none";
+  }
 }
-function fillform1() {
-    var finalmessage;
-    x = document.getElementById("goal1").value;
-    if (x == "") {
-      document.getElementById("display1").style.display = "none";
-      document.getElementById("errordialogue1").style.display = "";
-      finalmessage = "Please enter a custom MMR Goal.";
-    } else {
-      document.getElementById("errordialogue1").style.display = "none";
-      finalmessage = "No errors to report<br>this dialogue has been activated due to an error.";
-    }
-    document.getElementById("errormessage1").innerHTML = finalmessage;
+function changetopage2() {
+  if (document.getElementById('page1').style.display = "block") {
+    document.getElementById('page1').style.display = "none";
+    document.getElementById('page2').style.display = "block";
+  }
 }
 function checkmmrfill() {
     var finalmessage;
     x = document.getElementById("mmr").value;
+    if (x < 1300) {
+      document.getElementById("display").style.display = "none";
+      document.getElementById("mmrerrormessage").style.display = "";
+      finalmessage = "Please select a MMR from the dialogue above.";
+    } else {
+      document.getElementById("mmrerrormessage").style.display = "none";
+      finalmessage = "MMR: OK";
+    }
+    document.getElementById("mmrerrormessage").innerHTML = finalmessage;
+}
+function checkelofill() {
+    var finalmessage;
+    x = document.getElementById("elo").value;
+    if (x < 1) {
+      document.getElementById("display").style.display = "none";
+      document.getElementById("eloerrormessage").style.display = "";
+      finalmessage = "Please select a ELO from the dialogue above.";
+    } else {
+      document.getElementById("eloerrormessage").style.display = "none";
+      finalmessage = "ELO: OK";
+    }
+    document.getElementById("eloerrormessage").innerHTML = finalmessage;
+}
+function checkgoalfill() {
+    var finalmessage;
+    x = document.getElementById("goal").value;
     if (x == "") {
       document.getElementById("display").style.display = "none";
-      document.getElementById("errordialogue").style.display = ""
-      finalmessage = "PLEASE FILL MMR";
+      document.getElementById("goalerrormessage").style.display = "";
+      finalmessage = "Please select a rank from the dialogue above.";
     } else {
-      document.getElementById("display").style.display = "";
-      document.getElementById("errordialogue").style.display = "none"
-      finalmessage = "No errors to report<br>this dialogue has been activated due to an error.";
+      document.getElementById("goalerrormessage").style.display = "none";
+      finalmessage = "GOAL: OK";
     }
-    document.getElementById("mmrerrormessage").innerhtml = finalmessage;
+    document.getElementById("goalerrormessage").innerHTML = finalmessage;
+}
+
+
+
+
+function checkmmrfill1() {
+    var finalmessage;
+    x = document.getElementById("mmr1").value;
+    if (x < 1300) {
+      document.getElementById("display1").style.display = "none";
+      document.getElementById("mmrerrormessage1").style.display = "";
+      finalmessage = "Please select a MMR from the dialogue above.";
+    } else {
+      document.getElementById("mmrerrormessage1").style.display = "none";
+      finalmessage = "MMR: OK";
+    }
+    document.getElementById("mmrerrormessage1").innerHTML = finalmessage;
+}
+function checkelofill1() {
+    var finalmessage;
+    x = document.getElementById("elo1").value;
+    if (x < 1) {
+      document.getElementById("display1").style.display = "none";
+      document.getElementById("eloerrormessage1").style.display = "";
+      finalmessage = "Please select a ELO from the dialogue above.";
+    } else {
+      document.getElementById("eloerrormessage1").style.display = "none";
+      finalmessage = "ELO: OK";
+    }
+    document.getElementById("eloerrormessage1").innerHTML = finalmessage;
+}
+function checkgoalfill1() {
+    var finalmessage;
+    x = document.getElementById("goal1").value;
+    if (x < 1300) {
+      document.getElementById("display1").style.display = "none";
+      document.getElementById("goalerrormessage1").style.display = "";
+      finalmessage = "Please select a rank from the dialogue above.";
+    } else {
+      document.getElementById("goalerrormessage1").style.display = "none";
+      finalmessage = "GOAL: OK";
+    }
+    document.getElementById("goalerrormessage1").innerHTML = finalmessage;
 }
