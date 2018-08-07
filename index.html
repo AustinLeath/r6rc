@@ -178,29 +178,17 @@
     </div>
     <div id="page-wrapper">
     <a id="exitfullscreenmessage" >Press "F11" to exit fullscreen mode</a>
-      <!-- Content -->
       <section id="content">
         <div id="page1">
-          <button class="button small btnalign" id="presetbtn" type="button" onclick="preset();customreset();disable();" disabled>Preset</button>
-            <div id="prompts">
-              <h1 id="cycletxt-1">Welcome to the most minimalistic rank calculator for Rainbow Six: Siege</h1>
-              <h1 id="cycletxt-2">Use the buttons on either side of the screen<br>to switch between solving for a preset rank or a custom rank</h1>
-              <h1 id="cycletxt-3">This application is under heavy development and its features<br>are subject to immediate change</h1>
-              <h1 id="cycletxt-4">Coming Soon: R6RC for MAC!</h1>
-            </div>
-          <button class="button small btnalign" id="custombtn" type="button" onclick="custom();presetreset();disable1();">Custom</button>
-
-          <a id="r6dbclick" href="https://www.r6db.com"><img src="home/images/r6dblogo.svg" alt=""/></a>
-          <a id="twitterclick" href="https://twitter.com/R6RankCalc"><img id="twitterimg" src="home/images/twitter.png" alt=""/></a>
-          <button class="button small btnalign" id="changebtn" type="button" onclick="changetopage2();">View Changelog</button>
           <div id="prompts">
             <h1 id="cycletxt-1">Welcome to the most minimalistic rank calculator for Rainbow Six: Siege</h1>
             <h1 id="cycletxt-2">Use the buttons on either side of the screen<br>to switch between solving for a preset rank or a custom rank</h1>
             <h1 id="cycletxt-3">This application is under heavy development and its features<br>are subject to immediate change</h1>
             <h1 id="cycletxt-3"><a id="react"></a></h1>
-            <h1 id="cycletxt-4">It's finally here, R6RC for Mac!</h1>
+            <h1 id="cycletxt-4">Coming soon, R6RC for Mac!</h1>
           </div>
           <button class="button small btnalign" id="presetbtn" type="button" onclick="preset();customreset();disable();" disabled>Preset</button>
+          <button class="button small btnalign" id="changebtn" type="button" onclick="changetopage2();">View Changelog</button>
           <button class="button small btnalign" id="custombtn" type="button" onclick="custom();presetreset();disable1();">Custom</button>
           <a id="exitfullscreenmessage" >Press "Command + F" to exit fullscreen mode</a>
           <a id="r6dbclick" href="https://www.r6db.com"><img src="home/images/r6dblogo.svg" alt=""/></a>
@@ -365,10 +353,10 @@
        <script src="home/assets/js/primaryfunctions.js"></script>
        <script src="home/assets/js/externalopener.js"></script>
        <script src="home/assets/js/messagecenter.js"></script>
+       <script src="home/assets/js/titlebar.js"></script>
        <script src="home/assets/react/react.js"></script>
        <script src="home/assets/react/react-dom.js"></script>
        <script src="home/assets/react/timeran.js"></script>
-
        <script>
        //$(document).keypress(function(e){
        //   if(e.which==13){
