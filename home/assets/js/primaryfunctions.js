@@ -32,13 +32,14 @@ function changetopage2() {
     document.getElementById('page2').style.display = "block";
   }
 }
+//preset method
 function checkmmrfill() {
     var finalmessage;
     x = document.getElementById("mmr").value;
     if (x < 1300) {
       document.getElementById("display").style.display = "none";
       document.getElementById("mmrerrormessage").style.display = "";
-      finalmessage = "Please select a MMR from the dialogue above.";
+      finalmessage = "Enter player MMR";
     } else {
       document.getElementById("mmrerrormessage").style.display = "none";
       finalmessage = "MMR: OK";
@@ -51,7 +52,7 @@ function checkelofill() {
     if (x < 1) {
       document.getElementById("display").style.display = "none";
       document.getElementById("eloerrormessage").style.display = "";
-      finalmessage = "Please select a ELO from the dialogue above.";
+      finalmessage = "Enter player ELO";
     } else {
       document.getElementById("eloerrormessage").style.display = "none";
       finalmessage = "ELO: OK";
@@ -64,24 +65,21 @@ function checkgoalfill() {
     if (x == "") {
       document.getElementById("display").style.display = "none";
       document.getElementById("goalerrormessage").style.display = "";
-      finalmessage = "Please select a rank from the dialogue above.";
+      finalmessage = "Select a rank from the dialogue above.";
     } else {
       document.getElementById("goalerrormessage").style.display = "none";
       finalmessage = "GOAL: OK";
     }
     document.getElementById("goalerrormessage").innerHTML = finalmessage;
 }
-
-
-
-
+//custom method
 function checkmmrfill1() {
     var finalmessage;
     x = document.getElementById("mmr1").value;
     if (x < 1300) {
       document.getElementById("display1").style.display = "none";
       document.getElementById("mmrerrormessage1").style.display = "";
-      finalmessage = "Please select a MMR from the dialogue above.";
+      finalmessage = "Enter player MMR";
     } else {
       document.getElementById("mmrerrormessage1").style.display = "none";
       finalmessage = "MMR: OK";
@@ -94,7 +92,7 @@ function checkelofill1() {
     if (x < 1) {
       document.getElementById("display1").style.display = "none";
       document.getElementById("eloerrormessage1").style.display = "";
-      finalmessage = "Please select a ELO from the dialogue above.";
+      finalmessage = "Enter player ELO";
     } else {
       document.getElementById("eloerrormessage1").style.display = "none";
       finalmessage = "ELO: OK";
@@ -107,7 +105,7 @@ function checkgoalfill1() {
     if (x < 1300) {
       document.getElementById("display1").style.display = "none";
       document.getElementById("goalerrormessage1").style.display = "";
-      finalmessage = "Please select a rank from the dialogue above.";
+      finalmessage = "Select a rank from the dialogue above.";
     } else {
       document.getElementById("goalerrormessage1").style.display = "none";
       finalmessage = "GOAL: OK";

@@ -26,6 +26,7 @@
             margin: 0px;
             position: fixed;
             width: 100%;
+            z-index: 100;
         }
         #title {
             position: fixed;
@@ -38,6 +39,9 @@
             position: fixed;
             top: 0px;
             right: 0px;
+        }
+        .titlebarbuttons {
+          color: white;
         }
         #min-btn {
             background-color: transparent;
@@ -112,7 +116,7 @@
 				}
         #prompts {
           position: fixed;
-          top:10%;
+          top:15%;
           width:100%;
           text-align: center;
           text-decoration: none;
@@ -143,14 +147,12 @@
           display: none;
         }
         #changebtn {
-          position: fixed;
-          top: 20%;
-          left: 43.5%;
+          margin: auto;
+          display:block;
         }
         #changebtn2 {
-          position: fixed;
-          top: 5%;
-          left: 3%;
+          margin:auto;
+          display:block;
         }
         #page1 {
           display: block;
@@ -159,8 +161,14 @@
           display: none;
         }
         .changelog {
-        width: 100%;
-        padding-left: 25%;
+          width: 50%;
+          text-align: left;
+          margin: auto;
+          display: block;
+        }
+        .appimage {
+          width: 15px;
+          height: 15px;
         }
     </style>
 </head>
@@ -168,12 +176,12 @@
 <body class="noselect" id="background">
     <div id="title-bar">
         <div id="title-bar-btns">
-            <button id="min-btn"><font color="white">&#8722;</font></button>
-            <button id="max-btn"><font color="white">&#9634;</font></button>
-            <button id="close-btn"><font color="white">&#x2715;</font></button>
+            <button class="titlebarbuttons" id="min-btn">&#8722;</button>
+            <button class="titlebarbuttons" id="max-btn">&#9634;</button>
+            <button class="titlebarbuttons" id="close-btn">&#x2715;</button>
         </div>
         <div id="title">
-            <span style="vertical-align: middle;"><img src="home/images/r6rc-icon.png" style="width:15px; height:15px;"/></span><font id="titlename"><a id="apptitle">R6RC | R6 Rank Calculator</a></font>
+            <span style="vertical-align: middle;"><img class="appimage" src="home/images/r6rc-icon.png" alt=""/><a id="titlename">R6RC | R6 Rank Calculator</a></span>
         </div>
     </div>
     <div id="page-wrapper">
@@ -184,13 +192,12 @@
             <h1 id="cycletxt-1">Welcome to the most minimalistic rank calculator for Rainbow Six: Siege</h1>
             <h1 id="cycletxt-2">Use the buttons on either side of the screen<br>to switch between solving for a preset rank or a custom rank</h1>
             <h1 id="cycletxt-3">This application is under heavy development and its features<br>are subject to immediate change</h1>
-            <h1 id="cycletxt-3"><a id="react"></a></h1>
-            <h1 id="cycletxt-4">Coming soon, R6RC for Mac!</h1>
+            <h1 id="cycletxt-4"><a id="react"></a></h1>
+            <h1 id="cycletxt-5">Coming soon, R6RC for Mac!</h1>
           </div>
           <button class="button small btnalign" id="presetbtn" type="button" onclick="preset();customreset();disable();" disabled>Preset</button>
           <button class="button small btnalign" id="changebtn" type="button" onclick="changetopage2();">View Changelog</button>
           <button class="button small btnalign" id="custombtn" type="button" onclick="custom();presetreset();disable1();">Custom</button>
-          <a id="exitfullscreenmessage" >Press "Command + F" to exit fullscreen mode</a>
           <a id="r6dbclick" href="https://www.r6db.com"><img src="home/images/r6dblogo.svg" alt=""/></a>
           <a id="twitterclick" href="https://twitter.com/R6RankCalc"><img id="twitterimg" src="home/images/twitter.png" alt=""/></a>
           <!--Divider-->
@@ -302,6 +309,7 @@
           </form>
           <div class="versionnum">
               <!-- the button onClick sends a quitAndInstall message to the electron main process -->
+              <a>Subscribe to my newsletter | <a id="mailchimp" class="icon alt fa-envelope" href="http://eepurl.com/dDs2rb"></a></a><br>
               <a>Node.js: <script>document.write(process.versions.node)</script></a> |
               <a>Chromium: <script>document.write(process.versions.chrome)</script></a> |
               <a>Electron: <script>document.write(process.versions.electron)</script></a> |
@@ -309,16 +317,16 @@
               <a><div id="messages"></div></a>
           </div>
         </div>
-        <div id="page2">
+      <div id="page2">
+        <button class="button small btnalign" id="changebtn2" type="button" onclick="changetopage1();">Return to R6RC</button>
         <div class="changelog">
-          <h1><strong>R6RC | Changelog</strong></h2>
-          <button class="button small btnalign" id="changebtn2" type="button" onclick="changetopage1();">Return to R6RC</button>
-        <h1>VERSION 0.3.9 CHANGE NOTES</h1>
+        <h1><strong>R6RC | Changelog</strong></h2>
+        <h1>VERSION 0.4.0 CHANGE NOTES</h1>
           <ul>
            <strong>CHANGES</strong>
            <li>Updated all dependencies to the latest version</li>
-           <li>Updated forced single instancing</li>
-           <li>Fixed a bug where the user could have more than one instance of R6RC<br>open at a time via right clicking the R6RC icon on the taskbar and selecting "R6RC"</li>
+           <li>Fixed a bug where If the user leaves some of the fields blank, upon calculation the<br>result for how many games the user has to win or lose will return "NaN"</li>
+           <li>Added an in-app Changelog so that the user can press a button to the most recent changes</li>
           </ul>
           <ul>
            <strong>COMING SOON</strong>
@@ -329,12 +337,12 @@
           </ul>
           <ul>
            <strong>KNOWN BUGS</strong>
-           <li>If the user leaves some of the fields blank, upon calculation the<br>result for how many games the user has to win or lose will return "NaN"</li>
            <li>Some Antivirus software (Norton, Avast, Kaspersky, etc.)<br>may produce false positives upon install</li>
+           <li><strike>If the user leaves some of the fields blank, upon calculation the<br>result for how many games the user has to win or lose will return "NaN"</strike></li>
            <li><strike>When right clicking the application on the task bar and clicking "R6RC" another instance is opened</strike></li>
           </ul>
         </div>
-        </div>
+      </div>
       </section>
 			</div>
        <!-- Scripts -->
@@ -346,11 +354,11 @@
        <script src="home/assets/js/jquery.min.js"></script>
        <script src="home/assets/js/cycletxt.js"></script>
        <script src="home/assets/js/switchmethod.js"></script>
-       <script src="home/assets/js/presetmethod.js"></script>
-       <script src="home/assets/js/custommethod.js"></script>
        <!--[if lte IE 8]><script src="home/assets/js/ie/respond.min.js"></script><![endif]-->
        <script src="home/assets/js/main.js"></script>
        <script src="home/assets/js/primaryfunctions.js"></script>
+       <script src="home/assets/js/methodpreset.js"></script>
+       <script src="home/assets/js/methodcustom.js"></script>
        <script src="home/assets/js/externalopener.js"></script>
        <script src="home/assets/js/messagecenter.js"></script>
        <script src="home/assets/js/titlebar.js"></script>

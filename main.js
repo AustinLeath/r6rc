@@ -242,6 +242,11 @@ if (process.platform === 'darwin') {
         role: 'minimize'
       },
       {
+        label: 'Reload',
+        accelerator: 'Control+R',
+        role: 'reload'
+      },
+      {
         label: 'Close',
         role: 'close'
       }
