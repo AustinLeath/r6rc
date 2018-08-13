@@ -166,10 +166,6 @@
           margin: auto;
           display: block;
         }
-        .appimage {
-          width: 15px;
-          height: 15px;
-        }
     </style>
 </head>
 
@@ -181,7 +177,7 @@
             <button class="titlebarbuttons" id="close-btn">&#x2715;</button>
         </div>
         <div id="title">
-            <span style="vertical-align: middle;"><img class="appimage" src="home/images/r6rc-icon.png" alt=""/><a id="titlename">R6RC | R6 Rank Calculator</a></span>
+            <span style="vertical-align: middle;"><img style="width: 15px; height: 15px;"src="home/images/r6rc-icon.png" alt=""/><a id="titlename">R6RC | R6 Rank Calculator</a></span>
         </div>
     </div>
     <div id="page-wrapper">
@@ -309,7 +305,7 @@
           </form>
           <div class="versionnum">
               <!-- the button onClick sends a quitAndInstall message to the electron main process -->
-              <a>Subscribe to my newsletter | <a id="mailchimp" class="icon alt fa-envelope" href="http://eepurl.com/dDs2rb"></a></a><br>
+              <a>Subscribe to the R6RC newsletter! | <a id="mailchimp" class="icon alt fa-envelope" href="http://eepurl.com/dDs2rb"></a></a><br>
               <a>Node.js: <script>document.write(process.versions.node)</script></a> |
               <a>Chromium: <script>document.write(process.versions.chrome)</script></a> |
               <a>Electron: <script>document.write(process.versions.electron)</script></a> |
@@ -324,20 +320,22 @@
         <h1>VERSION 0.4.0 CHANGE NOTES</h1>
           <ul>
            <strong>CHANGES</strong>
-           <li>Updated all dependencies to the latest version</li>
-           <li>Fixed a bug where If the user leaves some of the fields blank, upon calculation the<br>result for how many games the user has to win or lose will return "NaN"</li>
-           <li>Added an in-app Changelog so that the user can press a button to the most recent changes</li>
+           <li><b>Updated</b> all dependencies to the latest version</li>
+           <li><b>Fixed</b> a bug where If the user leaves some of the fields blank, upon calculation the<br>result for how many games the user has to win or lose will return "NaN"</li>
+           <li><b>Added</b> an in-app Changelog so that the user can press a button to view the most recent changes</li>
+           <li><b>Added</b> a prompt to subscribe to the R6RC newsletter</li>
           </ul>
           <ul>
            <strong>COMING SOON</strong>
-           <li>Soon Visible in-app menu for R6RC</li>
-           <li>Soon Windows Taskbar Jump & Task list for R6RC</li>
-           <li>Soon R6RC Discord</li>
-           <li>Soon R6RC Discord Bot</li>
+           <li><b>Soon</b> Visible in-app menu for R6RC</li>
+           <li><b>Soon</b> Windows Taskbar Jump & Task list for R6RC</li>
+           <li><b>Soon</b> R6RC Discord</li>
+           <li><b>Soon</b> R6RC Discord Bot</li>
           </ul>
           <ul>
            <strong>KNOWN BUGS</strong>
            <li>Some Antivirus software (Norton, Avast, Kaspersky, etc.)<br>may produce false positives upon install</li>
+           <li>The scrollbar overlaps the titlebar when viewing the changelog page</li>
            <li><strike>If the user leaves some of the fields blank, upon calculation the<br>result for how many games the user has to win or lose will return "NaN"</strike></li>
            <li><strike>When right clicking the application on the task bar and clicking "R6RC" another instance is opened</strike></li>
           </ul>
