@@ -16,6 +16,6 @@ var start = new Date().getTime();
 setInterval(function() {
   ReactDOM.render(
     R6RCFactory({elapsed: new Date().getTime() - start}),
-    document.getElementById('react')
+    document.getElementById('timeran')
   );
 }, 50);
