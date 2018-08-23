@@ -27,7 +27,7 @@ function createDefaultWindow() {
     backgroundColor: '#1c1d26',
     autoHideMenuBar: true
   });
-  win.webContents.openDevTools();
+  //win.webContents.openDevTools();
   win.on('closed', () => {
     win = null;
   });                            //indexmac.html if packaging for mac
