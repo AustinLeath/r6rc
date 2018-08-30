@@ -9,17 +9,16 @@ document.getElementById("twitterclick").addEventListener("auxclick", function (e
   var remoteLink = this.getAttribute('href');
   shell.openExternal( remoteLink );
 });
-document.getElementById("r6dbclick").addEventListener("click", function (e) {
+document.getElementById("r6tablick").addEventListener("click", function (e) {
   e.preventDefault();
   var remoteLink = this.getAttribute('href');
   shell.openExternal( remoteLink );
 });
-document.getElementById("r6dbclick").addEventListener("auxclick", function (e) {
+document.getElementById("r6tabclick").addEventListener("auxclick", function (e) {
   e.preventDefault();
   var remoteLink = this.getAttribute('href');
   shell.openExternal( remoteLink );
 });
-
 document.getElementById("mailchimp").addEventListener("click", function (e) {
   e.preventDefault();
   var remoteLink = this.getAttribute('href');
