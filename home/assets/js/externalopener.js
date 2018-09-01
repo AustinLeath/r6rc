@@ -9,7 +9,7 @@ document.getElementById("twitterclick").addEventListener("auxclick", function (e
   var remoteLink = this.getAttribute('href');
   shell.openExternal( remoteLink );
 });
-document.getElementById("r6tablick").addEventListener("click", function (e) {
+document.getElementById("r6tabclick").addEventListener("click", function (e) {
   e.preventDefault();
   var remoteLink = this.getAttribute('href');
   shell.openExternal( remoteLink );
@@ -25,6 +25,16 @@ document.getElementById("mailchimp").addEventListener("click", function (e) {
   shell.openExternal( remoteLink );
 });
 document.getElementById("mailchimp").addEventListener("auxclick", function (e) {
+  e.preventDefault();
+  var remoteLink = this.getAttribute('href');
+  shell.openExternal( remoteLink );
+});
+document.getElementById("discord").addEventListener("click", function (e) {
+  e.preventDefault();
+  var remoteLink = this.getAttribute('href');
+  shell.openExternal( remoteLink );
+});
+document.getElementById("discord").addEventListener("auxclick", function (e) {
   e.preventDefault();
   var remoteLink = this.getAttribute('href');
   shell.openExternal( remoteLink );

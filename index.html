@@ -165,10 +165,12 @@
           display: none;
         }
         .changelog {
+          position: fixed;
           width: 50%;
           text-align: left;
-          margin: auto;
+          left: 50%
           display: block;
+
         }
     </style>
 </head>
@@ -202,7 +204,7 @@
           <a id="twitterclick" href="https://twitter.com/R6RankCalc"><img id="twitterimg" src="home/images/twitter.png" alt=""/></a>
           <!--Divider-->
           <form id="preset" action="">
-              <h1 style="text-align: center;">Rainbow Six Siege | Rank Calculator</h1>
+              <h1 style="text-align: center;">Rainbow Six Siege | Rank Calculator (Preset Rank Goal)</h1>
               <div class="row uniform 50%">
                   <div class="6u 12u$(xsmall)">
                       <input type="number" name="mmr" id="mmr" min="1300" max="10000" value="" placeholder="Enter your current MMR" />
@@ -213,7 +215,7 @@
                   <div class="12u$">
                       <div class="select-wrapper">
                         <select name="goal" id="goal">
-                          <option value="">- Select a Rank -</option>
+                          <option value="">Select a Rank</option>
                             <optgroup label="Copper">
                                <option value="1300">Copper IV</option>
                                <option value="1400">Copper III</option>
@@ -309,7 +311,7 @@
           </form>
           <div class="versionnum">
               <!-- the button onClick sends a quitAndInstall message to the electron main process -->
-              <a>Subscribe to the R6RC newsletter! | <a id="mailchimp" class="icon alt fa-envelope" href="http://eepurl.com/dDs2rb"></a></a><br>
+              <!-- <a>Subscribe to the R6RC newsletter! | <a id="mailchimp" class="icon alt fa-envelope" href="http://eepurl.com/dDs2rb"></a></a><br> -->
               <a>Node.js: <script>document.write(process.versions.node)</script></a> |
               <a>Chromium: <script>document.write(process.versions.chrome)</script></a> |
               <a>Electron: <script>document.write(process.versions.electron)</script></a> |
@@ -321,20 +323,22 @@
         <button class="button small btnalign" id="changebtn2" type="button" onclick="changetopage1();">Return to R6RC</button>
         <div class="changelog">
         <h1><strong>R6RC | Changelog</strong></h2>
-        <h1>VERSION 0.4.0 CHANGE NOTES</h1>
+        <h1>VERSION 0.4.1 CHANGE NOTES</h1>
           <ul>
            <strong>CHANGES</strong>
            <li><b>Updated</b> all dependencies to the latest version</li>
-           <li><b>Fixed</b> a bug where If the user leaves some of the fields blank, upon calculation the<br>result for how many games the user has to win or lose will return "NaN"</li>
-           <li><b>Added</b> an in-app Changelog so that the user can press a button to view the most recent changes</li>
+           <li><b>Disabled</b> the R6RC newsletter dialogue for now</li>
+           <li><b>Removed</b> R6DB from R6RC due to their website shutting down</li>
+           <li><b>Added</b> R6Tab in the place of R6DB</li>
            <li><b>Added</b> a prompt to subscribe to the R6RC newsletter</li>
           </ul>
           <ul>
            <strong>COMING SOON</strong>
-           <li><b>Soon</b> Visible in-app menu for R6RC</li>
-           <li><b>Soon</b> Windows Taskbar Jump & Task list for R6RC</li>
-           <li><b>Soon</b> R6RC Discord</li>
-           <li><b>Soon</b> R6RC Discord Bot</li>
+           <li>Visible in-app menu for R6RC</li>
+           <li>Windows Taskbar Jump & Task list for R6RC</li>
+           <li>R6RC Discord</li>
+           <li>R6RC Discord Bot</li>
+           <li>R6RC for Mac</li>
           </ul>
         </div>
       </div>
