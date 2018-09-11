@@ -19,22 +19,12 @@ document.getElementById("r6tabclick").addEventListener("auxclick", function (e) 
   var remoteLink = this.getAttribute('href');
   shell.openExternal( remoteLink );
 });
-document.getElementById("mailchimp").addEventListener("click", function (e) {
+document.getElementById("discordclick").addEventListener("click", function (e) {
   e.preventDefault();
   var remoteLink = this.getAttribute('href');
   shell.openExternal( remoteLink );
 });
-document.getElementById("mailchimp").addEventListener("auxclick", function (e) {
-  e.preventDefault();
-  var remoteLink = this.getAttribute('href');
-  shell.openExternal( remoteLink );
-});
-document.getElementById("discord").addEventListener("click", function (e) {
-  e.preventDefault();
-  var remoteLink = this.getAttribute('href');
-  shell.openExternal( remoteLink );
-});
-document.getElementById("discord").addEventListener("auxclick", function (e) {
+document.getElementById("discordclick").addEventListener("auxclick", function (e) {
   e.preventDefault();
   var remoteLink = this.getAttribute('href');
   shell.openExternal( remoteLink );

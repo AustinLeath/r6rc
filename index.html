@@ -131,6 +131,15 @@
           bottom: 10px;
           left: 25px;
         }
+        #discordclick {
+          position: fixed;
+          top: 35px;
+          right: 26.5px;
+        }
+        #discord {
+          width:25px;
+          height:25px;
+        }
         #r6tab {
           width:70px;
           height:40px;
@@ -173,7 +182,6 @@
         }
     </style>
 </head>
-
 <body class="noselect" id="background">
     <div id="title-bar">
         <div id="title-bar-btns">
@@ -199,6 +207,7 @@
           <button class="button small btnalign" id="presetbtn" type="button" onclick="preset();customreset();disable();" disabled>Preset</button>
           <button class="button small btnalign" id="changebtn" type="button" onclick="changetopage2();">View Changelog</button>
           <button class="button small btnalign" id="custombtn" type="button" onclick="custom();presetreset();disable1();">Custom</button>
+          <a id="discordclick" href="https://discord.gg/cycufxx"><img id="discord" src="home/images/discord.png" alt=""/></a>
           <a id="r6tabclick" href="https://www.r6tab.com"><img id="r6tab" src="home/images/r6tablogo.png" alt=""/></a>
           <a id="twitterclick" href="https://twitter.com/R6RankCalc"><img id="twitterimg" src="home/images/twitter.png" alt=""/></a>
           <!--Divider-->
@@ -325,17 +334,16 @@
         <h1>VERSION 0.4.1 CHANGE NOTES</h1>
           <ul>
            <strong>CHANGES</strong>
+           <li><b>Added</b> a Discord button! Now you can join the community!</li>
            <li><b>Updated</b> all dependencies to the latest version</li>
-           <li><b>Disabled</b> the R6RC newsletter dialogue for now</li>
+           <li><b>Removed</b> the R6RC newsletter dialogue for now</li>
            <li><b>Removed</b> R6DB from R6RC due to their website shutting down</li>
-           <li><b>Replaced</b> R6DB with R6Tab</li>
-           <li><b>Added</b> a prompt to subscribe to the R6RC newsletter</li>
+           <li><b>Replaced</b> R6DB with R6TAB</li>
           </ul>
           <ul>
            <strong>COMING SOON</strong>
            <li>Visible in-app menu for R6RC</li>
            <li>Windows Taskbar Jump & Task list for R6RC</li>
-           <li>R6RC Discord</li>
            <li>R6RC Discord Bot</li>
            <li>R6RC for Mac</li>
           </ul>
