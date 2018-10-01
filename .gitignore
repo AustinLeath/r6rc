@@ -1,9 +1,8 @@
-
-# packages
+#packages
 node_modules
 
-# temporary files
+#temporary files
 .DS_Store
 
-# production
+#production
 /dist
