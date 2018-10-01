@@ -1,6 +1,6 @@
 {
   "name": "R6RC",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "main": "main.js",
   "repository": "https://github.com/austinleath/r6rc",
   "license": "MIT",
@@ -15,9 +15,9 @@
     "updep": "npm install electron@latest electron-builder@latest electron-packager@latest electron-log@latest electron-updater@latest"
   },
   "devDependencies": {
-    "electron": "^2.0.9",
+    "electron": "^3.0.2",
     "electron-builder": "^20.28.4",
-    "electron-packager": "^12.1.1"
+    "electron-packager": "^12.1.2"
   },
   "dependencies": {
     "electron-log": "^2.2.17",

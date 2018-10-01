@@ -196,6 +196,7 @@
     <div id="page-wrapper">
     <a id="exitfullscreenmessage" >Press "F11" to exit fullscreen mode</a>
       <section id="content">
+        <a id="discordclick" href="https://discord.gg/cycufxx"><img id="discord" src="home/images/discord.png" alt=""/></a>
         <div id="page1">
           <div id="prompts">
             <h1 id="cycletxt-1">Welcome to the most minimalistic rank calculator for Rainbow Six: Siege</h1>
@@ -207,8 +208,7 @@
           <button class="button small btnalign" id="presetbtn" type="button" onclick="preset();customreset();disable();" disabled>Preset</button>
           <button class="button small btnalign" id="changebtn" type="button" onclick="changetopage2();">View Changelog</button>
           <button class="button small btnalign" id="custombtn" type="button" onclick="custom();presetreset();disable1();">Custom</button>
-          <a id="discordclick" href="https://discord.gg/cycufxx"><img id="discord" src="home/images/discord.png" alt=""/></a>
-          <a id="r6tabclick" href="https://www.r6tab.com"><img id="r6tab" src="home/images/r6tablogo.png" alt=""/></a>
+          <a id="r6tabclick" href="https://r6tab.com"><img id="r6tab" src="home/images/r6tablogo.png" alt=""/></a>
           <a id="twitterclick" href="https://twitter.com/R6RankCalc"><img id="twitterimg" src="home/images/twitter.png" alt=""/></a>
           <!--Divider-->
           <form id="preset" action="">
@@ -323,7 +323,7 @@
               <a>Node.js: <script>document.write(process.versions.node)</script></a> |
               <a>Chromium: <script>document.write(process.versions.chrome)</script></a> |
               <a>Electron: <script>document.write(process.versions.electron)</script></a> |
-              <a>R6RC Version: <span id="version">vX.Y.Z</span></a>
+              <a>R6RC: <span id="version">vX.Y.Z</span></a>
               <a><div id="messages"></div></a>
           </div>
         </div>
@@ -331,14 +331,13 @@
         <button class="button small btnalign" id="changebtn2" type="button" onclick="changetopage1();">Return to R6RC</button>
         <div class="changelog">
         <h1><strong>R6RC | Changelog</strong></h2>
-        <h1>VERSION 0.4.1 CHANGE NOTES</h1>
+        <h1>VERSION 0.4.2 CHANGE NOTES</h1>
           <ul>
            <strong>CHANGES</strong>
-           <li><b>Added</b> a Discord button! Now you can join the community!</li>
            <li><b>Updated</b> all dependencies to the latest version</li>
-           <li><b>Removed</b> the R6RC newsletter dialogue for now</li>
+           <li><b>Updated</b> Electron to version 3.0.0!</li>
+           <li><b>Improved</b> R6RC start up time!</li>
            <li><b>Removed</b> R6DB from R6RC due to their website shutting down</li>
-           <li><b>Replaced</b> R6DB with R6TAB</li>
           </ul>
           <ul>
            <strong>COMING SOON</strong>
