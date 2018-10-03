@@ -1,3 +1,7 @@
+var ua = require('universal-analytics');
+var visitor = ua('UA-111374271-3');
+visitor.pageview("index.html").send();
+
 const {app, BrowserWindow, Menu, protocol, ipcMain, shell} = require('electron');
 const log = require('electron-log');
 const {autoUpdater} = require("electron-updater");

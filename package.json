@@ -21,7 +21,8 @@
   },
   "dependencies": {
     "electron-log": "^2.2.17",
-    "electron-updater": "^3.1.2"
+    "electron-updater": "^3.1.2",
+    "universal-analytics": "^0.4.17"
   },
   "build": {
     "appId": "com.austinleath.r6rc",

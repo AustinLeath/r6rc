@@ -29,3 +29,13 @@ document.getElementById("discordclick").addEventListener("auxclick", function (e
   var remoteLink = this.getAttribute('href');
   shell.openExternal( remoteLink );
 });
+document.getElementById("githubclick").addEventListener("click", function (e) {
+  e.preventDefault();
+  var remoteLink = this.getAttribute('href');
+  shell.openExternal( remoteLink );
+});
+document.getElementById("githubclick").addEventListener("auxclick", function (e) {
+  e.preventDefault();
+  var remoteLink = this.getAttribute('href');
+  shell.openExternal( remoteLink );
+});
