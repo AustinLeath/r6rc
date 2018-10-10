@@ -12,7 +12,7 @@
     "testmac": "build --mac",
     "testlin": "build --linux",
     "publish": "build -p always",
-    "updep": "npm install electron@latest electron-builder@latest electron-packager@latest electron-log@latest electron-updater@latest"
+    "updep": "npm install universal-analytics@latest electron@latest electron-builder@latest electron-packager@latest electron-log@latest electron-updater@latest"
   },
   "devDependencies": {
     "electron": "^3.0.2",
