@@ -168,10 +168,13 @@
           display:block;
         }
         #page1 {
-          display: block;
+          display: none;
         }
         #page2 {
           display: none;
+        }
+        #page3 {
+          display: block;
         }
         .changelog {
           width: 50%;
@@ -179,6 +182,12 @@
           margin: auto;
           display: block;
           padding-top: 20px;
+        }
+        #playersearch {
+          width: 75%;
+          padding-top: 20%;
+          margin: auto;
+          display: block;
         }
     </style>
 </head>
@@ -355,6 +364,13 @@
           </ul>
         </div>
       </div>
+
+      <div id="page3">
+        <div id="playersearch">
+          <input type="text" onkeyup="showHint(this.value)" placeholder="Enter a username">
+          <span id="txtHint">
+        </div>
+      </div>
       </section>
 			</div>
        <!-- Scripts -->
@@ -377,5 +393,23 @@
        <script src="home/assets/react/react.js"></script>
        <script src="home/assets/react/react-dom.js"></script>
        <script src="home/assets/react/timeran.js"></script>
+
+       <script>
+       function showHint(str) {
+           if (str.length == 0) {
+               document.getElementById("txtHint").innerHTML = "";
+               return;
+           } else {
+               var xmlhttp = new XMLHttpRequest();
+               xmlhttp.onreadystatechange = function() {
+                   if (this.readyState == 4 && this.status == 200) {
+                       document.getElementById("txtHint").innerHTML = this.responseText;
+                   }
+               };
+               xmlhttp.open("GET", "https://www.r6rc.com/home/assets/php/gethint.php?q=" + str, true);
+               xmlhttp.send();
+           }
+       }
+       </script>
     </body>
 </html>
