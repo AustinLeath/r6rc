@@ -15,13 +15,13 @@
     "updep": "npm install universal-analytics@latest electron@latest electron-builder@latest electron-packager@latest electron-log@latest electron-updater@latest"
   },
   "devDependencies": {
-    "electron": "^3.0.7",
-    "electron-builder": "^20.29.0",
+    "electron": "^3.0.10",
+    "electron-builder": "^20.38.2",
     "electron-packager": "^12.2.0"
   },
   "dependencies": {
     "electron-log": "^2.2.17",
-    "electron-updater": "^3.1.6",
+    "electron-updater": "^4.0.5",
     "universal-analytics": "^0.4.20"
   },
   "build": {
