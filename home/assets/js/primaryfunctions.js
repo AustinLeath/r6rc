@@ -32,6 +32,13 @@ function changetopage2() {
     document.getElementById('page2').style.display = "block";
   }
 }
+function changetopage3() {
+  if (document.getElementById('page3').style.display = "none") {
+    document.getElementById('page1').style.display = "none";
+    document.getElementById('page2').style.display = "none";
+    document.getElementById('page3').style.display = "block";
+  }
+}
 //preset method
 function checkmmrfill() {
     var finalmessage;

@@ -173,11 +173,10 @@
         #page2 {
           display: none;
         }
-        /*
         #page3 {
           display: none;
         }
-        */
+
         .changelog {
           width: 50%;
           text-align: left;
@@ -190,6 +189,9 @@
           padding-top: 20%;
           margin: auto;
           display: block;
+        }
+        #psmodal {
+          left: 10%;
         }
     </style>
 </head>
@@ -218,6 +220,7 @@
           </div>
           <button class="button small btnalign" id="presetbtn" type="button" onclick="preset();customreset();disable();" disabled>Preset</button>
           <button class="button small btnalign" id="changebtn" type="button" onclick="changetopage2();">View Changelog</button>
+          <!--<button class="button small btnalign" id="psmodal" type="button" onclick="changetopage3();">Player Search</button>-->
           <button class="button small btnalign" id="custombtn" type="button" onclick="custom();presetreset();disable1();">Custom</button>
           <a id="r6tabclick" href="https://r6tab.com"><img id="r6tab" src="home/images/r6tablogo.png" alt=""/></a>
           <a id="twitterclick" href="https://twitter.com/R6RankCalc"><img id="twitterimg" src="home/images/twitter.png" alt=""/></a>
@@ -365,14 +368,14 @@
           </ul>
         </div>
       </div>
-<!--
+
       <div id="page3">
         <div id="playersearch">
           <input type="text" onkeyup="showHint(this.value)" placeholder="Enter a username">
           <span id="txtHint">
         </div>
       </div>
--->
+
       </section>
 			</div>
        <!-- Scripts -->
