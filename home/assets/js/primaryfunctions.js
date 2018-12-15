@@ -53,21 +53,15 @@ function contributorspage() {
   }
 }
 window.addEventListener("keydown", checkKeyPressed, false);
+var fullscreenmessage = false;
 
 function checkKeyPressed(e) {
-  var presscount = "off";
-
-    if ( presscount = "off" && e.keyCode = "8") {
-        document.getElementById('exitfullscreenmessage').style.display = "block";
-        presscount = "on";
-    }
-
-    if ( presscount = "on" && e.keyCode = "8") {
-        document.getElementById('exitfullscreenmessage').style.display = "none";
-        presscount = "off";
-    }
-
+  if (e.keyCode == 122) {
+    document.getElementById('exitfullscreenmessage').style.display = fullscreenmessage ? "block" : "none";
+    fullscreenmessage = !fullscreenmessage;
+  }
 }
+
 //preset method
 function checkmmrfill() {
     var finalmessage;
@@ -76,6 +70,10 @@ function checkmmrfill() {
       document.getElementById("display").style.display = "none";
       document.getElementById("mmrerrormessage").style.display = "";
       finalmessage = "Enter player MMR";
+    } else if ( x > 10000) {
+      document.getElementById("display").style.display = "none";
+      document.getElementById("mmrerrormessage").style.display = "";
+      finalmessage = "Enter a valid MMR";
     } else {
       document.getElementById("mmrerrormessage").style.display = "none";
       finalmessage = "MMR: OK";
@@ -89,6 +87,10 @@ function checkelofill() {
       document.getElementById("display").style.display = "none";
       document.getElementById("eloerrormessage").style.display = "";
       finalmessage = "Enter player ELO";
+    } else if ( x > 1000) {
+      document.getElementById("display").style.display = "none";
+      document.getElementById("eloerrormessage").style.display = "";
+      finalmessage = "Enter a valid ELO";
     } else {
       document.getElementById("eloerrormessage").style.display = "none";
       finalmessage = "ELO: OK";

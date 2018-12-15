@@ -155,8 +155,8 @@
         }
         #exitfullscreenmessage {
           position: fixed;
-          top: 5%;
-          right: 2%;
+          top: 30px;
+          right: 5%;
           display: none;
         }
         #r6rcpage {
@@ -174,6 +174,10 @@
         .pagechangebtn {
           margin: auto;
           display: block;
+        }
+        .pagechangebtntlc {
+          top: 1%;
+          left: 20%;
         }
         .changelog {
           width: 50%;
@@ -341,13 +345,13 @@
         </div>
       <div id="changelogpage">
         <button class="pagechangebtn button small btnalign" type="button" onclick="r6rcpage();">Return to R6RC</button>
-        <button class="pagechangebtn button small btnalign" type="button" onclick="contributorspage();">Contributors</button>
+        <button class="pagechangebtntlc button small btnalign" type="button" onclick="contributorspage();">Contributors</button>
         <div class="changelog">
           <table>
             <tbody>
               <tr>
                 <td>R6RC | R6 Rank Calculator</td>
-                <td><a id="githubclick" class="button icon fa-download" href="https://github.com/AustinLeath/r6rc/releases/latest/" target="_blank">Releases</a></td>
+                <td><a id="releasesclick" class="button icon fa-download" href="https://github.com/AustinLeath/r6rc/releases/latest/" target="_blank">Releases</a></td>
               </tr>
             </tbody>
           </table>
@@ -383,10 +387,11 @@
             <tbody>
               <tr>
                 <td>Austin Leath</td>
-                <td><a id="githubclick" class="button" href="https://github.com/AustinLeath/" target="_blank">GitHub Profile</a></td>
+                <td><a id="githubprofile_al" class="button" href="https://github.com/AustinLeath/" target="_blank">GitHub Profile</a></td>
               </tr>
             </tbody>
           </table>
+          <h1>There are no <i>other</i> contributors! If you would like to contribute to this project</h1>
         </div>
       </div>
     </div>
