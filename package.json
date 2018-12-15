@@ -15,14 +15,14 @@
     "updep": "npm install universal-analytics@latest electron@latest electron-builder@latest electron-packager@latest electron-log@latest electron-updater@latest"
   },
   "devDependencies": {
-    "electron": "^3.0.10",
-    "electron-builder": "^20.38.2",
-    "electron-packager": "^12.2.0"
+    "electron": "3.0.2",
+    "electron-builder": "20.28.4",
+    "electron-packager": "12.1.1"
   },
   "dependencies": {
-    "electron-log": "^2.2.17",
-    "electron-updater": "^4.0.5",
-    "universal-analytics": "^0.4.20"
+    "electron-log": "2.2.17",
+    "electron-updater": "3.1.2",
+    "universal-analytics": "0.4.17"
   },
   "build": {
     "appId": "com.austinleath.r6rc",
