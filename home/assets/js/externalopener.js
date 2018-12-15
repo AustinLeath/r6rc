@@ -49,3 +49,13 @@ document.getElementById("githubprofile_al").addEventListener("auxclick", functio
   var remoteLink = this.getAttribute('href');
   shell.openExternal( remoteLink );
 });
+document.getElementById("githubprofile_wh").addEventListener("click", function (e) {
+  e.preventDefault();
+  var remoteLink = this.getAttribute('href');
+  shell.openExternal( remoteLink );
+});
+document.getElementById("githubprofile_wh").addEventListener("auxclick", function (e) {
+  e.preventDefault();
+  var remoteLink = this.getAttribute('href');
+  shell.openExternal( remoteLink );
+});
