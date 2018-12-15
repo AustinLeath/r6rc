@@ -20,24 +20,53 @@ function presetreset() {
 function customreset() {
   document.getElementById("custom").reset();
 }
-function changetopage1() {
-  if (document.getElementById('page2').style.display = "block") {
-    document.getElementById('page1').style.display = "block";
-    document.getElementById('page2').style.display = "none";
+function r6rcpage() {
+  if (document.getElementById('r6rcpage').style.display = "none") {
+    document.getElementById('r6rcpage').style.display = "block";
+    document.getElementById('playersearchpage').style.display = "none";
+    document.getElementById('contributorspage').style.display = "none";
+    document.getElementById('changelogpage').style.display = "none";
   }
 }
-function changetopage2() {
-  if (document.getElementById('page1').style.display = "block") {
-    document.getElementById('page1').style.display = "none";
-    document.getElementById('page2').style.display = "block";
+function changelogpage() {
+  if (document.getElementById('changelogpage').style.display = "none") {
+    document.getElementById('r6rcpage').style.display = "none";
+    document.getElementById('playersearchpage').style.display = "none";
+    document.getElementById('contributorspage').style.display = "none";
+    document.getElementById('changelogpage').style.display = "block";
   }
 }
-function changetopage3() {
-  if (document.getElementById('page3').style.display = "none") {
-    document.getElementById('page1').style.display = "none";
-    document.getElementById('page2').style.display = "none";
-    document.getElementById('page3').style.display = "block";
+function playersearchpage() {
+  if (document.getElementById('playersearchpage').style.display = "none") {
+    document.getElementById('r6rcpage').style.display = "none";
+    document.getElementById('playersearchpage').style.display = "block";
+    document.getElementById('contributorspage').style.display = "none";
+    document.getElementById('changelogpage').style.display = "none";
   }
+}
+function contributorspage() {
+  if (document.getElementById('contributorspage').style.display = "none") {
+    document.getElementById('r6rcpage').style.display = "none";
+    document.getElementById('playersearchpage').style.display = "none";
+    document.getElementById('contributorspage').style.display = "block";
+    document.getElementById('changelogpage').style.display = "none";
+  }
+}
+window.addEventListener("keydown", checkKeyPressed, false);
+
+function checkKeyPressed(e) {
+  var presscount = "off";
+
+    if ( presscount = "off" && e.keyCode = "8") {
+        document.getElementById('exitfullscreenmessage').style.display = "block";
+        presscount = "on";
+    }
+
+    if ( presscount = "on" && e.keyCode = "8") {
+        document.getElementById('exitfullscreenmessage').style.display = "none";
+        presscount = "off";
+    }
+
 }
 //preset method
 function checkmmrfill() {
