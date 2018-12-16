@@ -57,7 +57,7 @@ var fullscreenmessage = false;
 
 function checkKeyPressed(e) {
   if (e.keyCode == 122) {
-    document.getElementById('exitfullscreenmessage').style.display = fullscreenmessage ? "block" : "none";
+    document.getElementById('exitfullscreenmessage').style.display = fullscreenmessage ? "none" : "block";
     fullscreenmessage = !fullscreenmessage;
   }
 }
@@ -87,7 +87,7 @@ function checkelofill() {
       document.getElementById("display").style.display = "none";
       document.getElementById("eloerrormessage").style.display = "";
       finalmessage = "Enter player ELO";
-    } else if ( x > 1000) {
+    } else if ( x > 500) {
       document.getElementById("display").style.display = "none";
       document.getElementById("eloerrormessage").style.display = "";
       finalmessage = "Enter a valid ELO";
@@ -118,6 +118,10 @@ function checkmmrfill1() {
       document.getElementById("display1").style.display = "none";
       document.getElementById("mmrerrormessage1").style.display = "";
       finalmessage = "Enter player MMR";
+    } else if ( x > 10000) {
+      document.getElementById("display1").style.display = "none";
+      document.getElementById("mmrerrormessage1").style.display = "";
+      finalmessage = "Enter a valid MMR";
     } else {
       document.getElementById("mmrerrormessage1").style.display = "none";
       finalmessage = "MMR: OK";
@@ -131,6 +135,10 @@ function checkelofill1() {
       document.getElementById("display1").style.display = "none";
       document.getElementById("eloerrormessage1").style.display = "";
       finalmessage = "Enter player ELO";
+    } else if ( x > 500) {
+      document.getElementById("display1").style.display = "none";
+      document.getElementById("eloerrormessage1").style.display = "";
+      finalmessage = "Enter a valid ELO";
     } else {
       document.getElementById("eloerrormessage1").style.display = "none";
       finalmessage = "ELO: OK";
@@ -144,6 +152,10 @@ function checkgoalfill1() {
       document.getElementById("display1").style.display = "none";
       document.getElementById("goalerrormessage1").style.display = "";
       finalmessage = "Select a rank from the dialogue above.";
+    } else if ( x > 10000) {
+      document.getElementById("display1").style.display = "none";
+      document.getElementById("goalerrormessage1").style.display = "";
+      finalmessage = "Enter a valid Goal";
     } else {
       document.getElementById("goalerrormessage1").style.display = "none";
       finalmessage = "GOAL: OK";

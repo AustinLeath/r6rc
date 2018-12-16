@@ -189,12 +189,9 @@
         }
         #playersearch {
           width: 75%;
-          padding-top: 20%;
+          padding-top: 10%;
           margin: auto;
           display: block;
-        }
-        #psmodal {
-          left: 10%;
         }
     </style>
 </head>
@@ -223,7 +220,7 @@
           </div>
           <button class="button small btnalign" id="presetbtn" type="button" onclick="preset();customreset();disable();" disabled>Preset</button>
           <button class="pagechangebtn button small btnalign" type="button" onclick="changelogpage();">View Changelog</button>
-          <!--<button class="button small btnalign" id="psmodal" type="button" onclick="playersearchpage();">Player Search</button>-->
+          <!--<button class="pagechangebtntlc button small btnalign" type="button" onclick="playersearchpage();">Player Search</button>-->
           <button class="button small btnalign" id="custombtn" type="button" onclick="custom();presetreset();disable1();">Custom</button>
           <a id="r6tabclick" href="https://r6tab.com"><img id="r6tab" src="home/images/r6tablogo.png" alt=""/></a>
           <a id="twitterclick" href="https://twitter.com/R6RankCalc"><img id="twitterimg" src="home/images/twitter.png" alt=""/></a>
@@ -235,7 +232,7 @@
                       <input type="number" name="mmr" id="mmr" min="1300" max="10000" value="" placeholder="Enter your current MMR" />
                   </div>
                   <div class="6u$ 12u$(xsmall)">
-                      <input type="number" name="elo" id="elo" min="1" max="1000" value="" placeholder="Enter your current ELO per match" />
+                      <input type="number" name="elo" id="elo" min="1" max="500" value="" placeholder="Enter your current ELO per match" />
                   </div>
                   <div class="12u$">
                       <div class="select-wrapper">
@@ -309,13 +306,13 @@
                   </div>
                   <div class="12u$">
                       <div class="12u$">
-                          <input id="goal1" name="goal1" type="number" min="1300" max="10000" placeholder="Enter a custom MMR Goal (between 1,300 MMR and 10,000 MMR)" value="" />
+                          <input id="goal1" name="goal1" type="number" min="1300" max="10000" placeholder="Enter a custom MMR goal (between 1,300 MMR and 10,000 MMR)" value="" />
                       </div>
                   </div>
                   <div class="12u$">
                       <ul class="actions">
                           <li>
-                              <input type="submit" value="Calculate" class="special" onclick="enable1();checkmmrfill1();checkelofill1();checkgoalfill1();winorlose1();matchcount1();">
+                              <input type="submit" value="Calculate" class="special" onclick="enable1();checkmmrfill1();checkelofill1();checkgoalfill1();winorlose1();matchcount1();dontwinorlose1();">
                           </li>
                           <li>
                               <input type="reset" value="Reset" class="special" onclick="disable1();">
@@ -323,6 +320,7 @@
                           <li id="display1">
                               <a id="winorlose1"></a>
                               <a id="result1"></a>
+                              <a id="anydiv1"></a>
                               <a id="matchcount1"></a>
                           </li>
                           <li id="errordialogue1">
@@ -360,8 +358,11 @@
         <h1>VERSION 0.4.3 CHANGE NOTES</h1>
           <ul>
            <strong>CHANGES</strong>
-           <li><b>Added</b> a contributors page</li>
-           <li><b>Fixed</b> some problems with the equation filter for R6RC</li>
+           <li><b>Added</b> a contributors page!</li>
+           <li><b>Added</b> fullscreen mode! Press F11 to test it out</li>
+           <li><b>Added</b> a dialogue that lets the user know how to exit fullscreen mode</li>
+           <li><b>Fixed</b> those annoying yellow borders around all of the buttons</li>
+           <li><b>Improved</b> R6RC startup time</li>
           </ul>
           <ul>
            <strong>COMING SOON</strong>
@@ -403,6 +404,7 @@
       </section>
 			</div>
        <!-- Scripts -->
+       <script src="home/assets/js/primaryfunctions.js"></script>
        <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
        <!-- normal script imports etc  -->
        <script src="home/assets/js/jquery.min.js"></script>
@@ -413,7 +415,6 @@
        <script src="home/assets/js/switchmethod.js"></script>
        <!--[if lte IE 8]><script src="home/assets/js/ie/respond.min.js"></script><![endif]-->
        <script src="home/assets/js/main.js"></script>
-       <script src="home/assets/js/primaryfunctions.js"></script>
        <script src="home/assets/js/methodpreset.js"></script>
        <script src="home/assets/js/methodcustom.js"></script>
        <script src="home/assets/js/externalopener.js"></script>
@@ -422,7 +423,6 @@
        <script src="home/assets/react/react.js"></script>
        <script src="home/assets/react/react-dom.js"></script>
        <script src="home/assets/react/timeran.js"></script>
-
        <script>
        function showHint(str) {
            if (str.length == 0) {

@@ -51,7 +51,19 @@ function matchcount1() {
     } else if (f > 1) {
         matchcount = " (&plusmn 1) matches to reach your rank goal";
     } else {
-        matchcount = " (&plusmn 1) matches to reach your rank goal";
+        matchcount = " matches to reach your rank goal";
     }
     document.getElementById("matchcount1").innerHTML = matchcount;
+}
+
+function dontwinorlose1() {
+  var a = document.getElementById("winorlose1").innerHTML;
+
+  if (a == "You <b>do not</b> need to win or lose ") {
+    document.getElementById("result1").style.display = "none";
+    document.getElementById("anydiv1").innerHTML = "<b>any</b>";
+  } else {
+    document.getElementById("result1").style.display = "";
+    document.getElementById("anydiv1").innerHTML = "";
+  }
 }
