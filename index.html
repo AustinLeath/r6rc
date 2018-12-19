@@ -4,6 +4,7 @@
     <title>R6RC</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="home/images/mmrcalculator-icon.png" />
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="home/assets/css/main.css" />
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
@@ -51,7 +52,7 @@
 				}
         #prompts {
           position: fixed;
-          top: 20%;
+          top: 18%;
           width: 100%;
           text-align: center;
           text-decoration: none;
@@ -61,10 +62,23 @@
           bottom: 0%;
           left: 3%;
         }
-        #r6dbclick {
+        #r6tabclick {
           position: fixed;
           bottom: 10px;
           left: 25px;
+        }
+        #discordclick {
+          position: fixed;
+          top: 35px;
+          right: 26.5px;
+        }
+        #discord {
+          width:25px;
+          height:25px;
+        }
+        #r6tab {
+          width:70px;
+          height:40px;
         }
         #twitterclick {
           position: fixed;
@@ -77,27 +91,41 @@
         }
         #exitfullscreenmessage {
           position: fixed;
-          top: 5%;
-          right: 2%;
+          top: 30px;
+          right: 5%;
           display: none;
         }
-        #changebtn {
+        #r6rcpage {
+          display: block;
+        }
+        #changelogpage {
+          display: none;
+        }
+        #playersearchpage {
+          display: none;
+        }
+        #contributorspage {
+          display: none;
+        }
+        .pagechangebtn {
           margin: auto;
           display: block;
         }
-        #changebtn2 {
-          margin: auto;
-          display: block;
-        }
-        #page1 {
-          display: block;
-        }
-        #page2 {
-          display: none;
+        .pagechangebtntlc {
+          position: fixed;
+          top: 35px;
+          left: 10px;
         }
         .changelog {
           width: 50%;
           text-align: left;
+          margin: auto;
+          display: block;
+          padding-top: 20px;
+        }
+        #playersearch {
+          width: 75%;
+          padding-top: 10%;
           margin: auto;
           display: block;
         }
@@ -105,194 +133,235 @@
 </head>
 <body class="noselect" id="background">
     <div id="page-wrapper">
-      <!-- Content -->
-        <section id="content">
-          <div id="page1">
-            <button class="button small btnalign" id="changebtn" type="button" onclick="changetopage2();">View Changelog</button>
-            <div id="prompts">
-              <h1 id="cycletxt-1">Welcome to the most minimalistic rank calculator for Rainbow Six: Siege</h1>
-              <h1 id="cycletxt-2">Use the buttons on either side of the screen<br>to switch between solving for a preset rank or a custom rank</h1>
-              <h1 id="cycletxt-3">This application is under heavy development and its features<br>are subject to immediate change</h1>
-              <h1 id="cycletxt-3"><a id="timeran"></a></h1>
-              <h1 id="cycletxt-4">It's finally here, R6RC for Mac!</h1>
-            </div>
-            <button class="button small btnalign" id="presetbtn" type="button" onclick="preset();customreset();disable();" disabled>Preset</button>
-            <button class="button small btnalign" id="custombtn" type="button" onclick="custom();presetreset();disable1();">Custom</button>
-            <a id="exitfullscreenmessage" >Press "Command + F" to exit fullscreen mode</a>
-            <a id="r6dbclick" href="https://www.r6db.com"><img src="home/images/r6dblogo.svg" alt=""/></a>
-            <a id="twitterclick" href="https://twitter.com/R6RankCalc"><img id="twitterimg" src="home/images/twitter.png" alt=""/></a>
-            <!--Divider-->
-            <form id="preset" action="">
-                <h1 style="text-align: center;">Rainbow Six Siege | Rank Calculator</h1>
-                <div class="row uniform 50%">
-                    <div class="6u 12u$(xsmall)">
-                        <input type="number" name="mmr" id="mmr" min="1300" max="10000" value="" placeholder="Enter your current MMR" />
-                    </div>
-                    <div class="6u$ 12u$(xsmall)">
-                        <input type="number" name="elo" id="elo" min="1" max="1000" value="" placeholder="Enter your current ELO per match" />
-                    </div>
-                    <div class="12u$">
-                        <div class="select-wrapper">
-                          <select name="goal" id="goal">
-                            <option value="">- Select a Rank -</option>
-                              <optgroup label="Copper">
-                                 <option value="1300">Copper IV</option>
-                                 <option value="1400">Copper III</option>
-                                 <option value="1500">Copper II</option>
-                                 <option value="1600">Copper I</option>
-                               </optgroup>
-                               <optgroup label="Bronze">
-                                 <option value="1700">Bronze IV</option>
-                                 <option value="1800">Bronze III</option>
-                                 <option value="1900">Bronze II</option>
-                                 <option value="2000">Bronze I</option>
-                               </optgroup>
-                               <optgroup label="Silver">
-                                 <option value="2100">Silver IV</option>
-                                 <option value="2200">Silver III</option>
-                                 <option value="2300">Silver II</option>
-                                 <option value="2400">Silver I</option>
-                               </optgroup>
-                               <optgroup label="Gold">
-                                 <option value="2500">Gold IV</option>
-                                 <option value="2700">Gold III</option>
-                                 <option value="2900">Gold II</option>
-                                 <option value="3100">Gold I</option>
-                               </optgroup>
-                               <optgroup label="Platinum">
-                                 <option value="3300">Platinum III</option>
-                                 <option value="3700">Platinum II</option>
-                                 <option value="4100">Platinum I</option>
-                               </optgroup>
-                              <option value="4500">Diamond</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="12u$">
-                        <ul class="actions">
-                            <li>
-                                <input type="submit" value="Calculate" class="special" onclick="enable();checkmmrfill();checkelofill();checkgoalfill();winorlose();matchcount();dontwinorlose();">
-                            </li>
-                            <li>
-                                <input type="reset" value="Reset" class="special" onclick="disable();">
-                            </li>
-                            <li id="display">
-                                <a id="winorlose"></a>
-                                <a id="result"></a>
-                                <a id="anydiv"></a>
-                                <a id="matchcount"></a>
-                            </li>
-                            <li id="errordialogue">
-                              <a id="mmrerrormessage"></a>
-                              <a id="eloerrormessage"></a>
-                              <a id="goalerrormessage"></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </form>
+      <section id="content">
+        <a id="discordclick" href="https://discord.gg/cycufxx"><img id="discord" src="home/images/discord.png" alt=""/></a>
+        <div id="r6rcpage">
+          <div id="prompts">
+            <h1 id="cycletxt-1">Welcome to the most minimalistic rank calculator for Rainbow Six: Siege</h1>
+            <h1 id="cycletxt-2">Use the buttons on either side of the screen<br>to switch between solving for a preset rank or a custom rank</h1>
+            <h1 id="cycletxt-3">This application is under heavy development and its features<br>are subject to immediate change</h1>
+            <h1 id="cycletxt-4"><a id="timeran"></a></h1>
+            <h1 id="cycletxt-5">Coming soon, R6RC for Mac!</h1>
+          </div>
+          <button class="button small btnalign" id="presetbtn" type="button" onclick="preset();customreset();disable();" disabled>Preset</button>
+          <button class="pagechangebtn button small btnalign" type="button" onclick="changelogpage();">View Changelog</button>
+          <!--<button class="pagechangebtntlc button small btnalign" type="button" onclick="playersearchpage();">Player Search</button>-->
+          <button class="button small btnalign" id="custombtn" type="button" onclick="custom();presetreset();disable1();">Custom</button>
+          <a id="r6tabclick" href="https://r6tab.com"><img id="r6tab" src="home/images/r6tablogo.png" alt=""/></a>
+          <a id="twitterclick" href="https://twitter.com/R6RankCalc"><img id="twitterimg" src="home/images/twitter.png" alt=""/></a>
+          <!--Divider-->
+          <form id="preset" action="">
+              <h1 style="text-align: center;">Rainbow Six Siege | Rank Calculator (Preset Rank Goal)</h1>
+              <div class="row uniform 50%">
+                  <div class="6u 12u$(xsmall)">
+                      <input type="number" name="mmr" id="mmr" min="1300" max="10000" value="" placeholder="Enter your current MMR" />
+                  </div>
+                  <div class="6u$ 12u$(xsmall)">
+                      <input type="number" name="elo" id="elo" min="1" max="500" value="" placeholder="Enter your current ELO per match" />
+                  </div>
+                  <div class="12u$">
+                      <div class="select-wrapper">
+                        <select name="goal" id="goal">
+                          <option value="">Select a Rank</option>
+                            <optgroup label="Copper">
+                               <option value="1300">Copper IV</option>
+                               <option value="1400">Copper III</option>
+                               <option value="1500">Copper II</option>
+                               <option value="1600">Copper I</option>
+                             </optgroup>
+                             <optgroup label="Bronze">
+                               <option value="1700">Bronze IV</option>
+                               <option value="1800">Bronze III</option>
+                               <option value="1900">Bronze II</option>
+                               <option value="2000">Bronze I</option>
+                             </optgroup>
+                             <optgroup label="Silver">
+                               <option value="2100">Silver IV</option>
+                               <option value="2200">Silver III</option>
+                               <option value="2300">Silver II</option>
+                               <option value="2400">Silver I</option>
+                             </optgroup>
+                             <optgroup label="Gold">
+                               <option value="2500">Gold IV</option>
+                               <option value="2700">Gold III</option>
+                               <option value="2900">Gold II</option>
+                               <option value="3100">Gold I</option>
+                             </optgroup>
+                             <optgroup label="Platinum">
+                               <option value="3300">Platinum III</option>
+                               <option value="3700">Platinum II</option>
+                               <option value="4100">Platinum I</option>
+                             </optgroup>
+                            <option value="4500">Diamond</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="12u$">
+                      <ul class="actions">
+                          <li>
+                              <input type="submit" value="Calculate" class="special" onclick="enable();checkmmrfill();checkelofill();checkgoalfill();winorlose();matchcount();dontwinorlose();">
+                          </li>
+                          <li>
+                              <input type="reset" value="Reset" class="special" onclick="disable();">
+                          </li>
+                          <li id="display">
+                              <a id="winorlose"></a>
+                              <a id="result"></a>
+                              <a id="anydiv"></a>
+                              <a id="matchcount"></a>
+                          </li>
+                          <li id="errordialogue">
+                            <a id="mmrerrormessage"></a>
+                            <a id="eloerrormessage"></a>
+                            <a id="goalerrormessage"></a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </form>
 
-            <form class="disable" id="custom" action="">
-                <h1 style="text-align: center;">Rainbow Six Siege | Rank Calculator (Custom Rank Goal)</h1>
-                <div class="row uniform 50%">
-                    <div class="6u 12u$(xsmall)">
-                        <input id="mmr1" name="mmr1" type="number" min="1300" max="10000" placeholder="Enter your current MMR" value="" />
-                    </div>
-                    <div class="6u$ 12u$(xsmall)">
-                        <input id="elo1" name="elo1" type="number" min="1" max="500" placeholder="Enter your current ELO per match" value="" />
-                    </div>
-                    <div class="12u$">
-                        <div class="12u$">
-                            <input id="goal1" name="goal1" type="number" min="1300" max="10000" placeholder="Enter a custom MMR Goal (between 1,300 MMR and 10,000 MMR)" value="" />
-                        </div>
-                    </div>
-                    <div class="12u$">
-                        <ul class="actions">
-                            <li>
-                                <input type="submit" value="Calculate" class="special" onclick="enable1();checkmmrfill1();checkelofill1();checkgoalfill1();winorlose1();matchcount1();">
-                            </li>
-                            <li>
-                                <input type="reset" value="Reset" class="special" onclick="disable1();">
-                            </li>
-                            <li id="display1">
-                                <a id="winorlose1"></a>
-                                <a id="result1"></a>
-                                <a id="matchcount1"></a>
-                            </li>
-                            <li id="errordialogue1">
-                              <a id="mmrerrormessage1"></a>
-                              <a id="eloerrormessage1"></a>
-                              <a id="goalerrormessage1"></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </form>
-						<div class="versionnum">
-								<!-- the button onClick sends a quitAndInstall message to the electron main process -->
-								<a>Node.js: <script>document.write(process.versions.node)</script></a> |
-								<a>Chromium: <script>document.write(process.versions.chrome)</script></a> |
-								<a>Electron: <script>document.write(process.versions.electron)</script></a> |
-								<a>R6RC Version: <span id="version">vX.Y.Z</span></a>
-								<a><div id="messages"></div></a>
-						</div>
+          <form class="disable" id="custom" action="">
+              <h1 style="text-align: center;">Rainbow Six Siege | Rank Calculator (Custom Rank Goal)</h1>
+              <div class="row uniform 50%">
+                  <div class="6u 12u$(xsmall)">
+                      <input id="mmr1" name="mmr1" type="number" min="1300" max="10000" placeholder="Enter your current MMR" value="" />
+                  </div>
+                  <div class="6u$ 12u$(xsmall)">
+                      <input id="elo1" name="elo1" type="number" min="1" max="500" placeholder="Enter your current ELO per match" value="" />
+                  </div>
+                  <div class="12u$">
+                      <div class="12u$">
+                          <input id="goal1" name="goal1" type="number" min="1300" max="10000" placeholder="Enter a custom MMR goal (between 1,300 MMR and 10,000 MMR)" value="" />
+                      </div>
+                  </div>
+                  <div class="12u$">
+                      <ul class="actions">
+                          <li>
+                              <input type="submit" value="Calculate" class="special" onclick="enable1();checkmmrfill1();checkelofill1();checkgoalfill1();winorlose1();matchcount1();dontwinorlose1();">
+                          </li>
+                          <li>
+                              <input type="reset" value="Reset" class="special" onclick="disable1();">
+                          </li>
+                          <li id="display1">
+                              <a id="winorlose1"></a>
+                              <a id="result1"></a>
+                              <a id="anydiv1"></a>
+                              <a id="matchcount1"></a>
+                          </li>
+                          <li id="errordialogue1">
+                            <a id="mmrerrormessage1"></a>
+                            <a id="eloerrormessage1"></a>
+                            <a id="goalerrormessage1"></a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </form>
+          <div class="versionnum">
+              <!-- the button onClick sends a quitAndInstall message to the electron main process -->
+              <!-- <a>Subscribe to the R6RC newsletter! | <a id="mailchimp" class="icon alt fa-envelope" href="http://eepurl.com/dDs2rb"></a></a><br> -->
+              <a>Node.js: <script>document.write(process.versions.node)</script></a> |
+              <a>Chromium: <script>document.write(process.versions.chrome)</script></a> |
+              <a>Electron: <script>document.write(process.versions.electron)</script></a> |
+              <a>R6RC: <span id="version">vX.Y.Z</span></a>
+              <a><div id="messages"></div></a>
           </div>
-          <div id="page2">
-          <button class="button small btnalign" id="changebtn2" type="button" onclick="changetopage1();">Return to R6RC</button>
-          <div class="changelog">
-            <h1><strong>R6RC | Changelog</strong></h1>
-          <h1>VERSION 0.3.9 CHANGE NOTES</h1>
-            <ul>
-             <strong>CHANGES</strong>
-             <li>Updated all dependencies to the latest version</li>
-             <li>Updated forced single instancing</li>
-             <li>Fixed a bug where the user could have more than one instance of R6RC<br>open at a time via right clicking the R6RC icon on the taskbar and selecting "R6RC"</li>
-            </ul>
-            <ul>
-             <strong>COMING SOON</strong>
-             <li>Soon Visible in-app menu for R6RC</li>
-             <li>Soon Windows Taskbar Jump & Task list for R6RC</li>
-             <li>Soon R6RC Discord</li>
-             <li>Soon R6RC Discord Bot</li>
-            </ul>
-            <ul>
-             <strong>KNOWN BUGS</strong>
-             <li>If the user leaves some of the fields blank, upon calculation the<br>result for how many games the user has to win or lose will return "NaN"</li>
-             <li>Some Antivirus software (Norton, Avast, Kaspersky, etc.)<br>may produce false positives upon install</li>
-             <li><strike>When right clicking the application on the task bar and clicking "R6RC" another instance is opened</strike></li>
-            </ul>
-          </div>
-          </div>
-        </section>
+        </div>
+      <div id="changelogpage">
+        <button class="pagechangebtn button small btnalign" type="button" onclick="r6rcpage();">Return to R6RC</button>
+        <button class="pagechangebtntlc button small btnalign" type="button" onclick="contributorspage();">Contributors</button>
+        <div class="changelog">
+          <table>
+            <tbody>
+              <tr>
+                <td>R6RC | R6 Rank Calculator</td>
+                <td><a id="releasesclick" class="button icon fa-download" href="https://github.com/AustinLeath/r6rc/releases/latest/" target="_blank">Releases</a></td>
+              </tr>
+            </tbody>
+          </table>
+        <h1><strong>R6RC | Changelog</strong></h2>
+        <h1>VERSION 0.4.3 CHANGE NOTES</h1>
+          <ul>
+           <strong>CHANGES</strong>
+           <li><b>Added</b> a contributors page!</li>
+           <li><b>Added</b> a dialogue that lets the user know how to exit fullscreen mode</li>
+           <li><b>Fixed</b> those annoying yellow borders around all of the buttons</li>
+           <li><b>Improved</b> R6RC startup time</li>
+          </ul>
+          <ul>
+           <strong>COMING SOON</strong>
+           <li>Visible in-app menu for R6RC</li>
+           <li>Windows Taskbar Jump & Task list for R6RC</li>
+           <li>R6RC Discord Bot</li>
+           <li>R6RC for Mac</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="playersearchpage">
+        <div id="playersearch">
+          <input type="text" onkeyup="showHint(this.value)" placeholder="Enter a username">
+          <span id="txtHint">
+        </div>
+      </div>
+
+      <div id="contributorspage">
+        <button class="pagechangebtn button small btnalign" type="button" onclick="r6rcpage();">Return to R6RC</button>
+        <div class="changelog">
+          <table>
+            <tbody>
+              <tr>
+                <td>Austin Leath</td>
+                <td><a id="githubprofile_al" class="button" href="https://github.com/AustinLeath/" target="_blank">GitHub Profile</a></td>
+              </tr>
+              <tr>
+                <td>William Hatcher</td>
+                <td><a id="githubprofile_wh" class="button" href="https://github.com/williamhatcher/" target="_blank">GitHub Profile</a></td>
+              </tr>
+            </tbody>
+          </table>
+         <h1>There are no other contributors! To contribute you must add to the repository on GitHub.</h1>
+        </div>
+      </div>
+    </div>
+
+      </section>
 			</div>
        <!-- Scripts -->
-        <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-        <!-- normal script imports etc  -->
-        <script src="home/assets/js/jquery.min.js"></script>
-        <!-- Insert this line after script imports -->
-        <script>if (window.module) module = window.module;</script>
-        <script src="home/assets/js/jquery.min.js"></script>
-        <script src="home/assets/js/cycletxt.js"></script>
-				<script src="home/assets/js/switchmethod.js"></script>
-        <script src="home/assets/js/presetmethod.js"></script>
-        <script src="home/assets/js/custommethod.js"></script>
-        <!--[if lte IE 8]><script src="home/assets/js/ie/respond.min.js"></script><![endif]-->
-        <script src="home/assets/js/main.js"></script>
-        <script src="home/assets/js/primaryfunctions.js"></script>
-        <script src="home/assets/js/externalopener.js"></script>
-        <script src="home/assets/js/messagecenter.js"></script>
-        <script src="home/assets/react/react.js"></script>
-        <script src="home/assets/react/react-dom.js"></script>
-        <script src="home/assets/react/timeran.js"></script>
-
-        <script>
-        //$(document).keypress(function(e){
-        //   if(e.which==13){
-        //     document.getElementById("exitfullscreenmessage").style.display = "block";
-        //  } else {
-        //    document.getElementById("exitfullscreenmessage").style.display = "none";
-        //  }
-        //});
-        </script>
+       <script src="home/assets/js/primaryfunctions.js"></script>
+       <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+       <!-- normal script imports etc  -->
+       <script src="home/assets/js/jquery.min.js"></script>
+       <!-- Insert this line after script imports -->
+       <script>if (window.module) module = window.module;</script>
+       <script src="home/assets/js/jquery.min.js"></script>
+       <script src="home/assets/js/cycletxt.js"></script>
+       <script src="home/assets/js/switchmethod.js"></script>
+       <!--[if lte IE 8]><script src="home/assets/js/ie/respond.min.js"></script><![endif]-->
+       <script src="home/assets/js/main.js"></script>
+       <script src="home/assets/js/methodpreset.js"></script>
+       <script src="home/assets/js/methodcustom.js"></script>
+       <script src="home/assets/js/externalopener.js"></script>
+       <script src="home/assets/js/messagecenter.js"></script>
+       <script src="home/assets/react/react.js"></script>
+       <script src="home/assets/react/react-dom.js"></script>
+       <script src="home/assets/react/timeran.js"></script>
+       <script>
+       function showHint(str) {
+           if (str.length == 0) {
+               document.getElementById("txtHint").innerHTML = "";
+               return;
+           } else {
+               var xmlhttp = new XMLHttpRequest();
+               xmlhttp.onreadystatechange = function() {
+                   if (this.readyState == 4 && this.status == 200) {
+                       document.getElementById("txtHint").innerHTML = this.responseText;
+                   }
+               };
+               xmlhttp.open("GET", "https://www.r6rc.com/home/assets/php/gethint.php?q=" + str, true);
+               xmlhttp.send();
+           }
+       }
+       </script>
     </body>
 </html>

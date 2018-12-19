@@ -1,3 +1,7 @@
+var ua = require('universal-analytics');
+var visitor = ua('UA-111374271-3');
+visitor.pageview("index.html").send();
+
 const {app, BrowserWindow, Menu, protocol, ipcMain, shell} = require('electron');
 const log = require('electron-log');
 const {autoUpdater} = require("electron-updater");
@@ -23,19 +27,18 @@ function createDefaultWindow() {
     minHeight: 650,
     maxWidth: 7680,
     maxHeight: 4320,
-    frame: true, //frame: true if packaging for mac
+    frame: true,
     backgroundColor: '#1c1d26',
     autoHideMenuBar: true
   });
   //win.webContents.openDevTools();
   win.on('closed', () => {
     win = null;
-  });                            //indexmac.html if packaging for mac
+  });
   win.loadURL(`file://${__dirname}/index.html#v${app.getVersion()}`);
   return win;
 }
 
-//-------------------------------------------------------------------
 // Only allows one instance of the application to be open at a time
 const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
   if (win) {
@@ -47,11 +50,8 @@ const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) 
 if (isSecondInstance) {
   app.quit()
 }
-//-------------------------------------------------------------------
 
-
-
-if (process.platform === 'win') {
+/*
 app.setJumpList([
   {
     type: 'custom',
@@ -105,9 +105,7 @@ app.setJumpList([
     ]
   }
 ])
-} else {
-
-}
+*/
 
 //-------------------------------------------------------------------
 // Menu definitions
@@ -168,19 +166,6 @@ if (process.platform === 'darwin') {
     label: 'Window',
     submenu: [
       {
-        label: 'Fullscreen',
-        accelerator: 'Command+F',
-        click () { fullScreenModule(); }
-      },
-      {
-        type: 'separator'
-      },
-      {
-        label: 'Reload',
-        accelerator: 'Command+R',
-        role: 'reload'
-      },
-      {
         label: 'Minimize',
         accelerator: 'Command+M',
         role: 'minimize'
@@ -200,9 +185,7 @@ if (process.platform === 'darwin') {
       },
       {
         label: 'Check for update',
-        accelerator: 'Command+U',
-        enabled: true,
-        click () {autoUpdater.checkForUpdatesAndNotify();}
+        enabled: false
       },
       {
         label: 'Learn More',
@@ -255,13 +238,20 @@ if (process.platform === 'darwin') {
     submenu: [
       {
         accelerator: 'F11',
-        role: 'togglefullscreen'
+        click () { fullScreenModule(); }
       },
       {
         label: 'Minimize',
         accelerator: 'Control+M',
         role: 'minimize'
       },
+      /*
+      {
+        label: 'Reload',
+        accelerator: 'Control+R',
+        role: 'reload'
+      },
+      */
       {
         label: 'Close',
         role: 'close'
@@ -287,31 +277,34 @@ if (process.platform === 'darwin') {
   })
 }
 
-//-----------------------------------
 function fullScreenModule() {
-  if (win.isFullScreen() ) {
-    win.setFullScreen(false);
+
+  if ( win.isFullScreen(true) ) {
+      win.setFullScreen(false);
   } else {
-    win.setFullScreen(true);
+      win.setFullScreen(true);
   }
 }
-//-----------------------------------
 
 autoUpdater.on('checking-for-update', () => {
-  sendStatusToWindow('');
   sendStatusToWindow('Checking for update...');
+  log.info('Checking for upadte...');
 });
 autoUpdater.on('update-available', (info) => {
   sendStatusToWindow('An update is available! Downloading...');
+  log.info('An update is available! Downloading...');
 });
 autoUpdater.on('update-not-available', (info) => {
   sendStatusToWindow('All up to date!');
+  log.info('All up to date!');
 });
 autoUpdater.on('error', (err) => {
   sendStatusToWindow('There was a problem downloading your update. ' + err);
+  log.info('There was a problem downloading your update. ' + err);
 });
 autoUpdater.on('update-downloaded', (info) => {
   sendStatusToWindow('Update downloaded, restart to install.');
+  log.info('Update downloaded, restart to install.');
 });
 app.on('ready', function() {
   autoUpdater.checkForUpdatesAndNotify();

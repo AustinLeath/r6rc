@@ -1,6 +1,6 @@
 {
   "name": "R6RC",
-  "version": "0.4.0",
+  "version": "0.4.3",
   "main": "main.js",
   "repository": "https://github.com/austinleath/r6rc",
   "license": "MIT",
@@ -12,17 +12,17 @@
     "testmac": "build --mac",
     "testlin": "build --linux",
     "publish": "build -p always",
-    "electronpkgmac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=build/icon.icns --prune=true --out=mac-release",
-    "updep": "npm install electron@latest electron-builder@latest electron-packager@latest electron-log@latest electron-updater@latest"
+    "updep": "npm install universal-analytics@latest electron@latest electron-builder@latest electron-packager@latest electron-log@latest electron-updater@latest"
   },
   "devDependencies": {
-    "electron": "^2.0.5",
-    "electron-builder": "^20.24.4",
-    "electron-packager": "^12.1.0"
+    "electron": "3.0.2",
+    "electron-builder": "20.28.4",
+    "electron-packager": "12.1.1"
   },
   "dependencies": {
-    "electron-log": "^2.2.16",
-    "electron-updater": "^3.0.3"
+    "electron-log": "2.2.17",
+    "electron-updater": "3.1.2",
+    "universal-analytics": "0.4.17"
   },
   "build": {
     "appId": "com.austinleath.r6rc",
