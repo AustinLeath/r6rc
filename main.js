@@ -27,7 +27,7 @@ function createDefaultWindow() {
     minHeight: 650,
     maxWidth: 7680,
     maxHeight: 4320,
-    frame: false,
+    frame: true,
     backgroundColor: '#1c1d26',
     autoHideMenuBar: true
   });
@@ -39,77 +39,62 @@ function createDefaultWindow() {
   return win;
 }
 
-//-------------------------------------------------------------------
-// Only allows one instance of the application to be open at a time
-const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-  if (win) {
-    if (win.isMinimized()) win.restore()
-    win.focus()
+/*
+app.setJumpList([
+  {
+    type: 'custom',
+    name: 'Recent Projects',
+    items: [
+      { type: 'file', path: 'C:\\Projects\\project1.proj' },
+      { type: 'file', path: 'C:\\Projects\\project2.proj' }
+    ]
+  },
+  { // has a name so `type` is assumed to be "custom"
+    name: 'Tools',
+    items: [
+      {
+        type: 'task',
+        title: 'Tool A',
+        program: process.execPath,
+        args: '--run-tool-a',
+        icon: process.execPath,
+        iconIndex: 0,
+        description: 'Runs Tool A'
+      },
+      {
+        type: 'task',
+        title: 'Tool B',
+        program: process.execPath,
+        args: '--run-tool-b',
+        icon: process.execPath,
+        iconIndex: 0,
+        description: 'Runs Tool B'
+      }
+    ]
+  },
+  { type: 'frequent' },
+  {
+    items: [
+      {
+        type: 'task',
+        title: 'New Project',
+        program: process.execPath,
+        args: '--new-project',
+        description: 'Create a new project.'
+      },
+      { type: 'separator' },
+      {
+        type: 'task',
+        title: 'Recover Project',
+        program: process.execPath,
+        args: '--recover-project',
+        description: 'Recover Project'
+      }
+    ]
   }
-})
+])
+*/
 
-if (isSecondInstance) {
-  app.quit()
-}
-//-------------------------------------------------------------------
-
-//app.setJumpList([
-//  {
-//    type: 'custom',
-//    name: 'Recent Projects',
-//    items: [
-//      { type: 'file', path: 'C:\\Projects\\project1.proj' },
-//      { type: 'file', path: 'C:\\Projects\\project2.proj' }
-//    ]
-//  },
-//  { // has a name so `type` is assumed to be "custom"
-//    name: 'Tools',
-//    items: [
-//      {
-//        type: 'task',
-//        title: 'Tool A',
-//        program: process.execPath,
-//        args: '--run-tool-a',
-//        icon: process.execPath,
-//        iconIndex: 0,
-//        description: 'Runs Tool A'
-//      },
-//      {
-//        type: 'task',
-//        title: 'Tool B',
-//        program: process.execPath,
-//        args: '--run-tool-b',
-//        icon: process.execPath,
-//        iconIndex: 0,
-//        description: 'Runs Tool B'
-//      }
-//    ]
-//  },
-//  { type: 'frequent' },
-//  {
-//    items: [
-//      {
-//        type: 'task',
-//        title: 'New Project',
-//        program: process.execPath,
-//        args: '--new-project',
-//        description: 'Create a new project.'
-//      },
-//      { type: 'separator' },
-//      {
-//        type: 'task',
-//        title: 'Recover Project',
-//        program: process.execPath,
-//        args: '--recover-project',
-//        description: 'Recover Project'
-//      }
-//    ]
-//  }
-//])
-
-//-------------------------------------------------------------------
-// Menu definitions
-//-------------------------------------------------------------------
 let template = []
 if (process.platform === 'darwin') {
   // OS X Menu
@@ -224,7 +209,7 @@ if (process.platform === 'darwin') {
       {
         label: 'Join the Discord',
         accelerator: 'Shift+Control+D',
-        click () { require('electron').shell.openExternal('https://discord.gg/h5zXUBw') }
+        click () { require('electron').shell.openExternal('https://discord.gg/dRn2MYU') }
       },
       {
         label: 'Support ' + name,
@@ -237,6 +222,7 @@ if (process.platform === 'darwin') {
     label: 'Window',
     submenu: [
       {
+        label: 'Fullscreen',
         accelerator: 'F11',
         click () { fullScreenModule(); }
       },
@@ -245,13 +231,6 @@ if (process.platform === 'darwin') {
         accelerator: 'Control+M',
         role: 'minimize'
       },
-      /*
-      {
-        label: 'Reload',
-        accelerator: 'Control+R',
-        role: 'reload'
-      },
-      */
       {
         label: 'Close',
         role: 'close'
@@ -267,7 +246,8 @@ if (process.platform === 'darwin') {
       },
       {
         label: 'Check for update',
-        enabled: false
+        enabled: false,
+        //click () { autoUpdater.checkForUpdatesAndNotify(); }
       },
       {
         label: 'Learn More',
@@ -301,12 +281,25 @@ autoUpdater.on('error', (err) => {
 autoUpdater.on('update-downloaded', (info) => {
   sendStatusToWindow('Update downloaded, restart to install.');
 });
-app.on('ready', function() {
-  autoUpdater.checkForUpdatesAndNotify();
-  const menu = Menu.buildFromTemplate(template);
-  Menu.setApplicationMenu(menu);
-  createDefaultWindow();
-});
+const gotTheLock = app.requestSingleInstanceLock()
+
+if (!gotTheLock) {
+  app.quit()
+} else {
+  app.on('second-instance', (event, commandLine, workingDirectory) => {
+    if (win) {
+      if (win.isMinimized())
+      win.restore()
+      win.focus()
+    }
+  })
+  app.on('ready', () => {
+    autoUpdater.checkForUpdatesAndNotify();
+    const menu = Menu.buildFromTemplate(template);
+    Menu.setApplicationMenu(menu);
+    createDefaultWindow();
+  })
+}
 app.on('window-all-closed', () => {
   app.quit();
 });
