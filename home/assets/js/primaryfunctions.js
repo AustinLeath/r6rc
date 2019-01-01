@@ -26,6 +26,7 @@ function r6rcpage() {
     document.getElementById('playersearchpage').style.display = "none";
     document.getElementById('contributorspage').style.display = "none";
     document.getElementById('changelogpage').style.display = "none";
+    document.getElementById('hotkeyspage').style.display = "none";
   }
 }
 function changelogpage() {
@@ -34,6 +35,7 @@ function changelogpage() {
     document.getElementById('playersearchpage').style.display = "none";
     document.getElementById('contributorspage').style.display = "none";
     document.getElementById('changelogpage').style.display = "block";
+    document.getElementById('hotkeyspage').style.display = "none";
   }
 }
 function playersearchpage() {
@@ -42,6 +44,7 @@ function playersearchpage() {
     document.getElementById('playersearchpage').style.display = "block";
     document.getElementById('contributorspage').style.display = "none";
     document.getElementById('changelogpage').style.display = "none";
+    document.getElementById('hotkeyspage').style.display = "none";
   }
 }
 function contributorspage() {
@@ -50,8 +53,20 @@ function contributorspage() {
     document.getElementById('playersearchpage').style.display = "none";
     document.getElementById('contributorspage').style.display = "block";
     document.getElementById('changelogpage').style.display = "none";
+    document.getElementById('hotkeyspage').style.display = "none";
   }
 }
+
+function hotkeyspage() {
+  if (document.getElementById('hotkeyspage').style.display = "none") {
+    document.getElementById('r6rcpage').style.display = "none";
+    document.getElementById('playersearchpage').style.display = "none";
+    document.getElementById('contributorspage').style.display = "none";
+    document.getElementById('changelogpage').style.display = "none";
+    document.getElementById('hotkeyspage').style.display = "block";
+  }
+}
+
 window.addEventListener("keydown", checkKeyPressed, false);
 var fullscreenmessage = false;
 
