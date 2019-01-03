@@ -138,7 +138,7 @@ if (process.platform === 'darwin') {
       {
         label: 'Join the Discord',
         accelerator: 'Shift+Command+D',
-        click () { require('electron').shell.openExternal('https://discord.gg/h5zXUBw') }
+        click () { require('electron').shell.openExternal('https://discord.gg/NaAmbbb') }
       },
       {
         label: 'Support ' + name,
@@ -209,7 +209,7 @@ if (process.platform === 'darwin') {
       {
         label: 'Join the Discord',
         accelerator: 'Shift+Control+D',
-        click () { require('electron').shell.openExternal('https://discord.gg/dRn2MYU') }
+        click () { require('electron').shell.openExternal('https://discord.gg/NaAmbbb') }
       },
       {
         label: 'Support ' + name,
@@ -251,6 +251,7 @@ if (process.platform === 'darwin') {
       },
       {
         label: 'Learn More',
+        accelerator: 'Control+L',
         click () { require('electron').shell.openExternal('https://www.github.com/austinleath/r6rc') }
       }
     ]
