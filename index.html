@@ -183,6 +183,11 @@
           top: 35px;
           left: 10px;
         }
+        .pagechangebtnblc{
+          position: fixed;
+          bottom: 0px;
+          left: 10px;
+        }
         .changelog {
           width: 50%;
           text-align: left;
@@ -227,8 +232,7 @@
             <h1 id="cycletxt-5">Coming soon, R6RC for Mac!</h1>
           </div>
           <button class="button small btnalign" id="presetbtn" type="button" onclick="preset();customreset();disable();" disabled>Preset</button>
-          <button class="pagechangebtn button small btnalign" type="button" onclick="changelogpage();">View Changelog</button>
-          <button class="pagechangebtntlc button small btnalign" type="button" onclick="hotkeyspage();">Hotkeys</button>
+          <button class="pagechangebtn button small btnalign" type="button" onclick="changelogpage();presetreset();customreset();">View Changelog</button>
           <!--<button class="pagechangebtntlc button small btnalign" type="button" onclick="playersearchpage();">Player Search</button>-->
           <button class="button small btnalign" id="custombtn" type="button" onclick="custom();presetreset();disable1();">Custom</button>
           <a id="r6tabclick" href="https://r6tab.com"><img id="r6tab" src="home/images/r6tablogo.png" alt=""/></a>
@@ -354,6 +358,8 @@
       <div id="changelogpage">
         <button class="pagechangebtn button small btnalign" type="button" onclick="r6rcpage();">Return to R6RC</button>
         <button class="pagechangebtntlc button small btnalign" type="button" onclick="contributorspage();">Contributors</button>
+        <button class="pagechangebtnblc button small btnalign" type="button" onclick="hotkeyspage();">Hotkeys</button>
+
         <div class="changelog">
           <table>
             <tbody>
@@ -392,6 +398,7 @@
 
       <div id="contributorspage">
         <button class="pagechangebtn button small btnalign" type="button" onclick="r6rcpage();">Return to R6RC</button>
+        <button class="pagechangebtntlc button small btnalign" type="button" onclick="changelogpage();">Changelog</button>
         <div class="changelog">
           <table>
             <tbody>
@@ -410,6 +417,7 @@
       </div>
     </div>
       <div id="hotkeyspage">
+        <button class="pagechangebtnblc button small btnalign" type="button" onclick="changelogpage();">Changelog</button>
         <button class="pagechangebtn button small btnalign" type="button" onclick="r6rcpage();">Return to R6RC</button>
         <div class="hotkeyslist">
           <ul>

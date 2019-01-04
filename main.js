@@ -27,7 +27,7 @@ function createDefaultWindow() {
     minHeight: 650,
     maxWidth: 7680,
     maxHeight: 4320,
-    frame: true,
+    frame: false,
     backgroundColor: '#1c1d26',
     autoHideMenuBar: true
   });
@@ -200,11 +200,6 @@ if (process.platform === 'darwin') {
         label: 'Quit',
         accelerator: 'Control+Q',
         role: 'quit'
-      },
-      {
-        label: 'RELOAD',
-        accelerator: 'Control+R',
-        role: 'reload'
       },
     ]
   },
