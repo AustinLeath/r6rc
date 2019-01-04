@@ -201,6 +201,11 @@ if (process.platform === 'darwin') {
         accelerator: 'Control+Q',
         role: 'quit'
       },
+      {
+        label: 'RELOAD',
+        accelerator: 'Control+R',
+        role: 'reload'
+      },
     ]
   },
   {
