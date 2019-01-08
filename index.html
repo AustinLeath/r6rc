@@ -166,6 +166,9 @@
           display: none;
         }
         #playersearchpage {
+          width: 75%;
+          padding-top: 10%;
+          margin: auto;
           display: none;
         }
         #contributorspage {
@@ -199,12 +202,6 @@
           text-align: center;
           padding-top: 20px;
           padding-right: 20px;
-        }
-        #playersearch {
-          width: 75%;
-          padding-top: 10%;
-          margin: auto;
-          display: block;
         }
     </style>
 </head>
@@ -369,7 +366,7 @@
               </tr>
             </tbody>
           </table>
-        <h1><strong>R6RC | Changelog</strong></h2>
+        <h1><strong>R6RC | Changelog</strong></h1>
         <h1>VERSION 0.4.3 CHANGE NOTES</h1>
           <ul>
            <strong>CHANGES</strong>
@@ -390,10 +387,8 @@
       </div>
 
       <div id="playersearchpage">
-        <div id="playersearch">
           <input type="text" onkeyup="showHint(this.value)" placeholder="Enter a username">
           <span id="txtHint">
-        </div>
       </div>
 
       <div id="contributorspage">
