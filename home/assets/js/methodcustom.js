@@ -16,6 +16,7 @@ function winorlose1() {
     }
     document.getElementById("winorlose1").innerHTML = winorlose;
 }
+
 (function() {
     function calculateRankGoal1(mmr1, elo1, goal1) {
         mmr1 = parseFloat(mmr1);
@@ -36,6 +37,7 @@ function winorlose1() {
         };
     }
 }());
+
 function matchcount1() {
     var matchcount;
 

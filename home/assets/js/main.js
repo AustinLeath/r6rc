@@ -88,112 +88,81 @@
 		// Disabled on IE (choppy scrolling) and mobile platforms (poor performance).
 			if (skel.vars.browser == 'ie'
 			||	skel.vars.mobile) {
-
 				$.fn._parallax = function() {
-
 					return $(this);
-
 				};
-
 			}
 			else {
-
 				$.fn._parallax = function() {
-
 					$(this).each(function() {
-
 						var $this = $(this),
 							on, off;
 
 						on = function() {
-
 							$this
 								.css('background-position', 'center 0px');
-
 							$window
 								.on('scroll._parallax', function() {
-
 									var pos = parseInt($window.scrollTop()) - parseInt($this.position().top);
-
 									$this.css('background-position', 'center ' + (pos * -0.15) + 'px');
-
 								});
-
 						};
 
 						off = function() {
-
 							$this
 								.css('background-position', '');
-
 							$window
 								.off('scroll._parallax');
-
 						};
 
 						skel.on('change', function() {
-
 							if (skel.breakpoint('medium').active)
 								(off)();
 							else
 								(on)();
-
 						});
-
 					});
 
 					return $(this);
-
 				};
 
 				$window
 					.on('load resize', function() {
 						$window.trigger('scroll');
 					});
-
 			}
 
 		// Spotlights.
 			var $spotlights = $('.spotlight');
-
 			$spotlights
 				._parallax()
 				.each(function() {
-
 					var $this = $(this),
 						on, off;
 
 					on = function() {
-
 						// Use main <img>'s src as this spotlight's background.
 							$this.css('background-image', 'url("' + $this.find('.image.main > img').attr('src') + '")');
 
 						// Enable transitions (if supported).
 							if (skel.canUse('transition')) {
-
 								var top, bottom, mode;
 
 								// Side-specific scrollex tweaks.
 									if ($this.hasClass('top')) {
-
 										mode = 'top';
 										top = '-20%';
 										bottom = 0;
-
 									}
 									else if ($this.hasClass('bottom')) {
-
 										mode = 'bottom-only';
 										top = 0;
 										bottom = '20%';
-
 									}
 									else {
-
 										mode = 'middle';
 										top = 0;
 										bottom = 0;
-
 									}
 
 								// Add scrollex.
@@ -204,97 +173,62 @@
 										initialize:	function(t) { $this.addClass('inactive'); },
 										terminate:	function(t) { $this.removeClass('inactive'); },
 										enter:		function(t) { $this.removeClass('inactive'); },
-
-										// Uncomment the line below to "rewind" when this spotlight scrolls out of view.
-
-										//leave:	function(t) { $this.addClass('inactive'); },
-
 									});
-
 							}
-
 					};
 
 					off = function() {
-
 						// Clear spotlight's background.
 							$this.css('background-image', '');
 
-						// Disable transitions (if supported).
+						// Disable transitions; remove scrollex.
 							if (skel.canUse('transition')) {
-
-								// Remove scrollex.
 									$this.unscrollex();
-
 							}
-
 					};
 
 					skel.on('change', function() {
-
 						if (skel.breakpoint('medium').active)
 							(off)();
 						else
 							(on)();
-
 					});
-
 				});
 
 		// Wrappers.
 			var $wrappers = $('.wrapper');
-
 			$wrappers
 				.each(function() {
-
 					var $this = $(this),
 						on, off;
 
 					on = function() {
-
 						if (skel.canUse('transition')) {
-
 							$this.scrollex({
 								top:		250,
 								bottom:		0,
 								initialize:	function(t) { $this.addClass('inactive'); },
 								terminate:	function(t) { $this.removeClass('inactive'); },
 								enter:		function(t) { $this.removeClass('inactive'); },
-
-								// Uncomment the line below to "rewind" when this wrapper scrolls out of view.
-
-								//leave:	function(t) { $this.addClass('inactive'); },
-
 							});
-
 						}
-
 					};
 
 					off = function() {
-
 						if (skel.canUse('transition'))
 							$this.unscrollex();
-
 					};
 
 					skel.on('change', function() {
-
 						if (skel.breakpoint('medium').active)
 							(off)();
 						else
 							(on)();
-
 					});
-
 				});
 
 		// Banner.
-			var $banner = $('#banner');
-
-			$banner
-				._parallax();
-
+		$('#banner')._parallax();
 	});
 
 })(jQuery);
