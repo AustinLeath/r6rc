@@ -27,7 +27,7 @@ function createDefaultWindow() {
     minHeight: 650,
     maxWidth: 7680,
     maxHeight: 4320,
-    frame: true,
+    frame: false,
     backgroundColor: '#1c1d26',
     autoHideMenuBar: true
   });
@@ -37,18 +37,6 @@ function createDefaultWindow() {
   });
   win.loadURL(`file://${__dirname}/index.html#v${app.getVersion()}`);
   return win;
-}
-
-// Only allows one instance of the application to be open at a time
-const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-  if (win) {
-    if (win.isMinimized()) win.restore()
-    win.focus()
-  }
-})
-
-if (isSecondInstance) {
-  app.quit()
 }
 
 /*
@@ -107,9 +95,6 @@ app.setJumpList([
 ])
 */
 
-//-------------------------------------------------------------------
-// Menu definitions
-//-------------------------------------------------------------------
 let template = []
 if (process.platform === 'darwin') {
   // OS X Menu
@@ -153,7 +138,7 @@ if (process.platform === 'darwin') {
       {
         label: 'Join the Discord',
         accelerator: 'Shift+Command+D',
-        click () { require('electron').shell.openExternal('https://discord.gg/h5zXUBw') }
+        click () { require('electron').shell.openExternal('https://discord.gg/NaAmbbb') }
       },
       {
         label: 'Support ' + name,
@@ -224,7 +209,7 @@ if (process.platform === 'darwin') {
       {
         label: 'Join the Discord',
         accelerator: 'Shift+Control+D',
-        click () { require('electron').shell.openExternal('https://discord.gg/h5zXUBw') }
+        click () { require('electron').shell.openExternal('https://discord.gg/NaAmbbb') }
       },
       {
         label: 'Support ' + name,
@@ -237,6 +222,7 @@ if (process.platform === 'darwin') {
     label: 'Window',
     submenu: [
       {
+        label: 'Fullscreen',
         accelerator: 'F11',
         click () { fullScreenModule(); }
       },
@@ -245,13 +231,6 @@ if (process.platform === 'darwin') {
         accelerator: 'Control+M',
         role: 'minimize'
       },
-      /*
-      {
-        label: 'Reload',
-        accelerator: 'Control+R',
-        role: 'reload'
-      },
-      */
       {
         label: 'Close',
         role: 'close'
@@ -267,10 +246,12 @@ if (process.platform === 'darwin') {
       },
       {
         label: 'Check for update',
-        enabled: false
+        enabled: false,
+        //click () { autoUpdater.checkForUpdatesAndNotify(); }
       },
       {
         label: 'Learn More',
+        accelerator: 'Control+L',
         click () { require('electron').shell.openExternal('https://www.github.com/austinleath/r6rc') }
       }
     ]
@@ -288,30 +269,38 @@ function fullScreenModule() {
 
 autoUpdater.on('checking-for-update', () => {
   sendStatusToWindow('Checking for update...');
-  log.info('Checking for upadte...');
 });
 autoUpdater.on('update-available', (info) => {
   sendStatusToWindow('An update is available! Downloading...');
-  log.info('An update is available! Downloading...');
 });
 autoUpdater.on('update-not-available', (info) => {
   sendStatusToWindow('All up to date!');
-  log.info('All up to date!');
 });
 autoUpdater.on('error', (err) => {
   sendStatusToWindow('There was a problem downloading your update. ' + err);
-  log.info('There was a problem downloading your update. ' + err);
 });
 autoUpdater.on('update-downloaded', (info) => {
   sendStatusToWindow('Update downloaded, restart to install.');
-  log.info('Update downloaded, restart to install.');
 });
-app.on('ready', function() {
-  autoUpdater.checkForUpdatesAndNotify();
-  const menu = Menu.buildFromTemplate(template);
-  Menu.setApplicationMenu(menu);
-  createDefaultWindow();
-});
+const gotTheLock = app.requestSingleInstanceLock()
+
+if (!gotTheLock) {
+  app.quit()
+} else {
+  app.on('second-instance', (event, commandLine, workingDirectory) => {
+    if (win) {
+      if (win.isMinimized())
+      win.restore()
+      win.focus()
+    }
+  })
+  app.on('ready', () => {
+    autoUpdater.checkForUpdatesAndNotify();
+    const menu = Menu.buildFromTemplate(template);
+    Menu.setApplicationMenu(menu);
+    createDefaultWindow();
+  })
+}
 app.on('window-all-closed', () => {
   app.quit();
 });

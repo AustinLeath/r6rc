@@ -4,12 +4,76 @@
     <title>R6RC</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" href="home/images/mmrcalculator-icon.png" />
+    <link rel="shortcut icon" href="assets/images/mmrcalculator-icon.png" />
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="home/assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
     <style>
+        #titlename {
+            font-size: 75%;
+            vertical-align: middle;
+            padding-left: 5px;
+        }
+        #title-bar {
+            -webkit-app-region: drag;
+            height: 25px;
+            text-align: center;
+            line-height: 25px;
+            vertical-align: middle;
+            background-color: rgba(39, 40, 51, 1);
+            padding: none;
+            margin: 0px;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        #title {
+            position: fixed;
+            top: 0px;
+            left: 6px;
+            color: white;
+        }
+        #title-bar-btns {
+            -webkit-app-region: no-drag;
+            position: fixed;
+            top: 0px;
+            right: 0px;
+        }
+        .titlebarbuttons {
+          color: white;
+        }
+        #min-btn {
+            background-color: transparent;
+            border-style: none;
+            outline-style: none;
+            height: 25px;
+        }
+        #min-btn:hover {
+            background-color: grey;
+            height: 25px;
+        }
+        #max-btn {
+            background-color: transparent;
+            border-style: none;
+            outline-style: none;
+            height: 23px;
+        }
+        #max-btn:hover {
+            background-color: grey;
+            height: 23px;
+            top: 3px;
+        }
+        #close-btn {
+            background-color: transparent;
+            border-style: none;
+            outline-style: none;
+            height: 25px;
+        }
+        #close-btn:hover {
+            background-color: red;
+            height: 25px;
+        }
         .noselect {
             -webkit-touch-callout: none;
             -webkit-user-select: none;
@@ -102,9 +166,15 @@
           display: none;
         }
         #playersearchpage {
+          width: 75%;
+          padding-top: 10%;
+          margin: auto;
           display: none;
         }
         #contributorspage {
+          display: none;
+        }
+        #hotkeyspage {
           display: none;
         }
         .pagechangebtn {
@@ -116,6 +186,11 @@
           top: 35px;
           left: 10px;
         }
+        .pagechangebtnblc{
+          position: fixed;
+          bottom: 0px;
+          left: 10px;
+        }
         .changelog {
           width: 50%;
           text-align: left;
@@ -123,18 +198,28 @@
           display: block;
           padding-top: 20px;
         }
-        #playersearch {
-          width: 75%;
-          padding-top: 10%;
-          margin: auto;
-          display: block;
+        .hotkeyslist {
+          text-align: center;
+          padding-top: 20px;
+          padding-right: 20px;
         }
     </style>
 </head>
 <body class="noselect" id="background">
+    <div id="title-bar">
+        <div id="title-bar-btns">
+            <button class="titlebarbuttons" id="min-btn">&#8722;</button>
+            <button class="titlebarbuttons" id="max-btn">&#9634;</button>
+            <button class="titlebarbuttons" id="close-btn">&#x2715;</button>
+        </div>
+        <div id="title">
+            <span style="vertical-align: middle;"><img style="width: 15px; height: 15px;"src="assets/images/r6rc-icon.png" alt=""/><a id="titlename">R6RC | R6 Rank Calculator</a></span>
+        </div>
+    </div>
     <div id="page-wrapper">
+    <a id="exitfullscreenmessage" >Press "F11" to exit fullscreen mode</a>
       <section id="content">
-        <a id="discordclick" href="https://discord.gg/cycufxx"><img id="discord" src="home/images/discord.png" alt=""/></a>
+        <a id="discordclick" href="https://discord.gg/NaAmbbb"><img id="discord" src="assets/images/discord.png" alt=""/></a>
         <div id="r6rcpage">
           <div id="prompts">
             <h1 id="cycletxt-1">Welcome to the most minimalistic rank calculator for Rainbow Six: Siege</h1>
@@ -144,11 +229,11 @@
             <h1 id="cycletxt-5">Coming soon, R6RC for Mac!</h1>
           </div>
           <button class="button small btnalign" id="presetbtn" type="button" onclick="preset();customreset();disable();" disabled>Preset</button>
-          <button class="pagechangebtn button small btnalign" type="button" onclick="changelogpage();">View Changelog</button>
+          <button class="pagechangebtn button small btnalign" type="button" onclick="changelogpage();presetreset();customreset();">View Changelog</button>
           <!--<button class="pagechangebtntlc button small btnalign" type="button" onclick="playersearchpage();">Player Search</button>-->
           <button class="button small btnalign" id="custombtn" type="button" onclick="custom();presetreset();disable1();">Custom</button>
-          <a id="r6tabclick" href="https://r6tab.com"><img id="r6tab" src="home/images/r6tablogo.png" alt=""/></a>
-          <a id="twitterclick" href="https://twitter.com/R6RankCalc"><img id="twitterimg" src="home/images/twitter.png" alt=""/></a>
+          <a id="r6tabclick" href="https://r6tab.com"><img id="r6tab" src="assets/images/r6tablogo.png" alt=""/></a>
+          <a id="twitterclick" href="https://twitter.com/R6RankCalc"><img id="twitterimg" src="assets/images/twitter.png" alt=""/></a>
           <!--Divider-->
           <form id="preset" action="">
               <h1 style="text-align: center;">Rainbow Six Siege | Rank Calculator (Preset Rank Goal)</h1>
@@ -270,6 +355,8 @@
       <div id="changelogpage">
         <button class="pagechangebtn button small btnalign" type="button" onclick="r6rcpage();">Return to R6RC</button>
         <button class="pagechangebtntlc button small btnalign" type="button" onclick="contributorspage();">Contributors</button>
+        <button class="pagechangebtnblc button small btnalign" type="button" onclick="hotkeyspage();">Hotkeys</button>
+
         <div class="changelog">
           <table>
             <tbody>
@@ -279,11 +366,12 @@
               </tr>
             </tbody>
           </table>
-        <h1><strong>R6RC | Changelog</strong></h2>
+        <h1><strong>R6RC | Changelog</strong></h1>
         <h1>VERSION 0.4.3 CHANGE NOTES</h1>
           <ul>
            <strong>CHANGES</strong>
            <li><b>Added</b> a contributors page!</li>
+           <li><b>Added</b> fullscreen mode! Press F11 to test it out</li>
            <li><b>Added</b> a dialogue that lets the user know how to exit fullscreen mode</li>
            <li><b>Fixed</b> those annoying yellow borders around all of the buttons</li>
            <li><b>Improved</b> R6RC startup time</li>
@@ -299,14 +387,13 @@
       </div>
 
       <div id="playersearchpage">
-        <div id="playersearch">
           <input type="text" onkeyup="showHint(this.value)" placeholder="Enter a username">
           <span id="txtHint">
-        </div>
       </div>
 
       <div id="contributorspage">
         <button class="pagechangebtn button small btnalign" type="button" onclick="r6rcpage();">Return to R6RC</button>
+        <button class="pagechangebtntlc button small btnalign" type="button" onclick="changelogpage();">Changelog</button>
         <div class="changelog">
           <table>
             <tbody>
@@ -324,28 +411,45 @@
         </div>
       </div>
     </div>
-
+      <div id="hotkeyspage">
+        <button class="pagechangebtnblc button small btnalign" type="button" onclick="changelogpage();">Changelog</button>
+        <button class="pagechangebtn button small btnalign" type="button" onclick="r6rcpage();">Return to R6RC</button>
+        <div class="hotkeyslist">
+          <ul>
+           <strong><i>R6RC Hotkeys</i></strong><br>
+           To <i>hide</i> <b>R6RC</b>, press <b>Ctrl + H</b><br>
+           To <i>join</i> the <b>R6RC</b> Discord, press <b>Ctrl + Shift + D</b><br>
+           To <i>donate</i> to the development of <b>R6RC</b>, press <b>Ctrl + D</b><br>
+           To <i>fullscreen</i> <b>R6RC</b>, press <b>F11</b><br>
+           To <i>minimize</i> <b>R6RC</b>, press <b>Ctrl + M</b><br>
+           To <i>close</i> the current <b>R6RC</b> window, press <b>Ctrl + W</b><br>
+           To <i>learn more</i> about <b>R6RC</b>, press <b>Ctrl + L</b><br>
+           To <i>quit</i> <b>R6RC</b>, press <b>Ctrl + Q</b>
+          </ul>
+        </div>
+      </div>
       </section>
 			</div>
        <!-- Scripts -->
-       <script src="home/assets/js/primaryfunctions.js"></script>
+       <script src="assets/js/primaryfunctions.js"></script>
        <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
        <!-- normal script imports etc  -->
-       <script src="home/assets/js/jquery.min.js"></script>
+       <script src="assets/js/jquery.min.js"></script>
        <!-- Insert this line after script imports -->
        <script>if (window.module) module = window.module;</script>
-       <script src="home/assets/js/jquery.min.js"></script>
-       <script src="home/assets/js/cycletxt.js"></script>
-       <script src="home/assets/js/switchmethod.js"></script>
-       <!--[if lte IE 8]><script src="home/assets/js/ie/respond.min.js"></script><![endif]-->
-       <script src="home/assets/js/main.js"></script>
-       <script src="home/assets/js/methodpreset.js"></script>
-       <script src="home/assets/js/methodcustom.js"></script>
-       <script src="home/assets/js/externalopener.js"></script>
-       <script src="home/assets/js/messagecenter.js"></script>
-       <script src="home/assets/react/react.js"></script>
-       <script src="home/assets/react/react-dom.js"></script>
-       <script src="home/assets/react/timeran.js"></script>
+       <script src="assets/js/jquery.min.js"></script>
+       <script src="assets/js/cycletxt.js"></script>
+       <script src="assets/js/switchmethod.js"></script>
+       <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+       <script src="assets/js/main.js"></script>
+       <script src="assets/js/methodpreset.js"></script>
+       <script src="assets/js/methodcustom.js"></script>
+       <script src="assets/js/externalopener.js"></script>
+       <script src="assets/js/messagecenter.js"></script>
+       <script src="assets/js/titlebar.js"></script>
+       <script src="assets/react/react.js"></script>
+       <script src="assets/react/react-dom.js"></script>
+       <script src="assets/react/timeran.js"></script>
        <script>
        function showHint(str) {
            if (str.length == 0) {
@@ -358,7 +462,7 @@
                        document.getElementById("txtHint").innerHTML = this.responseText;
                    }
                };
-               xmlhttp.open("GET", "https://www.r6rc.com/home/assets/php/gethint.php?q=" + str, true);
+               xmlhttp.open("GET", "https://www.r6rc.com/assets/php/gethint.php?q=" + str, true);
                xmlhttp.send();
            }
        }
