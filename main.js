@@ -27,7 +27,7 @@ function createDefaultWindow() {
     minHeight: 650,
     maxWidth: 7680,
     maxHeight: 4320,
-    frame: false,
+    frame: true,
     backgroundColor: '#1c1d26',
     autoHideMenuBar: true
   });
@@ -95,8 +95,7 @@ app.setJumpList([
 ])
 */
 
-let template = []
-if (process.platform === 'darwin') {
+  let template = []
   // OS X Menu
   log.info('Menu loaded for ' + name + ' on platform: ' + process.platform);
   template.unshift({
@@ -174,92 +173,12 @@ if (process.platform === 'darwin') {
       },
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://www.github.com/austinleath/r6rc') }
+        click () { require('electron').shell.openExternal('https://github.com/AustinLeath/r6rc/tree/macbuild') }
       }
     ]
   })
-} else {
-  // Windows Menu
-  log.info('Menu loaded for ' + name + ' on platform: ' + process.platform);
-  template.unshift({
-    label: name,
-    submenu: [
-      {
-        label: 'Hide ' + name,
-        accelerator: 'Control+H',
-        click() { win.hide(); }
-      },
-      {
-        label: 'Show All',
-        enabled: false
-      },
-      {
-        type: 'separator'
-      },
-      {
-        label: 'Quit',
-        accelerator: 'Control+Q',
-        role: 'quit'
-      },
-    ]
-  },
-  {
-    label: 'Community',
-    submenu: [
-      {
-        label: 'Join the Discord',
-        accelerator: 'Shift+Control+D',
-        click () { require('electron').shell.openExternal('https://discord.gg/NaAmbbb') }
-      },
-      {
-        label: 'Support ' + name,
-        accelerator: 'Control+D',
-        click () { require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8') }
-      }
-    ]
-  },
-  {
-    label: 'Window',
-    submenu: [
-      {
-        label: 'Fullscreen',
-        accelerator: 'F11',
-        click () { fullScreenModule(); }
-      },
-      {
-        label: 'Minimize',
-        accelerator: 'Control+M',
-        role: 'minimize'
-      },
-      {
-        label: 'Close',
-        role: 'close'
-      }
-    ]
-  },
-  {
-    label: 'Help',
-    submenu: [
-      {
-        label: 'Version ' + version,
-        enabled: false
-      },
-      {
-        label: 'Check for update',
-        enabled: false,
-        //click () { autoUpdater.checkForUpdatesAndNotify(); }
-      },
-      {
-        label: 'Learn More',
-        accelerator: 'Control+L',
-        click () { require('electron').shell.openExternal('https://www.github.com/austinleath/r6rc') }
-      }
-    ]
-  })
-}
 
 function fullScreenModule() {
-
   if ( win.isFullScreen(true) ) {
       win.setFullScreen(false);
   } else {

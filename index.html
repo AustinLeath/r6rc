@@ -10,70 +10,6 @@
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
     <style>
-        #titlename {
-            font-size: 75%;
-            vertical-align: middle;
-            padding-left: 5px;
-        }
-        #title-bar {
-            -webkit-app-region: drag;
-            height: 25px;
-            text-align: center;
-            line-height: 25px;
-            vertical-align: middle;
-            background-color: rgba(39, 40, 51, 1);
-            padding: none;
-            margin: 0px;
-            position: fixed;
-            width: 100%;
-            z-index: 100;
-        }
-        #title {
-            position: fixed;
-            top: 0px;
-            left: 6px;
-            color: white;
-        }
-        #title-bar-btns {
-            -webkit-app-region: no-drag;
-            position: fixed;
-            top: 0px;
-            right: 0px;
-        }
-        .titlebarbuttons {
-          color: white;
-        }
-        #min-btn {
-            background-color: transparent;
-            border-style: none;
-            outline-style: none;
-            height: 25px;
-        }
-        #min-btn:hover {
-            background-color: grey;
-            height: 25px;
-        }
-        #max-btn {
-            background-color: transparent;
-            border-style: none;
-            outline-style: none;
-            height: 23px;
-        }
-        #max-btn:hover {
-            background-color: grey;
-            height: 23px;
-            top: 3px;
-        }
-        #close-btn {
-            background-color: transparent;
-            border-style: none;
-            outline-style: none;
-            height: 25px;
-        }
-        #close-btn:hover {
-            background-color: red;
-            height: 25px;
-        }
         .noselect {
             -webkit-touch-callout: none;
             -webkit-user-select: none;
@@ -206,16 +142,6 @@
     </style>
 </head>
 <body class="noselect" id="background">
-    <div id="title-bar">
-        <div id="title-bar-btns">
-            <button class="titlebarbuttons" id="min-btn">&#8722;</button>
-            <button class="titlebarbuttons" id="max-btn">&#9634;</button>
-            <button class="titlebarbuttons" id="close-btn">&#x2715;</button>
-        </div>
-        <div id="title">
-            <span style="vertical-align: middle;"><img style="width: 15px; height: 15px;"src="assets/images/r6rc-icon.png" alt=""/><a id="titlename">R6RC | R6 Rank Calculator</a></span>
-        </div>
-    </div>
     <div id="page-wrapper">
     <a id="exitfullscreenmessage" >Press "F11" to exit fullscreen mode</a>
       <section id="content">
