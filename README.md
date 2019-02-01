@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="home/images/r6rc-icon.png" width="200"/>
+  <img src="assets/images/r6rc-icon.png" width="200"/>
   <h1 align="center">R6RC | R6 Rank Calculator</h3>
   <p align="center">
     <img src="https://img.shields.io/github/release/austinleath/mmrcalculator.svg" />
@@ -23,7 +23,7 @@
 - **You can find releases <u>[here](https://www.github.com/austinleath/mmrcalculator/releases)**</u>
 
 ## Features
-- Solve for a <i>preset</i> goal (see <u>[points chart](https://github.com/AustinLeath/mmrcalculator/blob/master/home/images/ranks.jpg)</u>)
+- Solve for a <i>preset</i> goal (see <u>[points chart](https://github.com/AustinLeath/mmrcalculator/blob/master/assets/images/ranks.jpg)</u>)
 - Solve for <i>custom</i> goal (anywhere between 1,300 & 10,000)
 - Calculate how many games you have to <i>**win**</i> to reach your rank goal
 - Calculate how many games you have to <i>**lose**</i> to reach your rank goal
@@ -35,8 +35,8 @@
 - This app is currently only supported on all **Windows** platforms
 
 ## Pictures
- ![rmpic1.png](home/images/rmpic1.PNG)
- ![rmpic2.png](home/images/rmpic2.PNG)
+ ![rmpic1.png](assets/images/rmpic1.PNG)
+ ![rmpic2.png](assets/images/rmpic2.PNG)
 
 ## Affiliation
 - The R6RC | R6 Rank Calculator is in no way shape or form affiliated with Ubisoft and its partners. Any "Rainbow Six: Siege" name, logos and/or images are registered trademarks of Ubisoft.
