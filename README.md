@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="home/images/r6rc-icon.png" width="200"/>
+  <img src="assets/images/r6rc-icon.png" width="200"/>
   <h1 align="center">R6RC | R6 Rank Calculator</h3>
   <p align="center">
     <img src="https://img.shields.io/github/release/austinleath/mmrcalculator.svg" />
