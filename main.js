@@ -96,89 +96,6 @@ app.setJumpList([
 */
 
 let template = []
-if (process.platform === 'darwin') {
-  // OS X Menu
-  log.info('Menu loaded for ' + name + ' on platform: ' + process.platform);
-  template.unshift({
-    label: name,
-    submenu: [
-      {
-        role: 'services', submenu: []
-      },
-      {
-        type: 'separator'
-      },
-      {
-        label: 'Hide ' + name,
-        accelerator: 'Command+H',
-        role: 'hide'
-      },
-      {
-        label: 'Hide Others',
-        accelerator: 'Option+Command+H',
-        role: 'hideothers'
-      },
-      {
-        label: 'Show All',
-        enabled: false
-      },
-      {
-        type: 'separator'
-      },
-      {
-        label: 'Quit',
-        accelerator: 'Command+Q',
-        role: 'quit'
-      },
-    ]
-  },
-  {
-    label: 'Community',
-    submenu: [
-      {
-        label: 'Join the Discord',
-        accelerator: 'Shift+Command+D',
-        click () { require('electron').shell.openExternal('https://discord.gg/NaAmbbb') }
-      },
-      {
-        label: 'Support ' + name,
-        accelerator: 'Command+D',
-        click () { require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8') }
-      }
-    ]
-  },
-  {
-    label: 'Window',
-    submenu: [
-      {
-        label: 'Minimize',
-        accelerator: 'Command+M',
-        role: 'minimize'
-      },
-      {
-        label: 'Close',
-        role: 'close'
-      }
-    ]
-  },
-  {
-    label: 'Help',
-    submenu: [
-      {
-        label: 'Version ' + version,
-        enabled: false
-      },
-      {
-        label: 'Check for update',
-        enabled: false
-      },
-      {
-        label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://www.github.com/austinleath/r6rc') }
-      }
-    ]
-  })
-} else {
   // Windows Menu
   log.info('Menu loaded for ' + name + ' on platform: ' + process.platform);
   template.unshift({
@@ -256,7 +173,6 @@ if (process.platform === 'darwin') {
       }
     ]
   })
-}
 
 function fullScreenModule() {
 
