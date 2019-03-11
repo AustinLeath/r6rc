@@ -102,74 +102,34 @@ let template = []
     label: name,
     submenu: [
       {
-        label: 'Hide ' + name,
-        accelerator: 'Control+H',
-        click() { win.hide(); }
-      },
-      {
-        label: 'Show All',
-        enabled: false
-      },
-      {
-        type: 'separator'
-      },
-      {
-        label: 'Quit',
-        accelerator: 'Control+Q',
-        role: 'quit'
-      },
-    ]
-  },
-  {
-    label: 'Community',
-    submenu: [
-      {
         label: 'Join the Discord',
         accelerator: 'Shift+Control+D',
-        click () { require('electron').shell.openExternal('https://discord.gg/NaAmbbb') }
-      },
-      {
-        label: 'Support ' + name,
-        accelerator: 'Control+D',
-        click () { require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8') }
-      }
-    ]
-  },
-  {
-    label: 'Window',
-    submenu: [
-      {
-        label: 'Fullscreen',
-        accelerator: 'F11',
-        click () { fullScreenModule(); }
-      },
-      {
-        label: 'Minimize',
-        accelerator: 'Control+M',
-        role: 'minimize'
-      },
-      {
-        label: 'Close',
-        role: 'close'
-      }
-    ]
-  },
-  {
-    label: 'Help',
-    submenu: [
-      {
-        label: 'Version ' + version,
-        enabled: false
-      },
-      {
-        label: 'Check for update',
-        enabled: false,
-        //click () { autoUpdater.checkForUpdatesAndNotify(); }
+        click() { require('electron').shell.openExternal('https://discord.gg/NaAmbbb'); }
       },
       {
         label: 'Learn More',
         accelerator: 'Control+L',
-        click () { require('electron').shell.openExternal('https://www.github.com/austinleath/r6rc') }
+        click() { require('electron').shell.openExternal('https://www.github.com/austinleath/r6rc'); }
+      },
+      {
+        label: 'Donate',
+        accelerator: 'Control+D',
+        click() { require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8'); }
+      },
+      {
+        label: 'Fullscreen',
+        accelerator: 'F11',
+        click() { fullScreenModule(); }
+      },
+      {
+        label: 'Minimize',
+        accelerator: 'Control+M',
+        click() { win.minimize();}
+      },
+      {
+        label: 'Quit',
+        accelerator: 'Control+Q',
+        click() { win.close(); }
       }
     ]
   })

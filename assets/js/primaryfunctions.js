@@ -23,7 +23,6 @@ function customreset() {
 function r6rcpage() {
   if (document.getElementById('r6rcpage').style.display = "none") {
     document.getElementById('r6rcpage').style.display = "block";
-    document.getElementById('playersearchpage').style.display = "none";
     document.getElementById('contributorspage').style.display = "none";
     document.getElementById('changelogpage').style.display = "none";
     document.getElementById('hotkeyspage').style.display = "none";
@@ -32,25 +31,14 @@ function r6rcpage() {
 function changelogpage() {
   if (document.getElementById('changelogpage').style.display = "none") {
     document.getElementById('r6rcpage').style.display = "none";
-    document.getElementById('playersearchpage').style.display = "none";
     document.getElementById('contributorspage').style.display = "none";
     document.getElementById('changelogpage').style.display = "block";
-    document.getElementById('hotkeyspage').style.display = "none";
-  }
-}
-function playersearchpage() {
-  if (document.getElementById('playersearchpage').style.display = "none") {
-    document.getElementById('r6rcpage').style.display = "none";
-    document.getElementById('playersearchpage').style.display = "block";
-    document.getElementById('contributorspage').style.display = "none";
-    document.getElementById('changelogpage').style.display = "none";
     document.getElementById('hotkeyspage').style.display = "none";
   }
 }
 function contributorspage() {
   if (document.getElementById('contributorspage').style.display = "none") {
     document.getElementById('r6rcpage').style.display = "none";
-    document.getElementById('playersearchpage').style.display = "none";
     document.getElementById('contributorspage').style.display = "block";
     document.getElementById('changelogpage').style.display = "none";
     document.getElementById('hotkeyspage').style.display = "none";
@@ -60,7 +48,6 @@ function contributorspage() {
 function hotkeyspage() {
   if (document.getElementById('hotkeyspage').style.display = "none") {
     document.getElementById('r6rcpage').style.display = "none";
-    document.getElementById('playersearchpage').style.display = "none";
     document.getElementById('contributorspage').style.display = "none";
     document.getElementById('changelogpage').style.display = "none";
     document.getElementById('hotkeyspage').style.display = "block";

@@ -165,12 +165,6 @@
         #changelogpage {
           display: none;
         }
-        #playersearchpage {
-          width: 75%;
-          padding-top: 10%;
-          margin: auto;
-          display: none;
-        }
         #contributorspage {
           display: none;
         }
@@ -230,7 +224,6 @@
           </div>
           <button class="button small btnalign" id="presetbtn" type="button" onclick="preset();customreset();disable();" disabled>Preset</button>
           <button class="pagechangebtn button small btnalign" type="button" onclick="changelogpage();presetreset();customreset();">View Changelog</button>
-          <!--<button class="pagechangebtntlc button small btnalign" type="button" onclick="playersearchpage();">Player Search</button>-->
           <button class="button small btnalign" id="custombtn" type="button" onclick="custom();presetreset();disable1();">Custom</button>
           <a id="r6tabclick" href="https://r6tab.com"><img id="r6tab" src="assets/images/r6tablogo.png" alt=""/></a>
           <a id="twitterclick" href="https://twitter.com/R6RankCalc"><img id="twitterimg" src="assets/images/twitter.png" alt=""/></a>
@@ -247,37 +240,42 @@
                   <div class="12u$">
                       <div class="select-wrapper">
                         <select name="goal" id="goal">
-                          <option value="">Select a Rank</option>
+                          <option value="">Select a desired rank</option>
                             <optgroup label="Copper">
-                               <option value="1300">Copper IV</option>
-                               <option value="1400">Copper III</option>
-                               <option value="1500">Copper II</option>
-                               <option value="1600">Copper I</option>
+                               <option value="1300">COPPER IV</option>
+                               <option value="1400">COPPER III</option>
+                               <option value="1500">COPPER II</option>
+                               <option value="1600">COPPER I</option>
                              </optgroup>
                              <optgroup label="Bronze">
-                               <option value="1700">Bronze IV</option>
-                               <option value="1800">Bronze III</option>
-                               <option value="1900">Bronze II</option>
-                               <option value="2000">Bronze I</option>
+                               <option value="1700">BRONZE IV</option>
+                               <option value="1800">BRONZE III</option>
+                               <option value="1900">BRONZE II</option>
+                               <option value="2000">BRONZE I</option>
                              </optgroup>
                              <optgroup label="Silver">
-                               <option value="2100">Silver IV</option>
-                               <option value="2200">Silver III</option>
-                               <option value="2300">Silver II</option>
-                               <option value="2400">Silver I</option>
+                               <option value="2100">SILVER IV</option>
+                               <option value="2200">SILVER III</option>
+                               <option value="2300">SILVER II</option>
+                               <option value="2400">SILVER I</option>
                              </optgroup>
                              <optgroup label="Gold">
-                               <option value="2500">Gold IV</option>
-                               <option value="2700">Gold III</option>
-                               <option value="2900">Gold II</option>
-                               <option value="3100">Gold I</option>
+                               <option value="2500">GOLD IV</option>
+                               <option value="2700">GOLD III</option>
+                               <option value="2900">GOLD II</option>
+                               <option value="3100">GOLD I</option>
                              </optgroup>
                              <optgroup label="Platinum">
-                               <option value="3300">Platinum III</option>
-                               <option value="3700">Platinum II</option>
-                               <option value="4100">Platinum I</option>
+                               <option value="3300">PLATINUM III</option>
+                               <option value="3700">PLATINUM II</option>
+                               <option value="4100">PLATINUM I</option>
                              </optgroup>
-                            <option value="4500">Diamond</option>
+                             <optgroup label="Diamond">
+                               <option value="4500">DIAMOND</option>
+                             </optgroup>
+                             <optgroup label="Top Players">
+                               <option value="5000">TOP PLAYERS</option>
+                             </optgroup>
                           </select>
                       </div>
                   </div>
@@ -367,28 +365,22 @@
             </tbody>
           </table>
         <h1><strong>R6RC | Changelog</strong></h1>
-        <h1>VERSION 0.4.3 CHANGE NOTES</h1>
+        <h1>VERSION 0.4.4 CHANGE NOTES</h1>
           <ul>
            <strong>CHANGES</strong>
-           <li><b>Added</b> a contributors page!</li>
-           <li><b>Added</b> fullscreen mode! Press F11 to test it out</li>
-           <li><b>Added</b> a dialogue that lets the user know how to exit fullscreen mode</li>
-           <li><b>Fixed</b> those annoying yellow borders around all of the buttons</li>
+           <li><b>Added</b> a hotkeys page</li>
+           <li><b>Added</b> the "TOP PLAYERS" option (5000 MMR or above) to the list of presets</li>
+           <li><b>Created</b> the R6RC Discord bot (join the discord to use it)</li>
+           <li><b>Improved</b> the dropdown for the preset solving method</li>
            <li><b>Improved</b> R6RC startup time</li>
           </ul>
           <ul>
            <strong>COMING SOON</strong>
            <li>Visible in-app menu for R6RC</li>
            <li>Windows Taskbar Jump & Task list for R6RC</li>
-           <li>R6RC Discord Bot</li>
            <li>R6RC for Mac</li>
           </ul>
         </div>
-      </div>
-
-      <div id="playersearchpage">
-          <input type="text" onkeyup="showHint(this.value)" placeholder="Enter a username">
-          <span id="txtHint">
       </div>
 
       <div id="contributorspage">
@@ -406,7 +398,7 @@
                 <td><a id="githubprofile_wh" class="button" href="https://github.com/williamhatcher/" target="_blank">GitHub Profile</a></td>
               </tr>
             </tbody>
-          </table>
+           </table>
          <h1>There are no other contributors! To contribute you must add to the repository on GitHub.</h1>
         </div>
       </div>
@@ -418,12 +410,12 @@
           <table>
             <tbody>
               <tr>
-                <td>Hide R6RC</td>
-                <td>Ctrl + H</td>
-              </tr>
-              <tr>
                 <td>Join the R6RC Discord</td>
                 <td>Ctrl + Shift + D</td>
+              </tr>
+              <tr>
+                <td>Learn more about R6RC</td>
+                <td>Ctrl + L</td>
               </tr>
               <tr>
                 <td>Donate to R6RC</td>
@@ -436,14 +428,6 @@
               <tr>
                 <td>Minimize R6RC</td>
                 <td>Ctrl + M</td>
-              </tr>
-              <tr>
-                <td>Close the current R6RC window</td>
-                <td>Ctrl + W</td>
-              </tr>
-              <tr>
-                <td>Learn more about R6RC</td>
-                <td>Ctrl + L</td>
               </tr>
               <tr>
                 <td>Quit R6RC</td>
