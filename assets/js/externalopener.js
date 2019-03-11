@@ -59,3 +59,23 @@ document.getElementById("githubprofile_wh").addEventListener("auxclick", functio
   var remoteLink = this.getAttribute('href');
   shell.openExternal( remoteLink );
 });
+document.getElementById("austinleath.comclick").addEventListener("click", function (e) {
+  e.preventDefault();
+  var remoteLink = this.getAttribute('href');
+  shell.openExternal( remoteLink );
+});
+document.getElementById("austinleath.comclick").addEventListener("auxclick", function (e) {
+  e.preventDefault();
+  var remoteLink = this.getAttribute('href');
+  shell.openExternal( remoteLink );
+});
+document.getElementById("discordbot").addEventListener("click", function (e) {
+  e.preventDefault();
+  var remoteLink = this.getAttribute('href');
+  shell.openExternal( remoteLink );
+});
+document.getElementById("discordbot").addEventListener("auxclick", function (e) {
+  e.preventDefault();
+  var remoteLink = this.getAttribute('href');
+  shell.openExternal( remoteLink );
+});

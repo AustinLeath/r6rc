@@ -12,16 +12,15 @@
     "testmac": "build --mac",
     "testlin": "build --linux",
     "publish": "build -p always",
-    "updep": "npm install universal-analytics@latest electron@latest electron-builder@latest electron-packager@latest electron-log@latest electron-updater@latest"
+    "updep": "npm install universal-analytics@latest electron@latest electron-builder@latest electron-packager@latest electron-updater@latest"
   },
   "devDependencies": {
     "electron": "4.0.0",
     "electron-builder": "20.28.4",
-    "electron-packager": "12.1.1"
+    "electron-packager": "^13.1.1"
   },
   "dependencies": {
-    "asar": "^0.14.6",
-    "electron-log": "2.2.17",
+    "asar": "^1.0.0",
     "electron-updater": "3.1.2",
     "universal-analytics": "^0.4.20"
   },

@@ -3,19 +3,16 @@ var visitor = ua('UA-111374271-3');
 visitor.pageview("index.html").send();
 
 const {app, BrowserWindow, Menu, protocol, ipcMain, shell} = require('electron');
-const log = require('electron-log');
 const {autoUpdater} = require("electron-updater");
 const name = app.getName();
 const version = app.getVersion();
-autoUpdater.logger = log;
-autoUpdater.logger.transports.file.level = 'info';
 
-log.info('App initialized on platform: ' + process.platform);
+console.log('App initialized on platform: ' + process.platform);
 
 let win;
 
 function sendStatusToWindow(text) {
-  log.info(text);
+  console.log(text);
   win.webContents.send('message', text);
 }
 function createDefaultWindow() {
@@ -97,24 +94,24 @@ app.setJumpList([
 
 let template = []
   // Windows Menu
-  log.info('Menu loaded for ' + name + ' on platform: ' + process.platform);
+  console.log('Menu loaded for ' + name + ' on platform: ' + process.platform);
   template.unshift({
     label: name,
     submenu: [
       {
         label: 'Join the Discord',
         accelerator: 'Shift+Control+D',
-        click() { require('electron').shell.openExternal('https://discord.gg/NaAmbbb'); }
+        click() { console.log('Shift+Control+D has been pressed'); require('electron').shell.openExternal('https://discord.gg/NaAmbbb'); }
       },
       {
         label: 'Learn More',
         accelerator: 'Control+L',
-        click() { require('electron').shell.openExternal('https://www.github.com/austinleath/r6rc'); }
+        click() { console.log('Control+L has been pressed'); require('electron').shell.openExternal('https://www.github.com/austinleath/r6rc'); }
       },
       {
         label: 'Donate',
         accelerator: 'Control+D',
-        click() { require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8'); }
+        click() { console.log('Control+D has been pressed'); require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8'); }
       },
       {
         label: 'Fullscreen',
@@ -124,12 +121,12 @@ let template = []
       {
         label: 'Minimize',
         accelerator: 'Control+M',
-        click() { win.minimize();}
+        click() { console.log('Control+M has been pressed'); win.minimize();}
       },
       {
         label: 'Quit',
         accelerator: 'Control+Q',
-        click() { win.close(); }
+        click() { console.log('Control+Q has been pressed'); win.close(); }
       }
     ]
   })
@@ -138,8 +135,10 @@ function fullScreenModule() {
 
   if ( win.isFullScreen(true) ) {
       win.setFullScreen(false);
+      console.log('Application exited fullscreen');
   } else {
       win.setFullScreen(true);
+      console.log('Application entered fullscreen');
   }
 }
 
@@ -179,4 +178,5 @@ if (!gotTheLock) {
 }
 app.on('window-all-closed', () => {
   app.quit();
+  console.log('Application has been closed successfully');
 });

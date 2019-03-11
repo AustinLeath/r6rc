@@ -341,8 +341,8 @@
               </div>
           </form>
           <div class="versionnum">
-              <!-- the button onClick sends a quitAndInstall message to the electron main process -->
               <!-- <a>Subscribe to the R6RC newsletter! | <a id="mailchimp" class="icon alt fa-envelope" href="http://eepurl.com/dDs2rb"></a></a><br> -->
+              Created with care for the community by: <a id="austinleath.comclick" href="https://www.austinleath.com">Austin Leath</a><br>
               <a>Node.js: <script>document.write(process.versions.node)</script></a> |
               <a>Chromium: <script>document.write(process.versions.chrome)</script></a> |
               <a>Electron: <script>document.write(process.versions.electron)</script></a> |
@@ -370,9 +370,10 @@
            <strong>CHANGES</strong>
            <li><b>Added</b> a hotkeys page</li>
            <li><b>Added</b> the "TOP PLAYERS" option (5000 MMR or above) to the list of presets</li>
-           <li><b>Created</b> the R6RC Discord bot (join the discord to use it)</li>
-           <li><b>Improved</b> the dropdown for the preset solving method</li>
+           <li><b>Created</b> the R6RC Discord bot (join the Discord or <a id="discordbot" href="https://discordapp.com/api/oauth2/authorize?client_id=434432973362954241&permissions=8&scope=bot">click here</a>)</li>
+           <li><b>Improved</b> the dropdown for the list of preset values</li>
            <li><b>Improved</b> R6RC startup time</li>
+           <li><b>Updated</b> crucial dependencies to the latest version</li>
           </ul>
           <ul>
            <strong>COMING SOON</strong>
@@ -460,22 +461,5 @@
        <script src="assets/react/react.js"></script>
        <script src="assets/react/react-dom.js"></script>
        <script src="assets/react/timeran.js"></script>
-       <script>
-       function showHint(str) {
-           if (str.length == 0) {
-               document.getElementById("txtHint").innerHTML = "";
-               return;
-           } else {
-               var xmlhttp = new XMLHttpRequest();
-               xmlhttp.onreadystatechange = function() {
-                   if (this.readyState == 4 && this.status == 200) {
-                       document.getElementById("txtHint").innerHTML = this.responseText;
-                   }
-               };
-               xmlhttp.open("GET", "https://www.r6rc.com/assets/php/gethint.php?q=" + str, true);
-               xmlhttp.send();
-           }
-       }
-       </script>
     </body>
 </html>
