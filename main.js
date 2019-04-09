@@ -32,7 +32,7 @@ function createDefaultWindow() {
   win.on('closed', () => {
     win = null;
   });
-  win.loadURL(`file://${__dirname}/index.html#v${app.getVersion()}`);
+  win.loadURL(`file://${__dirname}/index.html#v${version}`);
   return win;
 }
 
@@ -101,17 +101,17 @@ let template = []
       {
         label: 'Join the Discord',
         accelerator: 'Shift+Control+D',
-        click() { console.log('Shift+Control+D has been pressed'); require('electron').shell.openExternal('https://discord.gg/NaAmbbb'); }
+        click() { console.log('Shift+Control+D has been pressed'); shell.openExternal('https://discord.gg/NaAmbbb'); }
       },
       {
         label: 'Learn More',
         accelerator: 'Control+L',
-        click() { console.log('Control+L has been pressed'); require('electron').shell.openExternal('https://www.github.com/austinleath/r6rc'); }
+        click() { console.log('Control+L has been pressed'); shell.openExternal('https://www.github.com/austinleath/r6rc'); }
       },
       {
         label: 'Donate',
         accelerator: 'Control+D',
-        click() { console.log('Control+D has been pressed'); require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8'); }
+        click() { console.log('Control+D has been pressed'); shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8'); }
       },
       {
         label: 'Fullscreen',
