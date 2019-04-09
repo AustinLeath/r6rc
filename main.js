@@ -3,7 +3,7 @@ var visitor = ua('UA-111374271-3');
 visitor.pageview("index.html").send();
 
 const {app, BrowserWindow, Menu, protocol, ipcMain, shell} = require('electron');
-const {autoUpdater} = require("electron-updater");
+const {autoUpdater} = require('electron-updater');
 const name = app.getName();
 const version = app.getVersion();
 
@@ -144,38 +144,44 @@ function fullScreenModule() {
 
 autoUpdater.on('checking-for-update', () => {
   sendStatusToWindow('Checking for update...');
+  console.log('checking for update');
 });
 autoUpdater.on('update-available', (info) => {
   sendStatusToWindow('An update is available! Downloading...');
+  console.log('update available');
 });
 autoUpdater.on('update-not-available', (info) => {
   sendStatusToWindow('All up to date!');
+  console.log('up to date');
 });
 autoUpdater.on('error', (err) => {
   sendStatusToWindow('There was a problem downloading your update. ' + err);
+  console.log('error update');
 });
 autoUpdater.on('update-downloaded', (info) => {
   sendStatusToWindow('Update downloaded, restart to install.');
+  console.log('update downloaded');
 });
 const gotTheLock = app.requestSingleInstanceLock()
 
-if (!gotTheLock) {
-  app.quit()
-} else {
-  app.on('second-instance', (event, commandLine, workingDirectory) => {
-    if (win) {
-      if (win.isMinimized())
-      win.restore()
-      win.focus()
-    }
-  })
-  app.on('ready', () => {
-    autoUpdater.checkForUpdatesAndNotify();
-    const menu = Menu.buildFromTemplate(template);
-    Menu.setApplicationMenu(menu);
-    createDefaultWindow();
-  })
-}
+if (!gotTheLock) return app.quit();
+
+app.on('second-instance', (event, commandLine, workingDirectory) => {
+  if (win) {
+    if (win.isMinimized())
+    win.restore()
+    win.focus()
+  }
+});
+app.on('ready', () => {
+  autoUpdater.checkForUpdatesAndNotify();
+  const menu = Menu.buildFromTemplate(template);
+  Menu.setApplicationMenu(menu);
+  createDefaultWindow();
+});
+app.on('ready', function()  {
+  autoUpdater.checkForUpdates();
+});
 app.on('window-all-closed', () => {
   app.quit();
   console.log('Application has been closed successfully');
