@@ -5,7 +5,7 @@
   <p align="center">
     <img src="https://img.shields.io/github/release/austinleath/mmrcalculator.svg" />
     = <img src="https://img.shields.io/github/downloads/austinleath/mmrcalculator/latest/total.svg" />
-      <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8">
+    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8">
     <img src="https://img.shields.io/badge/Donate-PayPal-green.svg"/></a>
   </p>
   <p align="center">
