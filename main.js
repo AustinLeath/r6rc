@@ -3,7 +3,7 @@ var visitor = ua('UA-111374271-3');
 visitor.pageview("index.html").send();
 
 const {app, BrowserWindow, Menu, protocol, ipcMain, shell} = require('electron');
-const {autoUpdater} = require("electron-updater");
+const {autoUpdater} = require('electron-updater');
 const name = app.getName();
 const version = app.getVersion();
 
@@ -32,7 +32,7 @@ function createDefaultWindow() {
   win.on('closed', () => {
     win = null;
   });
-  win.loadURL(`file://${__dirname}/index.html#v${app.getVersion()}`);
+  win.loadURL(`file://${__dirname}/index.html#v${version}`);
   return win;
 }
 
@@ -101,17 +101,17 @@ let template = []
       {
         label: 'Join the Discord',
         accelerator: 'Shift+Control+D',
-        click() { console.log('Shift+Control+D has been pressed'); require('electron').shell.openExternal('https://discord.gg/NaAmbbb'); }
+        click() { console.log('Shift+Control+D has been pressed'); shell.openExternal('https://discord.gg/NaAmbbb'); }
       },
       {
         label: 'Learn More',
         accelerator: 'Control+L',
-        click() { console.log('Control+L has been pressed'); require('electron').shell.openExternal('https://www.github.com/austinleath/r6rc'); }
+        click() { console.log('Control+L has been pressed'); shell.openExternal('https://www.github.com/austinleath/r6rc'); }
       },
       {
         label: 'Donate',
         accelerator: 'Control+D',
-        click() { console.log('Control+D has been pressed'); require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8'); }
+        click() { console.log('Control+D has been pressed'); shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8'); }
       },
       {
         label: 'Fullscreen',
@@ -144,38 +144,44 @@ function fullScreenModule() {
 
 autoUpdater.on('checking-for-update', () => {
   sendStatusToWindow('Checking for update...');
+  console.log('checking for update');
 });
 autoUpdater.on('update-available', (info) => {
   sendStatusToWindow('An update is available! Downloading...');
+  console.log('update available');
 });
 autoUpdater.on('update-not-available', (info) => {
   sendStatusToWindow('All up to date!');
+  console.log('up to date');
 });
 autoUpdater.on('error', (err) => {
   sendStatusToWindow('There was a problem downloading your update. ' + err);
+  console.log('error update');
 });
 autoUpdater.on('update-downloaded', (info) => {
   sendStatusToWindow('Update downloaded, restart to install.');
+  console.log('update downloaded');
 });
 const gotTheLock = app.requestSingleInstanceLock()
 
-if (!gotTheLock) {
-  app.quit()
-} else {
-  app.on('second-instance', (event, commandLine, workingDirectory) => {
-    if (win) {
-      if (win.isMinimized())
-      win.restore()
-      win.focus()
-    }
-  })
-  app.on('ready', () => {
-    autoUpdater.checkForUpdatesAndNotify();
-    const menu = Menu.buildFromTemplate(template);
-    Menu.setApplicationMenu(menu);
-    createDefaultWindow();
-  })
-}
+if (!gotTheLock) return app.quit();
+
+app.on('second-instance', (event, commandLine, workingDirectory) => {
+  if (win) {
+    if (win.isMinimized())
+    win.restore()
+    win.focus()
+  }
+});
+app.on('ready', () => {
+  autoUpdater.checkForUpdatesAndNotify();
+  const menu = Menu.buildFromTemplate(template);
+  Menu.setApplicationMenu(menu);
+  createDefaultWindow();
+});
+app.on('ready', function()  {
+  autoUpdater.checkForUpdates();
+});
 app.on('window-all-closed', () => {
   app.quit();
   console.log('Application has been closed successfully');
