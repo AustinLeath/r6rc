@@ -20,8 +20,8 @@
     "electron-packager": "^13.1.1"
   },
   "dependencies": {
-    "asar": "^1.0.0",
-    "electron-updater": "4.0.0",
+    "asar": "^2.0.1",
+    "electron-updater": "3.1.2",
     "universal-analytics": "^0.4.20"
   },
   "build": {
