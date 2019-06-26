@@ -59,16 +59,6 @@ document.getElementById("githubprofile_wh").addEventListener("auxclick", functio
   var remoteLink = this.getAttribute('href');
   shell.openExternal( remoteLink );
 });
-document.getElementById("githubprofile_jg").addEventListener("click", function (e) {
-  e.preventDefault();
-  var remoteLink = this.getAttribute('href');
-  shell.openExternal( remoteLink );
-});
-document.getElementById("githubprofile_jg").addEventListener("auxclick", function (e) {
-  e.preventDefault();
-  var remoteLink = this.getAttribute('href');
-  shell.openExternal( remoteLink );
-});
 document.getElementById("austinleath.comclick").addEventListener("click", function (e) {
   e.preventDefault();
   var remoteLink = this.getAttribute('href');
