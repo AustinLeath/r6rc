@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "asar": "^1.0.0",
-    "electron-updater": "3.1.2",
+    "electron-updater": "4.0.0",
     "universal-analytics": "^0.4.20"
   },
   "build": {
@@ -42,6 +42,10 @@
           ]
         }
       ]
+    },
+    "nsis": {
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false
     }
   }
 }

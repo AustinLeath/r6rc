@@ -7,7 +7,7 @@ const {autoUpdater} = require('electron-updater');
 const name = app.getName();
 const version = app.getVersion();
 
-console.log('App initialized on platform: ' + process.platform);
+console.log('LOG: App initialized on platform: ' + process.platform);
 
 let win;
 
@@ -15,6 +15,7 @@ function sendStatusToWindow(text) {
   console.log(text);
   win.webContents.send('message', text);
 }
+
 function createDefaultWindow() {
   win = new BrowserWindow
   ({
@@ -94,24 +95,24 @@ app.setJumpList([
 
 let template = []
   // Windows Menu
-  console.log('Menu loaded for ' + name + ' on platform: ' + process.platform);
+  console.log('LOG: Menu loaded for ' + name + ' on platform: ' + process.platform);
   template.unshift({
     label: name,
     submenu: [
       {
         label: 'Join the Discord',
         accelerator: 'Shift+Control+D',
-        click() { console.log('Shift+Control+D has been pressed'); shell.openExternal('https://discord.gg/NaAmbbb'); }
+        click() { console.log('LOG: Shift+Control+D has been pressed'); shell.openExternal('https://discord.gg/NaAmbbb'); }
       },
       {
         label: 'Learn More',
         accelerator: 'Control+L',
-        click() { console.log('Control+L has been pressed'); shell.openExternal('https://www.github.com/austinleath/r6rc'); }
+        click() { console.log('LOG: Control+L has been pressed'); shell.openExternal('https://www.github.com/austinleath/r6rc'); }
       },
       {
         label: 'Donate',
         accelerator: 'Control+D',
-        click() { console.log('Control+D has been pressed'); shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8'); }
+        click() { console.log('LOG: Control+D has been pressed'); shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8'); }
       },
       {
         label: 'Fullscreen',
@@ -121,46 +122,45 @@ let template = []
       {
         label: 'Minimize',
         accelerator: 'Control+M',
-        click() { console.log('Control+M has been pressed'); win.minimize();}
+        click() { console.log('LOG: Control+M has been pressed'); win.minimize();}
       },
       {
         label: 'Quit',
         accelerator: 'Control+Q',
-        click() { console.log('Control+Q has been pressed'); win.close(); }
+        click() { console.log('LOG: Control+Q has been pressed'); win.close(); }
       }
     ]
   })
 
 function fullScreenModule() {
-
   if ( win.isFullScreen(true) ) {
       win.setFullScreen(false);
-      console.log('Application exited fullscreen');
+      console.log('LOG: Application exited fullscreen');
   } else {
       win.setFullScreen(true);
-      console.log('Application entered fullscreen');
+      console.log('LOG: Application entered fullscreen');
   }
 }
 
 autoUpdater.on('checking-for-update', () => {
   sendStatusToWindow('Checking for update...');
-  console.log('checking for update');
+  console.log('LOG: Checking for update...');
 });
 autoUpdater.on('update-available', (info) => {
   sendStatusToWindow('An update is available! Downloading...');
-  console.log('update available');
+  console.log('LOG: An update is available! Downloading...');
 });
 autoUpdater.on('update-not-available', (info) => {
   sendStatusToWindow('All up to date!');
-  console.log('up to date');
+  console.log('LOG: All up to date!');
 });
 autoUpdater.on('error', (err) => {
   sendStatusToWindow('There was a problem downloading your update. ' + err);
-  console.log('error update');
+  console.log('LOG: There was a problem downloading your update. ' + err);
 });
 autoUpdater.on('update-downloaded', (info) => {
   sendStatusToWindow('Update downloaded, restart to install.');
-  console.log('update downloaded');
+  console.log('LOG: Update downloaded, restart to install.');
 });
 const gotTheLock = app.requestSingleInstanceLock()
 
@@ -179,10 +179,8 @@ app.on('ready', () => {
   Menu.setApplicationMenu(menu);
   createDefaultWindow();
 });
-app.on('ready', function()  {
-  autoUpdater.checkForUpdates();
-});
+
 app.on('window-all-closed', () => {
   app.quit();
-  console.log('Application has been closed successfully');
+  console.log('LOG: Application has been closed successfully');
 });
