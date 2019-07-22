@@ -1,18 +1,31 @@
+//the preset() and custom() functions provide method switcher functionality
+function preset() {
+ document.getElementById("preset").style.display = "block";
+ document.getElementById("custom").style.display = "none";
+ document.getElementById('presetbtn').disabled=true;
+ document.getElementById('custombtn').disabled=false;
+};
+function custom() {
+ document.getElementById("preset").style.display = "none";
+ document.getElementById("custom").style.display = "block";
+ document.getElementById('presetbtn').disabled=false;
+ document.getElementById('custombtn').disabled=true;
+}
 function enable() {
-    document.getElementById("display").style.display = "";
-    document.getElementById("errordialogue").style.display = "";
+  document.getElementById("display").style.display = "";
+  document.getElementById("errordialogue").style.display = "";
 }
 function disable() {
-    document.getElementById("display").style.display = "none";
-    document.getElementById("errordialogue").style.display = "none";
+  document.getElementById("display").style.display = "none";
+  document.getElementById("errordialogue").style.display = "none";
 }
 function enable1() {
-    document.getElementById("display1").style.display = "";
-    document.getElementById("errordialogue1").style.display = "";
+  document.getElementById("display1").style.display = "";
+  document.getElementById("errordialogue1").style.display = "";
 }
 function disable1() {
-    document.getElementById("display1").style.display = "none";
-    document.getElementById("errordialogue1").style.display = "none";
+  document.getElementById("display1").style.display = "none";
+  document.getElementById("errordialogue1").style.display = "none";
 }
 function presetreset() {
   document.getElementById("preset").reset();
