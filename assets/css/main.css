@@ -4094,3 +4094,193 @@
 					}
 
 	}
+
+
+
+	#titlename {
+			font-size: 75%;
+			vertical-align: middle;
+			padding-left: 5px;
+	}
+	#title-bar {
+			-webkit-app-region: drag;
+			height: 25px;
+			text-align: center;
+			line-height: 25px;
+			vertical-align: middle;
+			background-color: rgba(39, 40, 51, 1);
+			padding: none;
+			margin: 0px;
+			position: fixed;
+			width: 100%;
+			z-index: 100;
+	}
+	#title {
+			position: fixed;
+			top: 0px;
+			left: 6px;
+			color: white;
+	}
+	#title-bar-btns {
+			-webkit-app-region: no-drag;
+			position: fixed;
+			top: 0px;
+			right: 0px;
+	}
+	.titlebarbuttons {
+		color: white;
+	}
+	#min-btn {
+			background-color: transparent;
+			border-style: none;
+			outline-style: none;
+			height: 25px;
+	}
+	#min-btn:hover {
+			background-color: grey;
+			height: 25px;
+	}
+	#max-btn {
+			background-color: transparent;
+			border-style: none;
+			outline-style: none;
+			height: 23px;
+	}
+	#max-btn:hover {
+			background-color: grey;
+			height: 23px;
+			top: 3px;
+	}
+	#close-btn {
+			background-color: transparent;
+			border-style: none;
+			outline-style: none;
+			height: 25px;
+	}
+	#close-btn:hover {
+			background-color: red;
+			height: 25px;
+	}
+	.noselect {
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+	}
+	.disable {
+			display: none;
+	}
+	#presetbtn {
+			position: fixed;
+			top: 20%;
+			left: 12%;
+	}
+	#custombtn {
+			position: fixed;
+			top: 20%;
+			right: 13%;
+	}
+	#preset {
+			position: fixed;
+			width: 75%;
+			left: 12%;
+			top: 28%;
+	}
+	#custom {
+			position: fixed;
+			width: 75%;
+			left: 12%;
+			top: 28%;
+	}
+	.versionnum {
+		position: fixed;
+		top:75%;
+		width:100%;
+		text-align: center;
+		text-decoration: none;
+	}
+	#prompts {
+		position: fixed;
+		top: 18%;
+		width: 100%;
+		text-align: center;
+		text-decoration: none;
+	}
+	#donatebutton {
+		position: fixed;
+		bottom: 0%;
+		left: 3%;
+	}
+	#r6tabclick {
+		position: fixed;
+		bottom: 10px;
+		left: 25px;
+	}
+	#discordclick {
+		position: fixed;
+		top: 35px;
+		right: 26.5px;
+	}
+	#discord {
+		width:25px;
+		height:25px;
+	}
+	#r6tab {
+		width:70px;
+		height:40px;
+	}
+	#twitterclick {
+		position: fixed;
+		bottom: 10px;
+		right: 25px;
+	}
+	#twitterimg {
+		width: 35px;
+		height: 35px;
+	}
+	#exitfullscreenmessage {
+		position: fixed;
+		top: 30px;
+		right: 5%;
+		display: none;
+	}
+	#r6rcpage {
+		display: block;
+	}
+	#changelogpage {
+		display: none;
+	}
+	#contributorspage {
+		display: none;
+	}
+	#hotkeyspage {
+		display: none;
+	}
+	.pagechangebtn {
+		margin: auto;
+		display: block;
+	}
+	.pagechangebtntlc {
+		position: fixed;
+		top: 35px;
+		left: 10px;
+	}
+	.pagechangebtnblc{
+		position: fixed;
+		bottom: 0px;
+		left: 10px;
+	}
+	.changelog {
+		width: 50%;
+		text-align: left;
+		margin: auto;
+		display: block;
+		padding-top: 20px;
+	}
+	.hotkeyslist {
+		text-align: center;
+		padding-top: 20px;
+		padding-right: 20px;
+	}

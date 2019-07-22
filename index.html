@@ -4,200 +4,11 @@
     <title>R6RC</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" href="assets/images/mmrcalculator-icon.png" />
+    <link rel="shortcut icon" href="assets/images/r6rc-icon.png" />
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="assets/css/main.css" />
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-    <style>
-        #titlename {
-            font-size: 75%;
-            vertical-align: middle;
-            padding-left: 5px;
-        }
-        #title-bar {
-            -webkit-app-region: drag;
-            height: 25px;
-            text-align: center;
-            line-height: 25px;
-            vertical-align: middle;
-            background-color: rgba(39, 40, 51, 1);
-            padding: none;
-            margin: 0px;
-            position: fixed;
-            width: 100%;
-            z-index: 100;
-        }
-        #title {
-            position: fixed;
-            top: 0px;
-            left: 6px;
-            color: white;
-        }
-        #title-bar-btns {
-            -webkit-app-region: no-drag;
-            position: fixed;
-            top: 0px;
-            right: 0px;
-        }
-        .titlebarbuttons {
-          color: white;
-        }
-        #min-btn {
-            background-color: transparent;
-            border-style: none;
-            outline-style: none;
-            height: 25px;
-        }
-        #min-btn:hover {
-            background-color: grey;
-            height: 25px;
-        }
-        #max-btn {
-            background-color: transparent;
-            border-style: none;
-            outline-style: none;
-            height: 23px;
-        }
-        #max-btn:hover {
-            background-color: grey;
-            height: 23px;
-            top: 3px;
-        }
-        #close-btn {
-            background-color: transparent;
-            border-style: none;
-            outline-style: none;
-            height: 25px;
-        }
-        #close-btn:hover {
-            background-color: red;
-            height: 25px;
-        }
-        .noselect {
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        .disable {
-            display: none;
-        }
-        #presetbtn {
-            position: fixed;
-            top: 20%;
-            left: 12%;
-        }
-        #custombtn {
-            position: fixed;
-            top: 20%;
-            right: 13%;
-        }
-        #preset {
-            position: fixed;
-            width: 75%;
-            left: 12%;
-            top: 28%;
-        }
-        #custom {
-            position: fixed;
-            width: 75%;
-            left: 12%;
-            top: 28%;
-        }
-				.versionnum {
-					position: fixed;
-					top:75%;
-					width:100%;
-					text-align: center;
-					text-decoration: none;
-				}
-        #prompts {
-          position: fixed;
-          top: 18%;
-          width: 100%;
-          text-align: center;
-          text-decoration: none;
-        }
-        #donatebutton {
-          position: fixed;
-          bottom: 0%;
-          left: 3%;
-        }
-        #r6tabclick {
-          position: fixed;
-          bottom: 10px;
-          left: 25px;
-        }
-        #discordclick {
-          position: fixed;
-          top: 35px;
-          right: 26.5px;
-        }
-        #discord {
-          width:25px;
-          height:25px;
-        }
-        #r6tab {
-          width:70px;
-          height:40px;
-        }
-        #twitterclick {
-          position: fixed;
-          bottom: 10px;
-          right: 25px;
-        }
-        #twitterimg {
-          width: 35px;
-          height: 35px;
-        }
-        #exitfullscreenmessage {
-          position: fixed;
-          top: 30px;
-          right: 5%;
-          display: none;
-        }
-        #r6rcpage {
-          display: block;
-        }
-        #changelogpage {
-          display: none;
-        }
-        #contributorspage {
-          display: none;
-        }
-        #hotkeyspage {
-          display: none;
-        }
-        .pagechangebtn {
-          margin: auto;
-          display: block;
-        }
-        .pagechangebtntlc {
-          position: fixed;
-          top: 35px;
-          left: 10px;
-        }
-        .pagechangebtnblc{
-          position: fixed;
-          bottom: 0px;
-          left: 10px;
-        }
-        .changelog {
-          width: 50%;
-          text-align: left;
-          margin: auto;
-          display: block;
-          padding-top: 20px;
-        }
-        .hotkeyslist {
-          text-align: center;
-          padding-top: 20px;
-          padding-right: 20px;
-        }
-    </style>
 </head>
 <body class="noselect" id="background">
     <div id="title-bar">
@@ -216,11 +27,11 @@
         <a id="discordclick" href="https://discord.gg/NaAmbbb"><img id="discord" src="assets/images/discord.png" alt=""/></a>
         <div id="r6rcpage">
           <div id="prompts">
-            <h1 id="cycletxt-1">Welcome to the most minimalistic rank calculator for Rainbow Six: Siege</h1>
-            <h1 id="cycletxt-2">Use the buttons on either side of the screen<br>to switch between solving for a preset rank or a custom rank</h1>
-            <h1 id="cycletxt-3">This application is under heavy development and its features<br>are subject to immediate change</h1>
-            <h1 id="cycletxt-4"><a id="timeran"></a></h1>
-            <h1 id="cycletxt-5">Coming soon, R6RC for Mac!</h1>
+            <h1 style="display: none" id="cycletxt-1">Welcome to the most minimalistic rank calculator for Rainbow Six: Siege</h1>
+            <h1 style="display: none"id="cycletxt-2">Use the buttons on either side of the screen<br>to switch between solving for a preset rank or a custom rank</h1>
+            <h1 style="display: none"id="cycletxt-3">This application is under heavy development and its features<br>are subject to immediate change</h1>
+            <h1 style="display: none"id="cycletxt-4"><a id="timeran"></a></h1>
+            <h1 style="display: none"id="cycletxt-5">Coming soon, R6RC for Mac!</h1>
           </div>
           <button class="button small btnalign" id="presetbtn" type="button" onclick="preset();customreset();disable();" disabled>Preset</button>
           <button class="pagechangebtn button small btnalign" type="button" onclick="changelogpage();presetreset();customreset();">View Changelog</button>
@@ -445,11 +256,9 @@
        <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
        <script src="assets/js/primaryfunctions.js"></script>
        <script src="assets/js/jquery.min.js"></script>
-       <script src="assets/js/jquery.min.js"></script>
        <script src="assets/js/cycletxt.js"></script>
-       <script src="assets/js/switchmethod.js"></script>
        <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-       <script src="assets/js/main.js"></script>
+       <script src="assets/js/skel.min.js"></script>
        <script src="assets/js/methodpreset.js"></script>
        <script src="assets/js/methodcustom.js"></script>
        <script src="assets/js/externalopener.js"></script>
