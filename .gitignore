@@ -1,8 +1,5 @@
-#packages
 node_modules
-
-#temporary files
+package-lock.json
 .DS_Store
-
-#production
 /dist
+/build
