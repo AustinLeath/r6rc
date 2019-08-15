@@ -264,5 +264,13 @@
        <script src="assets/js/messagecenter.js"></script>
        <script src="assets/js/titlebar.js"></script>
        <script>if (window.module) module = window.module;</script>
+
+       <script>
+           // Listen for messages
+           const {ipcRenderer} = require('electron');
+           ipcRenderer.on('message', function (event, text) {
+               document.getElementById("mainWindow").innerHTML = text;
+           })
+       </script>
     </body>
 </html>
