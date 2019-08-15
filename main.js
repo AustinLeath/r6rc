@@ -22,6 +22,7 @@ function createDefaultWindow() {
     maxWidth: 7680,
     maxHeight: 4320,
     frame: false,
+    show: false,
     backgroundColor: '#1c1d26',
     autoHideMenuBar: true
   });
@@ -41,6 +42,7 @@ function createLoadWindow() {
     height: 300,
     frame: false,
     resizable: false,
+    show: false,
     backgroundColor: '#1c1d26',
     autoHideMenuBar: true,
     alwaysontop: true
@@ -119,32 +121,48 @@ app.on('second-instance', (event, commandLine, workingDirectory) => {
 
 app.on('ready', () => {
   createLoadWindow();
-  autoUpdater.checkForUpdatesAndNotify();
-  const menu = Menu.buildFromTemplate(template);
-  Menu.setApplicationMenu(menu);
+  setTimeout(function () {
+    loadwin.show();
+    autoUpdater.checkForUpdatesAndNotify();
+  }, 500);
 });
 autoUpdater.on('checking-for-update', () => {
-  updateSplashStatus("Checking for update");
-  console.log('Checking for update...');
+  updateSplashStatus("Checking for updates");
+  console.log('Checking for updates');
 });
 autoUpdater.on('update-available', (info) => {
-  updateSplashStatus('An update is available! Downloading...');
-  console.log('An update is available! Downloading...');
+  updateSplashStatus('Downloading updates');
+  console.log('Downloading updates');
 });
 autoUpdater.on('update-not-available', (info) => {
-  updateSplashStatus('All up to date!');
+  updateSplashStatus('Up to date, starting R6RC');
   console.log('All up to date!');
+  createDefaultWindow();
+  const menu = Menu.buildFromTemplate(template);
+  Menu.setApplicationMenu(menu);
   setTimeout(function () {
-    app.relaunch();
-  }, 3000);
+    win.show();
+    loadwin.destroy();
+  }, 3500);
 });
 autoUpdater.on('error', (err) => {
-  updateSplashStatus('There was a problem downloading your update. ' + err);
-  console.log('There was a problem downloading your update. ' + err);
+  updateSplashStatus('An unexpected error occurred ' + err);
+  console.log('An unexpected error occurred ' + err);
+  createDefaultWindow();
+  const menu = Menu.buildFromTemplate(template);
+  Menu.setApplicationMenu(menu);
+  setTimeout(function () {
+    win.show();
+    loadwin.destroy();
+  }, 5500);
 });
 autoUpdater.on('update-downloaded', (info) => {
   updateSplashStatus('Update downloaded, restart to install.');
   console.log('Update downloaded, restart to install.');
+  setTimeout(function () {
+    app.relaunch();
+    app.exit();
+  }, 3500);
 });
 app.on('window-all-closed', () => {
   app.quit();
