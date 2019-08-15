@@ -96,7 +96,7 @@ let template = []
       }
     ]
   })
-//test
+  
 function fullScreenModule() {
   if ( win.isFullScreen(true) ) {
       win.setFullScreen(false);
