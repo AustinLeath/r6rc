@@ -12,11 +12,6 @@ console.log('App initialized on platform: ' + process.platform);
 let win;
 let loadwin;
 
-function sendStatusToWindow(text) {
-  console.log(text);
-  win.webContents.send('message', text);
-}
-
 function createDefaultWindow() {
   win = new BrowserWindow
   ({
@@ -28,7 +23,10 @@ function createDefaultWindow() {
     maxHeight: 4320,
     frame: false,
     backgroundColor: '#1c1d26',
-    autoHideMenuBar: true
+    autoHideMenuBar: true,
+    webPreferences: {
+      nodeIntegration: true
+    }
   });
   //win.webContents.openDevTools();
   win.on('closed', () => {
@@ -48,21 +46,55 @@ function createLoadWindow() {
     frame: false,
     resizable: false,
     backgroundColor: '#1c1d26',
-    autoHideMenuBar: true
+    autoHideMenuBar: true,
+    alwaysontop: true,
+    webPreferences: {
+      nodeIntegration: true
+    }
   });
   loadwin.on('closed', () => {
     loadwinwin = null;
   });
   loadwin.loadURL(`file://${__dirname}/loader.html#v${version}`);
-  //create r6rc application window
 
-  setTimeout(function () {
-    createDefaultWindow();
-    console.log("Loaded R6RC from launch page");
-  }, 4000);
+  autoUpdater.checkForUpdatesAndNotify();
+
+  autoUpdater.on('checking-for-update', () => {
+    updateSplashStatus("Checking for update");
+    console.log('Checking for update...');
+  });
+  autoUpdater.on('update-available', (info) => {
+    updateSplashStatus('An update is available! Downloading...');
+    console.log('An update is available! Downloading...');
+  });
+  autoUpdater.on('update-not-available', (info) => {
+    updateSplashStatus('All up to date!');
+    console.log('All up to date!');
+
+    setTimeout(function () {
+      createDefaultWindow();
+    }, 2000);
+  });
+  autoUpdater.on('error', (err) => {
+    updateSplashStatus('There was a problem downloading your update. ' + err);
+    console.log('There was a problem downloading your update. ' + err);
+
+    setTimeout(function () {
+      createDefaultWindow();
+    }, 2000);
+  });
+  autoUpdater.on('update-downloaded', (info) => {
+    updateSplashStatus('Update downloaded, restart to install.');
+    console.log('Update downloaded, restart to install.');
+  });
 
   return loadwin;
 }
+
+function updateSplashStatus(text) {
+    loadwin.webContents.send('message', text);
+}
+
 /*
 app.setJumpList([
   {
@@ -180,32 +212,12 @@ app.on('second-instance', (event, commandLine, workingDirectory) => {
   }
 });
 
-autoUpdater.on('checking-for-update', () => {
-  sendStatusToWindow('Checking for update...');
-  console.log('Checking for update...');
-});
-autoUpdater.on('update-available', (info) => {
-  sendStatusToWindow('An update is available! Downloading...');
-  console.log('An update is available! Downloading...');
-});
-autoUpdater.on('update-not-available', (info) => {
-  sendStatusToWindow('All up to date!');
-  console.log('All up to date!');
-});
-autoUpdater.on('error', (err) => {
-  sendStatusToWindow('There was a problem downloading your update. ' + err);
-  console.log('There was a problem downloading your update. ' + err);
-});
-autoUpdater.on('update-downloaded', (info) => {
-  sendStatusToWindow('Update downloaded, restart to install.');
-  console.log('Update downloaded, restart to install.');
-});
 app.on('ready', () => {
-  autoUpdater.checkForUpdatesAndNotify();
   const menu = Menu.buildFromTemplate(template);
   Menu.setApplicationMenu(menu);
   createLoadWindow();
 });
+
 app.on('window-all-closed', () => {
   app.quit();
   console.log('Application has been closed successfully');

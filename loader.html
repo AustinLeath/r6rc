@@ -27,7 +27,15 @@
     </style>
   </head>
   <body>
-    <h1>LOADING...</h1>
+    <h1>R6RC</h1>
     <div id="loading"></div>
+    <h3 id="loaderStatus"></h3>
   </body>
+  <script>
+      // Listen for messages
+      const {ipcRenderer} = require('electron');
+      ipcRenderer.on('message', function (event, text) {
+          document.getElementById("loaderStatus").innerHTML = text;
+      })
+  </script>
 </html>
