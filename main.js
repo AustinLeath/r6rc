@@ -23,17 +23,13 @@ function createDefaultWindow() {
     maxHeight: 4320,
     frame: false,
     backgroundColor: '#1c1d26',
-    autoHideMenuBar: true,
-    webPreferences: {
-      nodeIntegration: true
-    }
+    autoHideMenuBar: true
   });
   //win.webContents.openDevTools();
   win.on('closed', () => {
     win = null;
   });
   win.loadURL(`file://${__dirname}/index.html#v${version}`);
-    loadwin.destroy();
   return win;
 }
 
@@ -41,115 +37,24 @@ function createDefaultWindow() {
 function createLoadWindow() {
   loadwin = new BrowserWindow
   ({
-    width: 300,
+    width: 500,
     height: 300,
     frame: false,
     resizable: false,
     backgroundColor: '#1c1d26',
     autoHideMenuBar: true,
-    alwaysontop: true,
-    webPreferences: {
-      nodeIntegration: true
-    }
+    alwaysontop: true
   });
   loadwin.on('closed', () => {
     loadwinwin = null;
   });
   loadwin.loadURL(`file://${__dirname}/loader.html#v${version}`);
-
-  autoUpdater.checkForUpdatesAndNotify();
-
-  autoUpdater.on('checking-for-update', () => {
-    updateSplashStatus("Checking for update");
-    console.log('Checking for update...');
-  });
-  autoUpdater.on('update-available', (info) => {
-    updateSplashStatus('An update is available! Downloading...');
-    console.log('An update is available! Downloading...');
-  });
-  autoUpdater.on('update-not-available', (info) => {
-    updateSplashStatus('All up to date!');
-    console.log('All up to date!');
-
-    setTimeout(function () {
-      createDefaultWindow();
-    }, 2000);
-  });
-  autoUpdater.on('error', (err) => {
-    updateSplashStatus('There was a problem downloading your update. ' + err);
-    console.log('There was a problem downloading your update. ' + err);
-
-    setTimeout(function () {
-      createDefaultWindow();
-    }, 2000);
-  });
-  autoUpdater.on('update-downloaded', (info) => {
-    updateSplashStatus('Update downloaded, restart to install.');
-    console.log('Update downloaded, restart to install.');
-  });
-
   return loadwin;
 }
 
 function updateSplashStatus(text) {
     loadwin.webContents.send('message', text);
 }
-
-/*
-app.setJumpList([
-  {
-    type: 'custom',
-    name: 'Recent Projects',
-    items: [
-      { type: 'file', path: 'C:\\Projects\\project1.proj' },
-      { type: 'file', path: 'C:\\Projects\\project2.proj' }
-    ]
-  },
-  { // has a name so `type` is assumed to be "custom"
-    name: 'Tools',
-    items: [
-      {
-        type: 'task',
-        title: 'Tool A',
-        program: process.execPath,
-        args: '--run-tool-a',
-        icon: process.execPath,
-        iconIndex: 0,
-        description: 'Runs Tool A'
-      },
-      {
-        type: 'task',
-        title: 'Tool B',
-        program: process.execPath,
-        args: '--run-tool-b',
-        icon: process.execPath,
-        iconIndex: 0,
-        description: 'Runs Tool B'
-      }
-    ]
-  },
-  { type: 'frequent' },
-  {
-    items: [
-      {
-        type: 'task',
-        title: 'New Project',
-        program: process.execPath,
-        args: '--new-project',
-        description: 'Create a new project.'
-      },
-      { type: 'separator' },
-      {
-        type: 'task',
-        title: 'Recover Project',
-        program: process.execPath,
-        args: '--recover-project',
-        description: 'Recover Project'
-      }
-    ]
-  }
-])
-*/
 
 let template = []
   // Windows Menu
@@ -213,11 +118,34 @@ app.on('second-instance', (event, commandLine, workingDirectory) => {
 });
 
 app.on('ready', () => {
+  createLoadWindow();
+  autoUpdater.checkForUpdatesAndNotify();
   const menu = Menu.buildFromTemplate(template);
   Menu.setApplicationMenu(menu);
-  createLoadWindow();
 });
-
+autoUpdater.on('checking-for-update', () => {
+  updateSplashStatus("Checking for update");
+  console.log('Checking for update...');
+});
+autoUpdater.on('update-available', (info) => {
+  updateSplashStatus('An update is available! Downloading...');
+  console.log('An update is available! Downloading...');
+});
+autoUpdater.on('update-not-available', (info) => {
+  updateSplashStatus('All up to date!');
+  console.log('All up to date!');
+  setTimeout(function () {
+    app.relaunch();
+  }, 3000);
+});
+autoUpdater.on('error', (err) => {
+  updateSplashStatus('There was a problem downloading your update. ' + err);
+  console.log('There was a problem downloading your update. ' + err);
+});
+autoUpdater.on('update-downloaded', (info) => {
+  updateSplashStatus('Update downloaded, restart to install.');
+  console.log('Update downloaded, restart to install.');
+});
 app.on('window-all-closed', () => {
   app.quit();
   console.log('Application has been closed successfully');

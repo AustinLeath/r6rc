@@ -21,8 +21,8 @@
     @keyframes spin {
       to { -webkit-transform: rotate(360deg); }
     }
-      @-webkit-keyframes spin {
-        to { -webkit-transform: rotate(360deg); }
+    @-webkit-keyframes spin {
+      to { -webkit-transform: rotate(360deg); }
     }
     </style>
   </head>
@@ -32,10 +32,9 @@
     <h3 id="loaderStatus"></h3>
   </body>
   <script>
-      // Listen for messages
-      const {ipcRenderer} = require('electron');
+    const {ipcRenderer} = require('electron');
       ipcRenderer.on('message', function (event, text) {
-          document.getElementById("loaderStatus").innerHTML = text;
-      })
+      document.getElementById("loaderStatus").innerHTML = text;
+    })
   </script>
 </html>
