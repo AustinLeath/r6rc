@@ -34,7 +34,6 @@ function createDefaultWindow() {
   return win;
 }
 
-
 function createLoadWindow() {
   loadwin = new BrowserWindow
   ({
@@ -96,7 +95,7 @@ let template = []
       }
     ]
   })
-  
+
 function fullScreenModule() {
   if ( win.isFullScreen(true) ) {
       win.setFullScreen(false);
