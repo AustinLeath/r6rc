@@ -181,7 +181,7 @@ function isDev(boolean) {
 }
 
 app.on("ready", () => {
-  isDev(true);
+  isDev(false);
 });
 autoUpdater.on("checking-for-update", () => {
   updateSplashStatus("Checking for updates");
