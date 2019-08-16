@@ -155,17 +155,16 @@ app.on("second-instance", (event, commandLine, workingDirectory) => {
   }
 });
 app.on("ready", () => {
-  let isDev = true
+  let isDev = false;
   let statusArray = ["[A MEME]", "Error 404: Joke Not Found", "We at pumpkin hill, you ready?", "ULTIMATE IS READY!", "Building Lore", "Wubba Lubba Dub Dub"];
-  if (isDev = true) {
+  if (isDev) {
     createLoadWindow();
     createDefaultWindow();
     loadwin.show();
     win.show();
     setInterval(function() {
       updateSplashStatus(statusArray[Math.floor(Math.random() * 6)]);
-      console.log(Math.floor(Math.random() * 7));
-    }, 1000);
+    }, 1500);
   } else {
     createLoadWindow();
     setTimeout(function() {
