@@ -167,7 +167,6 @@ function isDev(boolean) {
     }, 1500);
   } else {
     createLoadWindow();
-
     setTimeout(function() {
       loadwin.show();
       autoUpdater.checkForUpdatesAndNotify();
