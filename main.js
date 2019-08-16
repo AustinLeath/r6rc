@@ -20,12 +20,9 @@ const version = app.getVersion();
 const client = require("discord-rich-presence")("434432973362954241");
 
 client.updatePresence({
-  //state: 'Calculating for R6: Siege',
-  details: "Calculating for R6: Siege 🐍",
-  startTimestamp: Date.now(),
-  //endTimestamp: Date.now() + 1337,
+  details: "Running R6RC",
+  state: 'Calculating matches',
   largeImageKey: "r6rc-calc-logo",
-  //smallImageKey: 'snek_small',
   instance: true
 });
 
@@ -50,7 +47,7 @@ function createDefaultWindow() {
       nodeIntegration: true
     }
   });
-  //win.webContents.openDevTools();
+  win.webContents.openDevTools();
   win.on("closed", () => {
     win = null;
   });
@@ -72,6 +69,7 @@ function createLoadWindow() {
       nodeIntegration: true
     }
   });
+  loadwin.webContents.openDevTools();
   loadwin.on("closed", () => {
     loadwinwin = null;
   });
@@ -181,7 +179,7 @@ function isDev(boolean) {
 }
 
 app.on("ready", () => {
-  isDev(false);
+  isDev(true);
 });
 autoUpdater.on("checking-for-update", () => {
   updateSplashStatus("Checking for updates");

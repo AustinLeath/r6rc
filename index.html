@@ -309,9 +309,6 @@
 
   <script>
     // Listen for messages
-    const {
-      ipcRenderer
-    } = require('electron');
     ipcRenderer.on('message', function(event, text) {
       document.getElementById("mainWindow").innerHTML = text;
     })

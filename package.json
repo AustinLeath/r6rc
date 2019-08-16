@@ -15,7 +15,7 @@
     "updep": "npm install universal-analytics@latest electron@latest electron-builder@latest electron-packager@latest electron-updater@latest"
   },
   "devDependencies": {
-    "electron": "4.0.0",
+    "electron": "^6.0.2",
     "electron-builder": "20.28.4",
     "electron-packager": "^13.1.1"
   },
