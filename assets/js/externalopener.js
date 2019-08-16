@@ -101,13 +101,3 @@ document
     var remoteLink = this.getAttribute("href");
     shell.openExternal(remoteLink);
   });
-document.getElementById("discordbot").addEventListener("click", function(e) {
-  e.preventDefault();
-  var remoteLink = this.getAttribute("href");
-  shell.openExternal(remoteLink);
-});
-document.getElementById("discordbot").addEventListener("auxclick", function(e) {
-  e.preventDefault();
-  var remoteLink = this.getAttribute("href");
-  shell.openExternal(remoteLink);
-});
