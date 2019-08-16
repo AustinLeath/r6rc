@@ -214,6 +214,8 @@ autoUpdater.on("error", err => {
 autoUpdater.on("update-downloaded", info => {
   updateSplashStatus("Update downloaded, restart to install.");
   console.log("Update downloaded, restart to install.");
+  const menu = Menu.buildFromTemplate(template);
+  Menu.setApplicationMenu(menu);
   setTimeout(function() {
     app.relaunch();
     app.exit();
