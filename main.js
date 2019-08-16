@@ -45,7 +45,10 @@ function createDefaultWindow() {
     frame: false,
     show: false,
     backgroundColor: "#1c1d26",
-    autoHideMenuBar: true
+    autoHideMenuBar: true,
+    webPreferences: {
+      nodeIntegration: true
+    }
   });
   //win.webContents.openDevTools();
   win.on("closed", () => {
@@ -64,7 +67,10 @@ function createLoadWindow() {
     show: false,
     backgroundColor: "#1c1d26",
     autoHideMenuBar: true,
-    alwaysontop: true
+    alwaysontop: true,
+    webPreferences: {
+      nodeIntegration: true
+    }
   });
   loadwin.on("closed", () => {
     loadwinwin = null;
