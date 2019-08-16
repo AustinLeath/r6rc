@@ -156,11 +156,19 @@ app.on("second-instance", (event, commandLine, workingDirectory) => {
 });
 
 app.on("ready", () => {
-  createLoadWindow();
-  setTimeout(function() {
+  let isDev = true
+  if (isDev = true) {
+    createLoadWindow();
+    createDefaultWindow();
     loadwin.show();
-    autoUpdater.checkForUpdatesAndNotify();
-  }, 500);
+    win.show();
+  } else {
+    createLoadWindow();
+    setTimeout(function() {
+      loadwin.show();
+      autoUpdater.checkForUpdatesAndNotify();
+    }, 500);
+  }
 });
 autoUpdater.on("checking-for-update", () => {
   updateSplashStatus("Checking for updates");
