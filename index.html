@@ -1,164 +1,187 @@
 <!DOCTYPE HTML>
-  <html>
-   <head>
-    <title>R6RC</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" href="assets/images/r6rc-icon.png" />
-    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-</head>
-<body class="noselect" id="background">
-    <div id="title-bar">
-        <div id="title-bar-btns">
-            <button class="titlebarbuttons" id="min-btn">&#8722;</button>
-            <button class="titlebarbuttons" id="max-btn">&#9634;</button>
-            <button class="titlebarbuttons" id="close-btn">&#x2715;</button>
-        </div>
-        <div id="title">
-            <span style="vertical-align: middle;"><img style="width: 15px; height: 15px;"src="assets/images/r6rc-icon.png" alt=""/><a id="titlename">R6RC | R6 Rank Calculator</a></span>
-        </div>
-    </div>
-    <div id="page-wrapper">
-    <a id="exitfullscreenmessage" >Press "F11" to exit fullscreen mode</a>
-      <section id="content">
-        <a id="discordclick" href="https://discord.gg/NaAmbbb"><img id="discord" src="assets/images/discord.png" alt=""/></a>
-        <div id="r6rcpage">
-          <div id="prompts">
-            <h1 style="display: none" id="cycletxt-1">Welcome to the most minimalistic rank calculator for Rainbow Six: Siege</h1>
-            <h1 style="display: none"id="cycletxt-2">Use the buttons on either side of the screen<br>to switch between solving for a preset rank or a custom rank</h1>
-            <h1 style="display: none"id="cycletxt-3">This application is under heavy development and its features<br>are subject to immediate change</h1>
-            <h1 style="display: none"id="cycletxt-4">Coming soon, R6RC for Mac!</h1>
-          </div>
-          <button class="button small btnalign" id="presetbtn" type="button" onclick="preset();customreset();disable();" disabled>Preset</button>
-          <button class="pagechangebtn button small btnalign" type="button" onclick="changelogpage();presetreset();customreset();">View Changelog</button>
-          <button class="button small btnalign" id="custombtn" type="button" onclick="custom();presetreset();disable1();">Custom</button>
-          <a id="r6tabclick" href="https://r6tab.com"><img id="r6tab" src="assets/images/r6tablogo.png" alt=""/></a>
-          <a id="twitterclick" href="https://twitter.com/R6RankCalc"><img id="twitterimg" src="assets/images/twitter.png" alt=""/></a>
-          <!--Divider-->
-          <form id="preset" action="">
-              <h1 style="text-align: center;">Rainbow Six Siege | Rank Calculator (Preset Rank Goal)</h1>
-              <div class="row uniform 50%">
-                  <div class="6u 12u$(xsmall)">
-                      <input type="number" name="mmr" id="mmr" min="1300" max="10000" value="" placeholder="Enter your current MMR" />
-                  </div>
-                  <div class="6u$ 12u$(xsmall)">
-                      <input type="number" name="elo" id="elo" min="1" max="500" value="" placeholder="Enter your current ELO per match" />
-                  </div>
-                  <div class="12u$">
-                      <div class="select-wrapper">
-                        <select name="goal" id="goal">
-                          <option value="">Select a desired rank</option>
-                            <optgroup label="Copper">
-                               <option value="1300">COPPER IV</option>
-                               <option value="1400">COPPER III</option>
-                               <option value="1500">COPPER II</option>
-                               <option value="1600">COPPER I</option>
-                             </optgroup>
-                             <optgroup label="Bronze">
-                               <option value="1700">BRONZE IV</option>
-                               <option value="1800">BRONZE III</option>
-                               <option value="1900">BRONZE II</option>
-                               <option value="2000">BRONZE I</option>
-                             </optgroup>
-                             <optgroup label="Silver">
-                               <option value="2100">SILVER IV</option>
-                               <option value="2200">SILVER III</option>
-                               <option value="2300">SILVER II</option>
-                               <option value="2400">SILVER I</option>
-                             </optgroup>
-                             <optgroup label="Gold">
-                               <option value="2500">GOLD IV</option>
-                               <option value="2700">GOLD III</option>
-                               <option value="2900">GOLD II</option>
-                               <option value="3100">GOLD I</option>
-                             </optgroup>
-                             <optgroup label="Platinum">
-                               <option value="3300">PLATINUM III</option>
-                               <option value="3700">PLATINUM II</option>
-                               <option value="4100">PLATINUM I</option>
-                             </optgroup>
-                             <optgroup label="Diamond">
-                               <option value="4500">DIAMOND</option>
-                             </optgroup>
-                             <optgroup label="Top Players">
-                               <option value="5000">TOP PLAYERS</option>
-                             </optgroup>
-                          </select>
-                      </div>
-                  </div>
-                  <div class="12u$">
-                      <ul class="actions">
-                          <li>
-                              <input type="submit" value="Calculate" class="special" onclick="enable();checkmmrfill();checkelofill();checkgoalfill();winorlose();matchcount();dontwinorlose();">
-                          </li>
-                          <li>
-                              <input type="reset" value="Reset" class="special" onclick="disable();">
-                          </li>
-                          <li id="display">
-                              <a id="winorlose"></a>
-                              <a id="result"></a>
-                              <a id="anydiv"></a>
-                              <a id="matchcount"></a>
-                          </li>
-                          <li id="errordialogue">
-                            <a id="mmrerrormessage"></a>
-                            <a id="eloerrormessage"></a>
-                            <a id="goalerrormessage"></a>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
-          </form>
+<html>
 
-          <form class="disable" id="custom" action="">
-              <h1 style="text-align: center;">Rainbow Six Siege | Rank Calculator (Custom Rank Goal)</h1>
-              <div class="row uniform 50%">
-                  <div class="6u 12u$(xsmall)">
-                      <input id="mmr1" name="mmr1" type="number" min="1300" max="10000" placeholder="Enter your current MMR" value="" />
-                  </div>
-                  <div class="6u$ 12u$(xsmall)">
-                      <input id="elo1" name="elo1" type="number" min="1" max="500" placeholder="Enter your current ELO per match" value="" />
-                  </div>
-                  <div class="12u$">
-                      <div class="12u$">
-                          <input id="goal1" name="goal1" type="number" min="1300" max="10000" placeholder="Enter a custom MMR goal (between 1,300 MMR and 10,000 MMR)" value="" />
-                      </div>
-                  </div>
-                  <div class="12u$">
-                      <ul class="actions">
-                          <li>
-                              <input type="submit" value="Calculate" class="special" onclick="enable1();checkmmrfill1();checkelofill1();checkgoalfill1();winorlose1();matchcount1();dontwinorlose1();">
-                          </li>
-                          <li>
-                              <input type="reset" value="Reset" class="special" onclick="disable1();">
-                          </li>
-                          <li id="display1">
-                              <a id="winorlose1"></a>
-                              <a id="result1"></a>
-                              <a id="anydiv1"></a>
-                              <a id="matchcount1"></a>
-                          </li>
-                          <li id="errordialogue1">
-                            <a id="mmrerrormessage1"></a>
-                            <a id="eloerrormessage1"></a>
-                            <a id="goalerrormessage1"></a>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
-          </form>
-          <div class="versionnum">
-              Created with care for the community by: <a id="austinleath.comclick" href="https://austinleath.com">Austin Leath</a><br>
-              <a>Node.js: <script>document.write(process.versions.node)</script></a> |
-              <a>Chromium: <script>document.write(process.versions.chrome)</script></a> |
-              <a>Electron: <script>document.write(process.versions.electron)</script></a> |
-              <a>R6RC: <span id="version">vX.Y.Z</span></a>
-              <a><div id="messages"></div></a>
-          </div>
+<head>
+  <title>R6RC</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" href="assets/images/r6rc-icon.png" />
+  <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+  <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+</head>
+
+<body class="noselect" id="background">
+  <div id="title-bar">
+    <div id="title-bar-btns">
+      <button class="titlebarbuttons" id="min-btn">&#8722;</button>
+      <button class="titlebarbuttons" id="max-btn">&#9634;</button>
+      <button class="titlebarbuttons" id="close-btn">&#x2715;</button>
+    </div>
+    <div id="title">
+      <span style="vertical-align: middle;"><img style="width: 15px; height: 15px;" src="assets/images/r6rc-icon.png" alt="" />
+        <a id="titlename">R6RC | R6 Rank Calculator</a>
+      </span>
+    </div>
+  </div>
+  <div id="page-wrapper">
+    <a id="exitfullscreenmessage">Press "F11" to exit fullscreen mode</a>
+    <section id="content">
+      <a id="discordclick" href="https://discord.gg/NaAmbbb"><img id="discord" src="assets/images/discord.png" alt="" /></a>
+      <div id="r6rcpage">
+        <div id="prompts">
+          <h1 style="display: none" id="cycletxt-1">Welcome to the most minimalistic rank calculator for Rainbow Six: Siege</h1>
+          <h1 style="display: none" id="cycletxt-2">Use the buttons on either side of the screen<br>to switch between solving for a preset rank or a custom rank</h1>
+          <h1 style="display: none" id="cycletxt-3">This application is under heavy development and its features<br>are subject to immediate change</h1>
+          <h1 style="display: none" id="cycletxt-4">Coming soon, R6RC for Mac!</h1>
         </div>
+        <button class="button small btnalign" id="presetbtn" type="button" onclick="preset();customreset();disable();" disabled="disabled">Preset</button>
+        <button class="pagechangebtn button small btnalign" type="button" onclick="changelogpage();presetreset();customreset();">View Changelog</button>
+        <button class="button small btnalign" id="custombtn" type="button" onclick="custom();presetreset();disable1();">Custom</button>
+        <a id="r6tabclick" href="https://r6tab.com"><img id="r6tab" src="assets/images/r6tablogo.png" alt="" /></a>
+        <a id="twitterclick" href="https://twitter.com/R6RankCalc"><img id="twitterimg" src="assets/images/twitter.png" alt="" /></a>
+        <!--Divider-->
+        <form id="preset" action="">
+          <h1 style="text-align: center;">Rainbow Six Siege | Rank Calculator (Preset Rank Goal)</h1>
+          <div class="row uniform 50%">
+            <div class="6u 12u$(xsmall)">
+              <input type="number" name="mmr" id="mmr" min="1300" max="10000" value="" placeholder="Enter your current MMR" />
+            </div>
+            <div class="6u$ 12u$(xsmall)">
+              <input type="number" name="elo" id="elo" min="1" max="500" value="" placeholder="Enter your current ELO per match" />
+            </div>
+            <div class="12u$">
+              <div class="select-wrapper">
+                <select name="goal" id="goal">
+                  <option value="">Select a desired rank</option>
+                  <optgroup label="Copper">
+                    <option value="1300">COPPER IV</option>
+                    <option value="1400">COPPER III</option>
+                    <option value="1500">COPPER II</option>
+                    <option value="1600">COPPER I</option>
+                  </optgroup>
+                  <optgroup label="Bronze">
+                    <option value="1700">BRONZE IV</option>
+                    <option value="1800">BRONZE III</option>
+                    <option value="1900">BRONZE II</option>
+                    <option value="2000">BRONZE I</option>
+                  </optgroup>
+                  <optgroup label="Silver">
+                    <option value="2100">SILVER IV</option>
+                    <option value="2200">SILVER III</option>
+                    <option value="2300">SILVER II</option>
+                    <option value="2400">SILVER I</option>
+                  </optgroup>
+                  <optgroup label="Gold">
+                    <option value="2500">GOLD IV</option>
+                    <option value="2700">GOLD III</option>
+                    <option value="2900">GOLD II</option>
+                    <option value="3100">GOLD I</option>
+                  </optgroup>
+                  <optgroup label="Platinum">
+                    <option value="3300">PLATINUM III</option>
+                    <option value="3700">PLATINUM II</option>
+                    <option value="4100">PLATINUM I</option>
+                  </optgroup>
+                  <optgroup label="Diamond">
+                    <option value="4500">DIAMOND</option>
+                  </optgroup>
+                  <optgroup label="Top Players">
+                    <option value="5000">TOP PLAYERS</option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+            <div class="12u$">
+              <ul class="actions">
+                <li>
+                  <input type="submit" value="Calculate" class="special" onclick="enable();checkmmrfill();checkelofill();checkgoalfill();winorlose();matchcount();dontwinorlose();">
+                </li>
+                <li>
+                  <input type="reset" value="Reset" class="special" onclick="disable();">
+                </li>
+                <li id="display">
+                  <a id="winorlose"></a>
+                  <a id="result"></a>
+                  <a id="anydiv"></a>
+                  <a id="matchcount"></a>
+                </li>
+                <li id="errordialogue">
+                  <a id="mmrerrormessage"></a>
+                  <a id="eloerrormessage"></a>
+                  <a id="goalerrormessage"></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </form>
+
+        <form class="disable" id="custom" action="">
+          <h1 style="text-align: center;">Rainbow Six Siege | Rank Calculator (Custom Rank Goal)</h1>
+          <div class="row uniform 50%">
+            <div class="6u 12u$(xsmall)">
+              <input id="mmr1" name="mmr1" type="number" min="1300" max="10000" placeholder="Enter your current MMR" value="" />
+            </div>
+            <div class="6u$ 12u$(xsmall)">
+              <input id="elo1" name="elo1" type="number" min="1" max="500" placeholder="Enter your current ELO per match" value="" />
+            </div>
+            <div class="12u$">
+              <div class="12u$">
+                <input id="goal1" name="goal1" type="number" min="1300" max="10000" placeholder="Enter a custom MMR goal (between 1,300 MMR and 10,000 MMR)" value="" />
+              </div>
+            </div>
+            <div class="12u$">
+              <ul class="actions">
+                <li>
+                  <input type="submit" value="Calculate" class="special" onclick="enable1();checkmmrfill1();checkelofill1();checkgoalfill1();winorlose1();matchcount1();dontwinorlose1();">
+                </li>
+                <li>
+                  <input type="reset" value="Reset" class="special" onclick="disable1();">
+                </li>
+                <li id="display1">
+                  <a id="winorlose1"></a>
+                  <a id="result1"></a>
+                  <a id="anydiv1"></a>
+                  <a id="matchcount1"></a>
+                </li>
+                <li id="errordialogue1">
+                  <a id="mmrerrormessage1"></a>
+                  <a id="eloerrormessage1"></a>
+                  <a id="goalerrormessage1"></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </form>
+        <div class="versionnum">
+          Created with care for the community by:
+          <a id="austinleath.comclick" href="https://austinleath.com">Austin Leath</a><br>
+          <a>Node.js:
+            <script>
+              document.write(process.versions.node)
+            </script>
+          </a>
+          |
+          <a>Chromium:
+            <script>
+              document.write(process.versions.chrome)
+            </script>
+          </a>
+          |
+          <a>Electron:
+            <script>
+              document.write(process.versions.electron)
+            </script>
+          </a>
+          |
+          <a>R6RC:
+            <span id="version">vX.Y.Z</span></a>
+          <a>
+            <div id="messages"></div>
+          </a>
+        </div>
+      </div>
       <div id="changelogpage">
         <button class="pagechangebtn button small btnalign" type="button" onclick="r6rcpage();">Return to R6RC</button>
         <button class="pagechangebtntlc button small btnalign" type="button" onclick="contributorspage();">Contributors</button>
@@ -169,26 +192,43 @@
             <tbody>
               <tr>
                 <td>R6RC | R6 Rank Calculator</td>
-                <td><a id="releasesclick" class="button icon fa-download" href="https://github.com/AustinLeath/r6rc/releases/latest/" target="_blank">Releases</a></td>
+                <td>
+                  <a id="releasesclick" class="button icon fa-download" href="https://github.com/AustinLeath/r6rc/releases/latest/" target="_blank">Releases</a>
+                </td>
               </tr>
             </tbody>
           </table>
-        <h1><strong>R6RC | Changelog</strong></h1>
-        <h1>VERSION 0.4.4 CHANGE NOTES</h1>
+          <h1>
+            <strong>R6RC | Changelog</strong>
+          </h1>
+          <h1>VERSION 0.4.4 CHANGE NOTES</h1>
           <ul>
-           <strong>CHANGES</strong>
-           <li><b>Added</b> a hotkeys page</li>
-           <li><b>Added</b> the "TOP PLAYERS" option (5000 MMR or above) to the list of presets</li>
-           <li><b>Created</b> the R6RC Discord bot (join the Discord or <a id="discordbot" href="https://discordapp.com/api/oauth2/authorize?client_id=434432973362954241&permissions=8&scope=bot">click here</a>)</li>
-           <li><b>Improved</b> the dropdown for the list of preset values</li>
-           <li><b>Improved</b> R6RC startup time</li>
-           <li><b>Updated</b> crucial dependencies to the latest version</li>
+            <strong>CHANGES</strong>
+            <li>
+              <b>Added</b>
+              a hotkeys page</li>
+            <li>
+              <b>Added</b>
+              the "TOP PLAYERS" option (5000 MMR or above) to the list of presets</li>
+            <li>
+              <b>Created</b>
+              the R6RC Discord bot (join the Discord or
+              <a id="discordbot" href="https://discordapp.com/api/oauth2/authorize?client_id=434432973362954241&permissions=8&scope=bot">click here</a>)</li>
+            <li>
+              <b>Improved</b>
+              the dropdown for the list of preset values</li>
+            <li>
+              <b>Improved</b>
+              R6RC startup time</li>
+            <li>
+              <b>Updated</b>
+              crucial dependencies to the latest version</li>
           </ul>
           <ul>
-           <strong>COMING SOON</strong>
-           <li>Visible in-app menu for R6RC</li>
-           <li>Windows Taskbar Jump & Task list for R6RC</li>
-           <li>R6RC for Mac</li>
+            <strong>COMING SOON</strong>
+            <li>Visible in-app menu for R6RC</li>
+            <li>Windows Taskbar Jump & Task list for R6RC</li>
+            <li>R6RC for Mac</li>
           </ul>
         </div>
       </div>
@@ -201,79 +241,98 @@
             <tbody>
               <tr>
                 <td>Austin Leath</td>
-                <td><a id="githubprofile_al" class="button" href="https://github.com/AustinLeath/" target="_blank">GitHub Profile</a></td>
+                <td>
+                  <a id="githubprofile_al" class="button" href="https://github.com/AustinLeath/" target="_blank">GitHub Profile</a>
+                </td>
               </tr>
               <tr>
                 <td>William Hatcher</td>
-                <td><a id="githubprofile_wh" class="button" href="https://github.com/williamhatcher/" target="_blank">GitHub Profile</a></td>
+                <td>
+                  <a id="githubprofile_wh" class="button" href="https://github.com/williamhatcher/" target="_blank">GitHub Profile</a>
+                </td>
               </tr>
               <tr>
                 <td>Jaylon Gowie</td>
-                <td><a id="githubprofile_wh" class="button" href="https://github.com/SonicMastr" target="_blank">GitHub Profile</a></td>
-              </tr>
-            </tbody>
-           </table>
-         <h1>There are no other contributors! To contribute you must add to the repository on GitHub.</h1>
-        </div>
-      </div>
-    </div>
-      <div id="hotkeyspage">
-        <button class="pagechangebtnblc button small btnalign" type="button" onclick="changelogpage();">Changelog</button>
-        <button class="pagechangebtn button small btnalign" type="button" onclick="r6rcpage();">Return to R6RC</button>
-        <div class="changelog">
-          <table>
-            <tbody>
-              <tr>
-                <td>Join the R6RC Discord</td>
-                <td>Ctrl + Shift + D</td>
-              </tr>
-              <tr>
-                <td>Learn more about R6RC</td>
-                <td>Ctrl + L</td>
-              </tr>
-              <tr>
-                <td>Donate to R6RC</td>
-                <td>Ctrl + D</td>
-              </tr>
-              <tr>
-                <td>Fullscreen R6RC</td>
-                <td>F11</td>
-              </tr>
-              <tr>
-                <td>Minimize R6RC</td>
-                <td>Ctrl + M</td>
-              </tr>
-              <tr>
-                <td>Quit R6RC</td>
-                <td>Ctrl + Q</td>
+                <td>
+                  <a id="githubprofile_wh" class="button" href="https://github.com/SonicMastr" target="_blank">GitHub Profile</a>
+                </td>
               </tr>
             </tbody>
           </table>
-         <h1>There are no other cool keys to press! <a href="mailto:austinleath18@gmail.com?Subject=Regarding%20R6RC" target="_top" style="color: red;">Mail</a> me if you have any suggestions!</h1>
+          <h1>There are no other contributors! To contribute you must add to the repository on GitHub.</h1>
         </div>
       </div>
-      </section>
-			</div>
-       <!-- Scripts -->
-       <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-       <script src="assets/js/primaryfunctions.js"></script>
-       <script src="assets/js/jquery.min.js"></script>
-       <script src="assets/js/cycletxt.js"></script>
-       <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-       <script src="assets/js/skel.min.js"></script>
-       <script src="assets/js/methodpreset.js"></script>
-       <script src="assets/js/methodcustom.js"></script>
-       <script src="assets/js/externalopener.js"></script>
-       <script src="assets/js/messagecenter.js"></script>
-       <script src="assets/js/titlebar.js"></script>
-       <script>if (window.module) module = window.module;</script>
+  </div>
+  <div id="hotkeyspage">
+    <button class="pagechangebtnblc button small btnalign" type="button" onclick="changelogpage();">Changelog</button>
+    <button class="pagechangebtn button small btnalign" type="button" onclick="r6rcpage();">Return to R6RC</button>
+    <div class="changelog">
+      <table>
+        <tbody>
+          <tr>
+            <td>Join the R6RC Discord</td>
+            <td>Ctrl + Shift + D</td>
+          </tr>
+          <tr>
+            <td>Learn more about R6RC</td>
+            <td>Ctrl + L</td>
+          </tr>
+          <tr>
+            <td>Donate to R6RC</td>
+            <td>Ctrl + D</td>
+          </tr>
+          <tr>
+            <td>Fullscreen R6RC</td>
+            <td>F11</td>
+          </tr>
+          <tr>
+            <td>Minimize R6RC</td>
+            <td>Ctrl + M</td>
+          </tr>
+          <tr>
+            <td>Quit R6RC</td>
+            <td>Ctrl + Q</td>
+          </tr>
+        </tbody>
+      </table>
+      <h1>There are no other cool keys to press!
+        <a href="mailto:austinleath18@gmail.com?Subject=Regarding%20R6RC" target="_top" style="color: red;">Mail</a>
+        me if you have any suggestions!</h1>
+    </div>
+  </div>
+  </section>
+  </div>
+  <!-- Scripts -->
+  <script>
+    if (typeof module === 'object') {
+      window.module = module;
+      module = undefined;
+    }
+  </script>
+  <script src="assets/js/primaryfunctions.js"></script>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/cycletxt.js"></script>
+  <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+  <script src="assets/js/skel.min.js"></script>
+  <script src="assets/js/methodpreset.js"></script>
+  <script src="assets/js/methodcustom.js"></script>
+  <script src="assets/js/externalopener.js"></script>
+  <script src="assets/js/messagecenter.js"></script>
+  <script src="assets/js/titlebar.js"></script>
+  <script>
+    if (window.module)
+      module = window.module;
+  </script>
 
-       <script>
-           // Listen for messages
-           const {ipcRenderer} = require('electron');
-           ipcRenderer.on('message', function (event, text) {
-               document.getElementById("mainWindow").innerHTML = text;
-           })
-       </script>
-    </body>
+  <script>
+    // Listen for messages
+    const {
+      ipcRenderer
+    } = require('electron');
+    ipcRenderer.on('message', function(event, text) {
+      document.getElementById("mainWindow").innerHTML = text;
+    })
+  </script>
+</body>
+
 </html>
