@@ -11,7 +11,9 @@ const {
   shell
 } = require("electron");
 
-const {autoUpdater} = require("electron-updater");
+const {
+  autoUpdater
+} = require("electron-updater");
 const name = app.getName();
 const version = app.getVersion();
 
@@ -81,56 +83,55 @@ console.log("Menu loaded for " + name + " on platform: " + process.platform);
 template.unshift({
   label: name,
   submenu: [
-    {
-      label: "Join the Discord",
-      accelerator: "Shift+Control+D",
-      click() {
-        console.log("Shift+Control+D has been pressed");
-        shell.openExternal("https://discord.gg/NaAmbbb");
-      }
-    },
-    {
-      label: "Learn More",
-      accelerator: "Control+L",
-      click() {
-        console.log("Control+L has been pressed");
-        shell.openExternal("https://www.github.com/austinleath/r6rc");
-      }
-    },
-    {
-      label: "Donate",
-      accelerator: "Control+D",
-      click() {
-        console.log("Control+D has been pressed");
-        shell.openExternal(
-          "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8"
-        );
-      }
-    },
-    {
-      label: "Fullscreen",
-      accelerator: "F11",
-      click() {
-        fullScreenModule();
-      }
-    },
-    {
-      label: "Minimize",
-      accelerator: "Control+M",
-      click() {
-        console.log("Control+M has been pressed");
-        win.minimize();
-      }
-    },
-    {
-      label: "Quit",
-      accelerator: "Control+Q",
-      click() {
-        console.log("Control+Q has been pressed");
-        win.close();
-      }
+  {
+    label: "Join the Discord",
+    accelerator: "Shift+Control+D",
+    click() {
+      console.log("Shift+Control+D has been pressed");
+      shell.openExternal("https://discord.gg/NaAmbbb");
     }
-  ]
+  },
+  {
+    label: "Learn More",
+    accelerator: "Control+L",
+    click() {
+      console.log("Control+L has been pressed");
+      shell.openExternal("https://www.github.com/austinleath/r6rc");
+    }
+  },
+  {
+    label: "Donate",
+    accelerator: "Control+D",
+    click() {
+      console.log("Control+D has been pressed");
+      shell.openExternal(
+        "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8"
+      );
+    }
+  },
+  {
+    label: "Fullscreen",
+    accelerator: "F11",
+    click() {
+      fullScreenModule();
+    }
+  },
+  {
+    label: "Minimize",
+    accelerator: "Control+M",
+    click() {
+      console.log("Control+M has been pressed");
+      win.minimize();
+    }
+  },
+  {
+    label: "Quit",
+    accelerator: "Control+Q",
+    click() {
+      console.log("Control+Q has been pressed");
+      win.close();
+    }
+  }]
 });
 
 function fullScreenModule() {
