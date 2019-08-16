@@ -157,6 +157,11 @@ app.on("second-instance", (event, commandLine, workingDirectory) => {
 
 app.on("ready", () => {
   let isDev = true
+  let statusArray = {
+    "TEST",
+    "bigger",
+    "test"
+  }
   if (isDev = true) {
     createLoadWindow();
     createDefaultWindow();
