@@ -47,7 +47,7 @@ function createDefaultWindow() {
       nodeIntegration: true
     }
   });
-  win.webContents.openDevTools();
+  //win.webContents.openDevTools();
   win.on("closed", () => {
     win = null;
   });
@@ -69,7 +69,7 @@ function createLoadWindow() {
       nodeIntegration: true
     }
   });
-  loadwin.webContents.openDevTools();
+  //loadwin.webContents.openDevTools();
   loadwin.on("closed", () => {
     loadwinwin = null;
   });
@@ -179,7 +179,7 @@ function isDev(boolean) {
 }
 
 app.on("ready", () => {
-  isDev(true);
+  isDev(false);
 });
 autoUpdater.on("checking-for-update", () => {
   updateSplashStatus("Checking for updates");

@@ -8,21 +8,21 @@
   "author": "Austin Leath",
   "scripts": {
     "start": "electron .",
-    "testwin": "build --win",
-    "testmac": "build --mac",
-    "testlin": "build --linux",
-    "publish": "build -p always",
+    "testwin": "electron-builder --win",
+    "testmac": "electron-builder --mac",
+    "testlin": "electron-builder --linux",
+    "publish": "electron-builder -p always",
     "updep": "npm install universal-analytics@latest electron@latest electron-builder@latest electron-packager@latest electron-updater@latest"
   },
   "devDependencies": {
     "electron": "^6.0.2",
-    "electron-builder": "20.28.4",
-    "electron-packager": "^13.1.1"
+    "electron-builder": "^21.2.0",
+    "electron-packager": "^14.0.4"
   },
   "dependencies": {
     "asar": "^2.0.1",
     "discord-rich-presence": "0.0.8",
-    "electron-updater": "3.1.2",
+    "electron-updater": "^4.1.2",
     "universal-analytics": "^0.4.20"
   },
   "build": {
