@@ -154,10 +154,10 @@ app.on("second-instance", (event, commandLine, workingDirectory) => {
     win.focus();
   }
 });
-app.on("ready", () => {
-  let isDev = false;
+
+function isDev(boolean) {
   let statusArray = ["[A MEME]", "Error 404: Joke Not Found", "We at pumpkin hill, you ready?", "ULTIMATE IS READY!", "Building Lore", "Wubba Lubba Dub Dub"];
-  if (isDev) {
+  if (boolean) {
     createLoadWindow();
     createDefaultWindow();
     loadwin.show();
@@ -167,11 +167,16 @@ app.on("ready", () => {
     }, 1500);
   } else {
     createLoadWindow();
+
     setTimeout(function() {
       loadwin.show();
       autoUpdater.checkForUpdatesAndNotify();
     }, 500);
   }
+}
+
+app.on("ready", () => {
+  isDev(true);
 });
 autoUpdater.on("checking-for-update", () => {
   updateSplashStatus("Checking for updates");
