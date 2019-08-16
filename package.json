@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "asar": "^2.0.1",
+    "discord-rich-presence": "0.0.8",
     "electron-updater": "3.1.2",
     "universal-analytics": "^0.4.20"
   },
