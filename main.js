@@ -213,10 +213,13 @@ autoUpdater.on("error", err => {
 });
 autoUpdater.on("update-downloaded", info => {
   updateSplashStatus("Update downloaded, restart to install.");
-  console.log("Update downloaded, restart to install.");
+  createDefaultWindow();
+  const menu = Menu.buildFromTemplate(template);
+  Menu.setApplicationMenu(menu);
   setTimeout(function() {
-    autoUpdater.quitAndInstall();
-  }, 4000);
+    win.show();
+    loadwin.destroy();
+  }, 7000);
 });
 app.on("window-all-closed", () => {
   app.quit();
