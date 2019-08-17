@@ -214,12 +214,9 @@ autoUpdater.on("error", err => {
 autoUpdater.on("update-downloaded", info => {
   updateSplashStatus("Update downloaded, restart to install.");
   console.log("Update downloaded, restart to install.");
-  const menu = Menu.buildFromTemplate(template);
-  Menu.setApplicationMenu(menu);
   setTimeout(function() {
-    app.relaunch();
-    app.exit();
-  }, 3500);
+    autoUpdater.quitAndInstall();
+  }, 4000);
 });
 app.on("window-all-closed", () => {
   app.quit();
