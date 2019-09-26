@@ -2457,6 +2457,14 @@
 			z-index: 1;
 		}
 
+		.image.user {
+			border-radius: 0px;
+			background-color: transparent;
+			height: 4em;
+			vertical-align: middle;
+			border-radius: 8%;
+		}
+
 		.image img {
 			border-radius: 4px;
 			display: block;
@@ -2732,6 +2740,7 @@
 			border: solid 1px rgba(255, 255, 255, 0.3);
 			border-left: 0;
 			border-right: 0;
+			vertical-align: middle;
 		}
 
 			table tbody tr:nth-child(2n + 1) {

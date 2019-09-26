@@ -23,7 +23,7 @@
 
 ## Features
 - Solve for a <i>preset</i> goal (see <u>[points chart](https://github.com/AustinLeath/mmrcalculator/blob/master/assets/images/ranks.jpg)</u>)
-- Solve for <i>custom</i> goal (anywhere between 1,300 & 10,000)
+- Solve for <i>custom</i> goal (anywhere between 1,100 & 10,000)
 - Calculate how many games you have to <i>**win**</i> to reach your rank goal
 - Calculate how many games you have to <i>**lose**</i> to reach your rank goal
 - Switch between solving for preset and custom values
