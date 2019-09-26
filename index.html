@@ -46,7 +46,7 @@
           <h1 style="text-align: center;">Rainbow Six Siege | Rank Calculator (Preset Rank Goal)</h1>
           <div class="row uniform 50%">
             <div class="6u 12u$(xsmall)">
-              <input type="number" name="mmr" id="mmr" min="1300" max="10000" value="" placeholder="Enter your current MMR" />
+              <input type="number" name="mmr" id="mmr" min="1100" max="10000" value="" placeholder="Enter your current MMR" />
             </div>
             <div class="6u$ 12u$(xsmall)">
               <input type="number" name="elo" id="elo" min="1" max="500" value="" placeholder="Enter your current ELO per match" />
@@ -55,40 +55,42 @@
               <div class="select-wrapper">
                 <select name="goal" id="goal">
                   <option value="">Select a desired rank</option>
-                  <optgroup label="Copper">
-                    <option value="1300">COPPER IV</option>
-                    <option value="1400">COPPER III</option>
-                    <option value="1500">COPPER II</option>
-                    <option value="1600">COPPER I</option>
-                  </optgroup>
-                  <optgroup label="Bronze">
-                    <option value="1700">BRONZE IV</option>
-                    <option value="1800">BRONZE III</option>
-                    <option value="1900">BRONZE II</option>
-                    <option value="2000">BRONZE I</option>
-                  </optgroup>
-                  <optgroup label="Silver">
-                    <option value="2100">SILVER IV</option>
-                    <option value="2200">SILVER III</option>
-                    <option value="2300">SILVER II</option>
-                    <option value="2400">SILVER I</option>
-                  </optgroup>
-                  <optgroup label="Gold">
-                    <option value="2500">GOLD IV</option>
-                    <option value="2700">GOLD III</option>
-                    <option value="2900">GOLD II</option>
-                    <option value="3100">GOLD I</option>
-                  </optgroup>
-                  <optgroup label="Platinum">
-                    <option value="3300">PLATINUM III</option>
-                    <option value="3700">PLATINUM II</option>
-                    <option value="4100">PLATINUM I</option>
+                  <optgroup label="Champions">
+                    <option value="5000">CHAMPIONS</option>
                   </optgroup>
                   <optgroup label="Diamond">
-                    <option value="4500">DIAMOND</option>
+                    <option value="4400">DIAMOND</option>
                   </optgroup>
-                  <optgroup label="Top Players">
-                    <option value="5000">TOP PLAYERS</option>
+                  <optgroup label="Platinum">
+                    <option value="4000">PLATINUM I</option>
+                    <option value="3600">PLATINUM II</option>
+                    <option value="3200">PLATINUM III</option>
+                  </optgroup>
+                  <optgroup label="Gold">
+                    <option value="3000">GOLD I</option>
+                    <option value="2800">GOLD II</option>
+                    <option value="2600">GOLD III</option>
+                  </optgroup> 
+                  <optgroup label="Silver">
+                    <option value="2500">SILVER I</option>
+                    <option value="2400">SILVER II</option>
+                    <option value="2300">SILVER III</option>
+                    <option value="2200">SILVER IV</option>
+                    <option value="2100">SILVER V</option>
+                  </optgroup> 
+                  <optgroup label="Bronze">
+                    <option value="2000">BRONZE I</option>
+                    <option value="1900">BRONZE II</option>
+                    <option value="1800">BRONZE III</option>
+                    <option value="1700">BRONZE IV</option>
+                    <option value="1600">BRONZE V</option>
+                  </optgroup>      
+                  <optgroup label="Copper">
+                    <option value="1500">COPPER I</option>
+                    <option value="1400">COPPER II</option>
+                    <option value="1300">COPPER III</option>
+                    <option value="1200">COPPER IV</option>
+                    <option value="1100">COPPER V</option>
                   </optgroup>
                 </select>
               </div>
@@ -121,14 +123,14 @@
           <h1 style="text-align: center;">Rainbow Six Siege | Rank Calculator (Custom Rank Goal)</h1>
           <div class="row uniform 50%">
             <div class="6u 12u$(xsmall)">
-              <input id="mmr1" name="mmr1" type="number" min="1300" max="10000" placeholder="Enter your current MMR" value="" />
+              <input id="mmr1" name="mmr1" type="number" min="1100" max="10000" placeholder="Enter your current MMR" value="" />
             </div>
             <div class="6u$ 12u$(xsmall)">
               <input id="elo1" name="elo1" type="number" min="1" max="500" placeholder="Enter your current ELO per match" value="" />
             </div>
             <div class="12u$">
               <div class="12u$">
-                <input id="goal1" name="goal1" type="number" min="1300" max="10000" placeholder="Enter a custom MMR goal (between 1,300 MMR and 10,000 MMR)" value="" />
+                <input id="goal1" name="goal1" type="number" min="1100" max="10000" placeholder="Enter a custom MMR goal (between 1,100 MMR and 10,000 MMR)" value="" />
               </div>
             </div>
             <div class="12u$">
@@ -223,18 +225,27 @@
           <table>
             <tbody>
               <tr>
+                <td>
+                  <img src="https://github.com/AustinLeath.png" class="image user" />
+                </td>
                 <td>Austin Leath</td>
                 <td>
                   <a id="githubprofile_al" class="button" href="https://github.com/AustinLeath/" target="_blank">GitHub Profile</a>
                 </td>
               </tr>
               <tr>
+                <td>
+                  <img src="https://github.com/williamhatcher.png" class="image user" />
+                </td>
                 <td>William Hatcher</td>
                 <td>
                   <a id="githubprofile_wh" class="button" href="https://github.com/williamhatcher/" target="_blank">GitHub Profile</a>
                 </td>
               </tr>
               <tr>
+                <td>
+                  <img src="https://github.com/SonicMastr.png" class="image user" />
+                </td>
                 <td>Jaylon Gowie</td>
                 <td>
                   <a id="githubprofile_jg" class="button" href="https://github.com/SonicMastr" target="_blank">GitHub Profile</a>
