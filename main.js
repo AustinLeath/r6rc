@@ -42,7 +42,7 @@ function createDefaultWindow() {
     frame: false,
     show: false,
     backgroundColor: "#1c1d26",
-    autoHideMenuBar: true,
+    autoHideMenuBar: false,
     webPreferences: {
       nodeIntegration: true
     }
