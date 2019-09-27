@@ -12,12 +12,12 @@
     "testmac": "electron-builder --mac",
     "testlin": "electron-builder --linux",
     "publish": "electron-builder -p always",
-    "updep": "npm install universal-analytics@latest electron@latest electron-builder@latest electron-packager@latest electron-updater@latest"
+    "updep": "npm install universal-analytics@latest electron@latest electron-builder@latest electron-packager@latest electron-updater@latest asar@latest discord-rich-presence@latest"
   },
   "devDependencies": {
-    "electron": "^6.0.2",
+    "electron": "^6.0.10",
     "electron-builder": "^21.2.0",
-    "electron-packager": "^14.0.4"
+    "electron-packager": "^14.0.6"
   },
   "dependencies": {
     "asar": "^2.0.1",
