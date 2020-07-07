@@ -15,7 +15,7 @@
     "updep": "npm install universal-analytics@latest electron@latest electron-builder@latest electron-packager@latest electron-updater@latest asar@latest discord-rich-presence@latest"
   },
   "devDependencies": {
-    "electron": "^6.0.10",
+    "electron": "^9.1.0",
     "electron-builder": "^21.2.0",
     "electron-packager": "^14.0.6"
   },
